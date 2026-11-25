@@ -12,10 +12,12 @@ Every image in our dataset comes from one of three source types, as required by 
 |---|---|---|---|---|---|---|---|
 | `INSTR` | Instructor-provided | Raw unlabeled images from the course Nevadabox | 1,664 | 145 | _TBD_ (≤ 142) | _TBD_ (≥ 3) | Provided by the instructor for this course |
 | `TEAM-*` | Team-collected | _none yet_ | — | — | — | — | — |
-| `EXT-*` | External | _none yet_ | — | — | — | — | — |
+| `EXT-HPWREN-NEG` | External (planned) | Smoke-free frames from the same HPWREN cameras on days with no fire, added with `code/add_negatives.py` | — | 0 so far (target 10–15) | 0 | 0 so far | _check and record HPWREN's terms of use before adding_ |
 | **Total** | | | | 145 | _TBD_ | _TBD_ | |
 
 Fill in "Positives" and "Negatives" from `python code/check_labels.py` once labeling is done (142 fire-sequence frames and 3 pre-ignition frames were picked; the 3 pre-ignition frames turned out to show smoke, so negatives are only frames with an empty label file), so the numbers here match the split files exactly.
+
+**The instructor set has almost no smoke-free frames.** Every sequence is a fire, and all 40 pre-ignition frames belong to E24, whose earliest frame (−2400 s) already shows a plume on the horizon. So negatives have to come from another source (§4).
 
 ---
 
@@ -70,7 +72,9 @@ None yet. Every external source must be documented and legally usable for an aca
 
 | Source ID | Name | URL | Licence | Citation | # images used | How selected | Labels reused or relabeled? |
 |---|---|---|---|---|---|---|---|
-| | | | | | | | |
+| `EXT-HPWREN-NEG` | HPWREN camera archive, same cameras as `INSTR` | _[archive page used]_ | _[terms of use, checked on (date)]_ | High Performance Wireless Research and Education Network (HPWREN), UC San Diego | _[n]_ | Days with no fire in our set (not within a day of any fire date in the manifest), chosen to show clouds, haze, fog, glare or dust; each frame checked by eye for smoke | None needed: empty label files |
+
+**Adding the HPWREN negatives.** Download the frames into one subfolder per camera, named exactly like the camera in `selection_manifest.csv` (e.g. `~/Downloads/negatives/Los Pinos South/`). Then run `python code/add_negatives.py --src ~/Downloads/negatives --dry-run` to preview and the same without `--dry-run` to add them. The script puts each frame in its camera site's split (so no camera ends up in both train and val), copies it to `dataset/images/<split>/NEG_<camera>_<name>.jpg`, writes an empty label file, and adds rows to the manifest (`role` = `negative_external`, `event` = `NEG`) and the split files. Aim for roughly 10 in train and 4 or 5 in val, so the val set can also measure false alarms.
 
 Guidance:
 
@@ -115,3 +119,4 @@ Images that we looked at and decided not to use, with the reason. This includes 
 | 2026-11-25 | Trimmed the selection to 265 images (4 to 6 per fire) and redrew the 10% QC sample (27 images). | |
 | 2026-11-25 | Trimmed the selection to 145 images (2 or 3 per fire, every camera view kept) and redrew the 10% QC sample (15 images). | |
 | 2026-11-25 | The 3 picked pre-ignition frames show smoke; kept as positives and listed in `dataset/preignition_smoke_ok.txt`. | |
+| 2026-11-25 | Found the instructor set has no smoke-free frames; planned `EXT-HPWREN-NEG` negatives and added `code/add_negatives.py`. | |

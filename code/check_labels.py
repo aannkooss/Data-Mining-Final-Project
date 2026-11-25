@@ -12,6 +12,7 @@ Checks every image listed in dataset/selection_manifest.csv for:
   * pre-ignition frames that have boxes, unless listed in
     dataset/preignition_smoke_ok.txt (a negative offset does not guarantee
     there is no smoke; the team confirms those frames by eye)
+  * smoke-free images added with code/add_negatives.py that have boxes
 
 Prints a summary plus dataset statistics for the report.
 
@@ -93,6 +94,9 @@ def main():
         if r["role"] == "negative_pre_ignition" and boxes and r["dataset_file"] not in preig_ok:
             problems.append((r["dataset_file"], "pre-ignition frame has boxes. If the smoke is real, "
                              "add the file name to dataset/preignition_smoke_ok.txt"))
+        if r["role"] == "negative_external" and boxes:
+            problems.append((r["dataset_file"], "added as a smoke-free image but has boxes. Empty its label "
+                             "file, or remove the image if it does show smoke"))
         if not boxes:
             empty_files.append(r["dataset_file"])
         stats["images_with_smoke" if boxes else "images_empty"] += 1
@@ -129,8 +133,10 @@ def main():
         print(f"  box area px^2: median {q(0.5):.0f}, p10 {q(0.1):.0f}, p90 {q(0.9):.0f}")
         print(f"  COCO size buckets: small {small}, medium {medium}, large {len(areas) - small - medium}")
     if empty_files:
-        print(f"  empty label files (no smoke, used as negatives): {len(empty_files)}")
-        for f in empty_files[:50]:
+        added = {r["dataset_file"] for r in rows if r["role"] == "negative_external"}
+        print(f"  empty label files (no smoke, used as negatives): {len(empty_files)}, "
+              f"of which {len(added & set(empty_files))} added with add_negatives.py")
+        for f in [f for f in empty_files if f not in added][:50]:
             print(f"    {f}")
     accepted = sorted(preig_ok & {r["dataset_file"] for r in rows})
     if accepted:
