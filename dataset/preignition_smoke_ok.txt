@@ -1,0 +1,6 @@
+# Pre-ignition frames (negative offset) that the team checked by eye and found
+# to contain real smoke. check_labels.py accepts boxes on these.
+# One dataset file name per line; add a line after checking a new one.
+E24_1722194041_-02400.jpg
+E24_1722195061_-01380.jpg
+E24_1722196381_-00060.jpg

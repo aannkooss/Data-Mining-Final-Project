@@ -15,7 +15,7 @@ Every image in our dataset comes from one of three source types, as required by 
 | `EXT-*` | External | _none yet_ | — | — | — | — | — |
 | **Total** | | | | 145 | _TBD_ | _TBD_ | |
 
-Fill in "Positives" and "Negatives" from `python code/check_labels.py` once labeling is done (142 fire-sequence frames and 3 pre-ignition frames were picked; early frames with no visible smoke become negatives), so the numbers here match the split files exactly.
+Fill in "Positives" and "Negatives" from `python code/check_labels.py` once labeling is done (142 fire-sequence frames and 3 pre-ignition frames were picked; the 3 pre-ignition frames turned out to show smoke, so negatives are only frames with an empty label file), so the numbers here match the split files exactly.
 
 ---
 
@@ -30,7 +30,7 @@ Fill in "Positives" and "Negatives" from `python code/check_labels.py` once labe
   - Timestamps run from January 2021 to May 2025.
 - **Filename convention (our reading, to confirm with the instructor):** the pattern matches the one used by the HPWREN Fire Ignition images Library (FIgLib), where the first number is the frame's capture time and the signed offset is seconds relative to the fire's logged start. Under that reading:
   - `timestamp − offset` gives a constant **sequence ID** for all frames of one fire-camera sequence. The 1,664 images fall into **71 sequence IDs**, with 3 to 64 frames each (most have about 10–32).
-  - 40 frames have a negative offset (before the logged start, from −2400 s). These are likely smoke-free and are our first candidate negatives, but each must still be checked by eye (annotation guide §3).
+  - 40 frames have a negative offset (before the logged start, from −2400 s). A negative offset does **not** mean the frame is smoke-free: the offset is relative to the fire's logged start, and smoke can be visible earlier. All three we picked (from E24) were checked by eye and show smoke, so they are labeled as positives and listed in `dataset/preignition_smoke_ok.txt`.
   - Sequence IDs that are within a few minutes of each other may be the same fire seen from different cameras. If we treat them as separate sequences, a fire could leak across splits. See §5.
   - The overlay text in each frame names the HPWREN camera (e.g. "Otay Mountain West"). Reading it gives **44 camera views on 25 mountaintop sites**; every picked image's camera and site are in `dataset/selection_manifest.csv`.
 - **Selection** (applied once, saved in `dataset/selection_manifest.csv`; `code/prepare_dataset.py` copies exactly these images):
@@ -40,12 +40,12 @@ Fill in "Positives" and "Negatives" from `python code/check_labels.py` once labe
 1. **Grouped into fire events** by ignition time (capture time minus offset). Frames whose ignition times are within 15 minutes of each other are one event (E01 to E59). The camera name in each frame's overlay was read so every image has a camera and a site.
 2. **Spaced out in time** to avoid near-duplicate neighbours: from each event, 2 or 3 frames evenly spaced in time: the earliest frame (small, early smoke), the last frame, and for events with 10 or more frames also the middle one. Two multi-camera events (E42, E47) get one extra frame so every one of the 44 camera views appears at least once. Every fire is covered.
    (Earlier passes picked 578 and then 265 images; the selection was trimmed to keep labeling manageable. Every image here was also in those passes.)
-3. **No-smoke frames:** 3 of the 40 pre-ignition frames from E24, evenly spaced, to give the model some true negatives.
+3. **Pre-ignition frames:** 3 of the 40 pre-ignition frames from E24, evenly spaced, picked as intended negatives. On inspection all three show smoke, so they ended up as positives (see §2).
 
 | | Images |
 | --- | --- |
 | Fire-sequence frames | 142 |
-| Pre-ignition frames (no smoke) | 3 |
+| Pre-ignition frames (all 3 show smoke) | 3 |
 | **Total picked** | **145** of 1,664 |
 
 The 1,519 frames that weren't picked are mostly near-duplicates of a picked neighbour from the same fire. They can be added later as a dataset-expansion experiment.
@@ -114,3 +114,4 @@ Images that we looked at and decided not to use, with the reason. This includes 
 | 2026-11-25 | Picked 578 images, read camera names, fixed the site-level train/val split and the 10% QC sample. | |
 | 2026-11-25 | Trimmed the selection to 265 images (4 to 6 per fire) and redrew the 10% QC sample (27 images). | |
 | 2026-11-25 | Trimmed the selection to 145 images (2 or 3 per fire, every camera view kept) and redrew the 10% QC sample (15 images). | |
+| 2026-11-25 | The 3 picked pre-ignition frames show smoke; kept as positives and listed in `dataset/preignition_smoke_ok.txt`. | |
