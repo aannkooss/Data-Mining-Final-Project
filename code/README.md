@@ -7,6 +7,7 @@ The random seed is **42** everywhere (`model/train_config.yaml`, splits, samplin
 | Script | What it does |
 |---|---|
 | `prepare_dataset.py` | Copies the 145 picked images into `dataset/images/{train,val}` (site-level split) and writes `data.yaml` |
+| `add_negatives.py` | Adds smoke-free images from another source with empty labels, split by camera site |
 | `check_labels.py` | Label QC: missing files, bad class ids, out-of-bounds/tiny/duplicate boxes, dataset stats |
 | `qc_compare.py` | Compares main labels with a teammate's independent labels of the 10% QC sample |
 | `train.py` | Fine-tunes a pretrained YOLO with `model/train_config.yaml`, records seed + versions + hardware |
@@ -35,6 +36,7 @@ python code/check_labels.py                                  # fix everything it
 python code/qc_compare.py --qc dataset/labels_qc --csv dataset/qc_results.csv   # 10% independent check
 ```
 
+- Smoke-free images: the instructor set has almost none. Put frames of the same cameras from days with no fire in `~/Downloads/negatives/<camera name>/` and run `python code/add_negatives.py --src ~/Downloads/negatives` (add `--dry-run` first to preview). They get empty labels, so no CVAT work. On a fresh clone, `prepare_dataset.py --neg-raw ~/Downloads/negatives` copies them again.
 - Already copied an earlier, larger selection? Re-run with `--move-extra` to move every image that is no longer picked (and its labels) into `dataset/unused/`.
 - The split is fixed per camera site in `dataset/selection_manifest.csv` (111 train / 34 val), so no fire or camera is in both sets.
 - Images are named `E07_1644862570_+02040.jpg` (event id + original name); labels have the same base name.

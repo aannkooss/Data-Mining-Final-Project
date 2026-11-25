@@ -63,6 +63,7 @@ The hidden-set ranking metric averages over IoU 0.50–0.95, so loose or inconsi
 - **Negative images** (no smoke) are kept with an empty label file. Aim for a mix that includes look-alikes (clouds, fog, haze, glare), not just clear-sky frames.
 - The 145 images to label are fixed in `dataset/selection_manifest.csv` (how they were picked is in the data source inventory). `python code/prepare_dataset.py --raw ~/Downloads/training` copies exactly those into `dataset/images/train` and `dataset/images/val`. Don't pick images by hand.
 - The pre-ignition frames in the instructor set (filename offset is negative, e.g. `..._-00300.jpg`) are **not guaranteed** to be smoke-free: the offset is relative to the fire's logged start, and smoke can already be visible before it (all three pre-ignition frames we picked from E24 turned out to show smoke). Look at each one. If you see smoke, label it and add the file name to `dataset/preignition_smoke_ok.txt` so `check_labels.py` accepts it.
+- **Smoke-free images.** The instructor set has almost none: every sequence is a fire, and even the E24 pre-ignition frames already show a plume. Add negatives from another source (e.g. the same HPWREN cameras on days with no fire, with clouds, haze, fog or glare) with `python code/add_negatives.py --src <folder>`, one subfolder per camera. It puts each image in its camera site's split and writes an empty label file, so they need no CVAT work. Look at every frame first: there must be no smoke anywhere in it. Record the source in the data source inventory (§4 there).
 - Near-duplicate frames from the same sequence add little. Prefer frames that show the plume at different sizes and stages (first wisp, growing, large) over many identical consecutive frames.
 
 ---
@@ -102,7 +103,8 @@ Run `python code/check_labels.py`. It checks every image in `dataset/selection_m
 - Coordinates outside [0, 1], boxes past the image edge, or boxes under 4 px.
 - Near-duplicate boxes in the same image (IoU > 0.9).
 - Boxes on pre-ignition frames that aren't listed in `dataset/preignition_smoke_ok.txt`, and label files with no matching image.
-- It also lists every empty label file, i.e. the images used as negatives.
+- Boxes on images added with `add_negatives.py` (they were added as smoke-free).
+- It also lists every empty label file from the instructor set, i.e. the images used as negatives, so you can check none of them is a missed plume.
 
 It also prints dataset stats for the report: labeled images per split, boxes, images with and without smoke, and the box size distribution (COCO small/medium/large). Train/val leakage can't happen by construction: the split is fixed per camera site in the manifest (see the data source inventory).
 
@@ -171,3 +173,4 @@ _[To fill in once labeling starts: add 6–10 screenshots with boxes drawn, save
 | 2026-11-25 | 0.3 | Selection trimmed to 265 images (4 to 6 per fire); QC sample redrawn (27 images). | |
 | 2026-11-25 | 0.4 | Selection trimmed to 145 images (2 or 3 per fire); QC sample redrawn (15 images). | |
 | 2026-11-25 | 0.5 | Negative offsets don't guarantee no smoke; confirmed pre-ignition smoke frames go in `dataset/preignition_smoke_ok.txt`. | |
+| 2026-11-25 | 0.6 | Smoke-free images from another source are added with `add_negatives.py` (empty labels, split by camera site). | |

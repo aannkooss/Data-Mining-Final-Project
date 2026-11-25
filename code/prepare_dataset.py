@@ -14,6 +14,11 @@ example after the selection was trimmed), the script lists them. Add
 --move-extra to move them, and any label files they have, into
 dataset/unused/ instead of deleting them.
 
+Smoke-free images added with code/add_negatives.py (role negative_external)
+are not in the instructor folder. Pass --neg-raw with the folder you gave
+add_negatives.py to copy them too; their empty label files are recreated if
+missing. Without --neg-raw they are skipped, not reported as missing.
+
 The raw images are never modified. Nothing is deleted.
 """
 import argparse
@@ -30,6 +35,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--raw", required=True, help="folder with the instructor's raw .jpg files")
     ap.add_argument("--out", default=str(DATASET), help="dataset root (default: dataset/)")
+    ap.add_argument("--neg-raw", help="folder given to add_negatives.py (one subfolder per camera)")
     ap.add_argument("--move-extra", action="store_true",
                     help="move images/labels not in the manifest into <out>/unused/")
     args = ap.parse_args()
@@ -38,14 +44,25 @@ def main():
     out = Path(args.out).expanduser().resolve()
     rows = list(csv.DictReader(open(DATASET / "selection_manifest.csv", newline="")))
 
+    neg_raw = Path(args.neg_raw).expanduser().resolve() if args.neg_raw else None
     missing = []
-    copied = 0
+    copied = skipped_neg = 0
     for split in ("train", "val"):
         (out / "images" / split).mkdir(parents=True, exist_ok=True)
         (out / "labels" / split).mkdir(parents=True, exist_ok=True)
     for r in rows:
-        src = raw / r["source_file"]
+        external = r["role"] == "negative_external"
         dst = out / "images" / r["split"] / r["dataset_file"]
+        if external:
+            label = out / "labels" / r["split"] / (Path(r["dataset_file"]).stem + ".txt")
+            if not label.exists():
+                label.write_text("")  # smoke-free image: empty label file
+            if dst.exists():
+                continue
+            if neg_raw is None:
+                skipped_neg += 1
+                continue
+        src = (neg_raw if external else raw) / r["source_file"]
         if not src.exists():
             missing.append(r["source_file"])
             continue
@@ -76,6 +93,9 @@ def main():
         "  0: smoke\n"
     )
     print(f"{len(rows)} images in manifest, {copied} newly copied, {len(missing)} missing")
+    if skipped_neg:
+        print(f"{skipped_neg} added negative images are not in dataset/images yet. "
+              "Re-run with --neg-raw <folder given to add_negatives.py> to copy them.")
     if extra and args.move_extra:
         print(f"Moved {moved} images that are no longer selected (and their labels) into {out / 'unused'}")
     elif extra:
