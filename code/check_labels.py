@@ -9,7 +9,9 @@ Checks every image listed in dataset/selection_manifest.csv for:
   * zero or tiny boxes
   * near-duplicate boxes on the same image (IoU > 0.9)
   * label files with no matching image
-  * pre-ignition frames that have boxes (they should be empty)
+  * pre-ignition frames that have boxes, unless listed in
+    dataset/preignition_smoke_ok.txt (a negative offset does not guarantee
+    there is no smoke; the team confirms those frames by eye)
 
 Prints a summary plus dataset statistics for the report.
 
@@ -68,6 +70,11 @@ def main():
         return p if p.parent.exists() else root / (Path(r["dataset_file"]).stem + ".txt")
 
     problems = []
+    ok_file = DATASET / "preignition_smoke_ok.txt"
+    preig_ok = set()
+    if ok_file.exists():
+        preig_ok = {l.strip() for l in ok_file.read_text().splitlines() if l.strip() and not l.startswith("#")}
+    empty_files = []
     stats = Counter()
     sizes = []
     per_split = Counter()
@@ -83,8 +90,11 @@ def main():
         boxes, errors = read_boxes(lp)
         for e in errors:
             problems.append((r["dataset_file"], e))
-        if r["role"] == "negative_pre_ignition" and boxes:
-            problems.append((r["dataset_file"], "pre-ignition frame has boxes; should be empty"))
+        if r["role"] == "negative_pre_ignition" and boxes and r["dataset_file"] not in preig_ok:
+            problems.append((r["dataset_file"], "pre-ignition frame has boxes. If the smoke is real, "
+                             "add the file name to dataset/preignition_smoke_ok.txt"))
+        if not boxes:
+            empty_files.append(r["dataset_file"])
         stats["images_with_smoke" if boxes else "images_empty"] += 1
         per_split[(r["split"], "boxes")] += len(boxes)
         per_split[(r["split"], "images")] += 1
@@ -118,6 +128,13 @@ def main():
         medium = sum(32 * 32 <= a < 96 * 96 for a in areas)
         print(f"  box area px^2: median {q(0.5):.0f}, p10 {q(0.1):.0f}, p90 {q(0.9):.0f}")
         print(f"  COCO size buckets: small {small}, medium {medium}, large {len(areas) - small - medium}")
+    if empty_files:
+        print(f"  empty label files (no smoke, used as negatives): {len(empty_files)}")
+        for f in empty_files[:50]:
+            print(f"    {f}")
+    accepted = sorted(preig_ok & {r["dataset_file"] for r in rows})
+    if accepted:
+        print(f"  pre-ignition frames confirmed to contain smoke (dataset/preignition_smoke_ok.txt): {len(accepted)}")
     print(f"\n{len(problems)} problem(s)")
     for f, msg in problems[:200]:
         print(f"  {f}: {msg}")

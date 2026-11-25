@@ -1,6 +1,6 @@
 # Annotation Guide: Wildfire Smoke Detection
 
-**Version:** 0.4 · **Class list:** `0: smoke` · **Label format:** YOLO bounding box (`class x_center y_center width height`, normalized 0–1)
+**Version:** 0.5 · **Class list:** `0: smoke` · **Label format:** YOLO bounding box (`class x_center y_center width height`, normalized 0–1)
 
 This guide is the team's operational definition of smoke and the rules every annotator follows. If you hit a case this guide does not cover, do not guess: tag the image `ambiguous` (see §6), and we add a rule here so the next person handles it the same way. Every change to this guide gets a line in the changelog at the bottom.
 
@@ -62,7 +62,7 @@ The hidden-set ranking metric averages over IoU 0.50–0.95, so loose or inconsi
 - Label **every** visible plume in every selected image. A missed plume teaches the model that smoke is background; that is worse than not including the image.
 - **Negative images** (no smoke) are kept with an empty label file. Aim for a mix that includes look-alikes (clouds, fog, haze, glare), not just clear-sky frames.
 - The 145 images to label are fixed in `dataset/selection_manifest.csv` (how they were picked is in the data source inventory). `python code/prepare_dataset.py --raw ~/Downloads/training` copies exactly those into `dataset/images/train` and `dataset/images/val`. Don't pick images by hand.
-- The pre-ignition frames in the instructor set (filename offset is negative, e.g. `..._-00300.jpg`) are probably smoke-free. Treat them as candidate negatives, but still look at each one: sometimes smoke is already visible before the logged start time. If you see smoke, label it.
+- The pre-ignition frames in the instructor set (filename offset is negative, e.g. `..._-00300.jpg`) are **not guaranteed** to be smoke-free: the offset is relative to the fire's logged start, and smoke can already be visible before it (all three pre-ignition frames we picked from E24 turned out to show smoke). Look at each one. If you see smoke, label it and add the file name to `dataset/preignition_smoke_ok.txt` so `check_labels.py` accepts it.
 - Near-duplicate frames from the same sequence add little. Prefer frames that show the plume at different sizes and stages (first wisp, growing, large) over many identical consecutive frames.
 
 ---
@@ -101,7 +101,8 @@ Run `python code/check_labels.py`. It checks every image in `dataset/selection_m
 - Class ID other than `0`.
 - Coordinates outside [0, 1], boxes past the image edge, or boxes under 4 px.
 - Near-duplicate boxes in the same image (IoU > 0.9).
-- Boxes on pre-ignition frames, and label files with no matching image.
+- Boxes on pre-ignition frames that aren't listed in `dataset/preignition_smoke_ok.txt`, and label files with no matching image.
+- It also lists every empty label file, i.e. the images used as negatives.
 
 It also prints dataset stats for the report: labeled images per split, boxes, images with and without smoke, and the box size distribution (COCO small/medium/large). Train/val leakage can't happen by construction: the split is fixed per camera site in the manifest (see the data source inventory).
 
@@ -109,7 +110,7 @@ It also prints dataset stats for the report: labeled images per split, boxes, im
 
 **Goal:** catch missing objects, false boxes, and inconsistent boundaries, and give us a number we can report for annotation consistency.
 
-**Sampling.** The sample is fixed in `dataset/qc_sample.txt` (also the `qc_sample` column of the manifest): **15 images, 10.3% of 145**: one random frame from each of 14 randomly chosen fires plus one pre-ignition negative, seed 458. It includes both train (8) and val (7) images. The reviewer must be **a different team member** from the one who labeled that fire.
+**Sampling.** The sample is fixed in `dataset/qc_sample.txt` (also the `qc_sample` column of the manifest): **15 images, 10.3% of 145**: one random frame from each of 14 randomly chosen fires plus one pre-ignition frame, seed 458. It includes both train (8) and val (7) images. The reviewer must be **a different team member** from the one who labeled that fire.
 
 **Procedure.**
 1. The reviewer makes a separate CVAT task with the 15 files and labels them **from scratch, without seeing the existing labels**, so the check is truly independent. Export as YOLO 1.1 and put the `.txt` files in `dataset/labels_qc/`.
@@ -169,3 +170,4 @@ _[To fill in once labeling starts: add 6–10 screenshots with boxes drawn, save
 | 2026-11-25 | 0.2 | Tool set to CVAT with export steps; fixed image selection; `check_labels.py` and an independent 10% relabel with `qc_compare.py`. | |
 | 2026-11-25 | 0.3 | Selection trimmed to 265 images (4 to 6 per fire); QC sample redrawn (27 images). | |
 | 2026-11-25 | 0.4 | Selection trimmed to 145 images (2 or 3 per fire); QC sample redrawn (15 images). | |
+| 2026-11-25 | 0.5 | Negative offsets don't guarantee no smoke; confirmed pre-ignition smoke frames go in `dataset/preignition_smoke_ok.txt`. | |
