@@ -6,8 +6,9 @@ The random seed is **42** everywhere (`model/train_config.yaml`, splits, samplin
 
 | Script | What it does |
 |---|---|
-| `prepare_dataset.py` | Copies the 578 picked images into `dataset/images/{train,val}` and writes `data.yaml` (site-level split) |
-| `check_labels.py`, `qc_compare.py` | Label QC and the 10% independent-review comparison |
+| `prepare_dataset.py` | Copies the 578 picked images into `dataset/images/{train,val}` (site-level split) and writes `data.yaml` |
+| `check_labels.py` | Label QC: missing files, bad class ids, out-of-bounds/tiny/duplicate boxes, dataset stats |
+| `qc_compare.py` | Compares main labels with a teammate's independent labels of the 10% QC sample |
 | `train.py` | Fine-tunes a pretrained YOLO with `model/train_config.yaml`, records seed + versions + hardware |
 | `eval.py` | mAP@0.5:0.95, AP@0.5, P/R/F1, threshold choice, per-image and per-box error tables |
 | `predict.py` | Final inference: image id, boxes, class scores → CSV + JSON |
@@ -23,25 +24,20 @@ pip install -r code/requirements.txt
 On Colab: `!git clone <repo> && cd Data-Mining-Final-Project && pip install -q -r code/requirements.txt`,
 then run the same commands with a `!` in front. Use `--device 0` for the GPU.
 
-## 1. Prepare the dataset
+## 1. Prepare the dataset and check labels
 
-The images to label and the train/val split are fixed in `dataset/selection_manifest.csv`
-(578 images, all 59 fires). Val holds 6 whole camera sites, so no fire or camera view appears
-in both sets. Details: `dataset/data_source_inventory.md`.
+All three scripts need only Python 3. Labeling rules and the CVAT workflow are in `dataset/annotation_guide.md`; how images were picked and split is in `dataset/data_source_inventory.md`.
 
 ```bash
-python code/prepare_dataset.py --raw ~/Downloads/training   # copies images, writes dataset/data.yaml
-# ...label in CVAT, export YOLO 1.1, put the .txt files in dataset/labels/{train,val}/
-python code/check_labels.py                                 # missing files, bad ids, out-of-bounds, duplicates
+python code/prepare_dataset.py --raw ~/Downloads/training   # copy the 578 picked images, write dataset/data.yaml
+# ... label in CVAT, export YOLO 1.1 into dataset/labels/{train,val}/ ...
+python code/check_labels.py                                  # fix everything it reports before training
+python code/qc_compare.py --qc dataset/labels_qc --csv dataset/qc_results.csv   # 10% independent check
 ```
 
-Every image needs a label file; a smoke-free image gets an empty `.txt`.
-
-Label QC sheet and a checklist for the 10% independent review:
-
-```bash
-python code/visualize.py labels --split train --n 40
-```
+- The split is fixed per camera site in `dataset/selection_manifest.csv` (457 train / 121 val), so no fire or camera is in both sets.
+- Images are named `E07_1644862570_+02040.jpg` (event id + original name); labels have the same base name.
+- A label QC contact sheet is also available: `python code/visualize.py labels --split train --n 40`.
 
 ## 2. Train the baseline
 

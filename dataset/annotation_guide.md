@@ -1,6 +1,6 @@
 # Annotation Guide: Wildfire Smoke Detection
 
-**Version:** 0.1 (draft) · **Class list:** `0: smoke` · **Label format:** YOLO bounding box (`class x_center y_center width height`, normalized 0–1)
+**Version:** 0.2 · **Class list:** `0: smoke` · **Label format:** YOLO bounding box (`class x_center y_center width height`, normalized 0–1)
 
 This guide is the team's operational definition of smoke and the rules every annotator follows. If you hit a case this guide does not cover, do not guess: tag the image `ambiguous` (see §6), and we add a rule here so the next person handles it the same way. Every change to this guide gets a line in the changelog at the bottom.
 
@@ -61,6 +61,7 @@ The hidden-set ranking metric averages over IoU 0.50–0.95, so loose or inconsi
 
 - Label **every** visible plume in every selected image. A missed plume teaches the model that smoke is background; that is worse than not including the image.
 - **Negative images** (no smoke) are kept with an empty label file. Aim for a mix that includes look-alikes (clouds, fog, haze, glare), not just clear-sky frames.
+- The 578 images to label are fixed in `dataset/selection_manifest.csv` (how they were picked is in the data source inventory). `python code/prepare_dataset.py --raw ~/Downloads/training` copies exactly those into `dataset/images/train` and `dataset/images/val`. Don't pick images by hand.
 - The pre-ignition frames in the instructor set (filename offset is negative, e.g. `..._-00300.jpg`) are probably smoke-free. Treat them as candidate negatives, but still look at each one: sometimes smoke is already visible before the logged start time. If you see smoke, label it.
 - Near-duplicate frames from the same sequence add little. Prefer frames that show the plume at different sizes and stages (first wisp, growing, large) over many identical consecutive frames.
 
@@ -68,9 +69,14 @@ The hidden-set ranking metric averages over IoU 0.50–0.95, so loose or inconsi
 
 ## 4. Tooling and export
 
-- **Tool:** _[team to fill in: CVAT / Roboflow / Label Studio / LabelImg / Makesense.ai]_. Whatever we use, everyone uses the same project with the single label `smoke`.
-- **Export:** YOLO format. One `.txt` per image with the same base name (`1723496059_+01861.jpg` → `1723496059_+01861.txt`). Negative images get an **empty** `.txt` file, not a missing one.
-- Do not rename image files. The filename encodes the sequence ID used for the train/val split (see the data source inventory).
+**Tool: CVAT** ([app.cvat.ai](https://app.cvat.ai) or self-hosted). Everyone works in the same CVAT project with the single label `smoke`.
+
+1. Run `python code/prepare_dataset.py --raw ~/Downloads/training` once. It copies the 578 picked images into `dataset/images/train` and `dataset/images/val` and renames them with the fire's event id in front, e.g. `1644862570_+02040.jpg` → `E07_1644862570_+02040.jpg`, so each fire sorts together in time order. The original name is kept after the prefix. Don't rename files any further.
+2. In CVAT, create one **Project** called `smoke` with a single **Rectangle** label named `smoke`. Every task in it inherits that label, so the class id is always `0`.
+3. Create one **Task** per batch of about 50 images (a few whole fires; sorted by name, the first 50 is the first ~5 fires). Keep train and val images in separate tasks so each export lands in the right split. Assign each task to one annotator.
+4. Draw boxes following §1–§2. For each fire, look at its last frame first, where the plume is largest, to find the source; then label the frames in time order. Press **Save** often. Use a CVAT tag or the task's issue list for the `ambiguous` / `tiny` / `occluded` / `lookalike` tags in §6.
+5. When a task is done: **Actions → Export task dataset → YOLO 1.1**, without images. Unzip it and copy the `.txt` files from `obj_train_data/` into `dataset/labels/train` or `dataset/labels/val`. Ignore `obj.names`, `obj.data` and `train.txt` in the zip.
+6. Label files are named like their image (`E07_1644862570_+02040.jpg` → `E07_1644862570_+02040.txt`). Negative images need an **empty** `.txt` file, not a missing one. CVAT's YOLO export normally writes one for every image; §5.2's script lists any that are missing.
 
 ---
 
@@ -88,51 +94,43 @@ Before marking an image done:
 
 ### 5.2 Automated checks (whole dataset, before every training run)
 
-A script (to be added under `code/`) checks every label file and fails loudly on:
+Run `python code/check_labels.py`. It checks every image in `dataset/selection_manifest.csv` and reports:
 
-- Class ID other than `0`.
-- Coordinates outside [0, 1], or width/height ≤ 0.
+- A missing label file (image not labeled yet; negatives need an empty file).
 - Lines with the wrong number of values, or non-numeric values.
-- A label file with no matching image, or an image with no label file.
+- Class ID other than `0`.
+- Coordinates outside [0, 1], boxes past the image edge, or boxes under 4 px.
 - Near-duplicate boxes in the same image (IoU > 0.9).
-- The same sequence ID appearing in both train and val split files (leakage check).
+- Boxes on pre-ignition frames, and label files with no matching image.
 
-It also prints dataset stats for the report: images, positives/negatives, boxes per image, and box size distribution.
+It also prints dataset stats for the report: labeled images per split, boxes, images with and without smoke, and the box size distribution (COCO small/medium/large). Train/val leakage can't happen by construction: the split is fixed per camera site in the manifest (see the data source inventory).
 
 ### 5.3 Independent second check (≥ 10% of images, required by the brief)
 
 **Goal:** catch missing objects, false boxes, and inconsistent boundaries, and give us a number we can report for annotation consistency.
 
-**Sampling.**
-- Sample **at least 10%** of all selected images (we'll use 12% to keep a buffer if some get dropped later), rounded up.
-- Sample with a fixed random seed and save the list to `dataset/qc/second_check_sample.txt` so the sample is reproducible.
-- Stratify: take roughly the same share from each annotator, and make sure positives, negatives, and `ambiguous`/`tiny` tagged images are all represented.
-- The reviewer must be **a different team member** from the original annotator.
+**Sampling.** The sample is fixed in `dataset/qc_sample.txt` (also the `qc_sample` column of the manifest): **60 images, 10.4% of 578**, one random frame from each of the 59 fires plus one pre-ignition negative, seed 458. Covering every fire means every annotator, camera and lighting condition is represented. The reviewer must be **a different team member** from the one who labeled that fire.
 
 **Procedure.**
-1. The reviewer opens each sampled image **with the existing labels visible** and checks them against this guide.
-2. For each image, the reviewer records one outcome:
-   - `OK` — no change needed.
-   - `MISSING` — a plume was not boxed.
-   - `FALSE` — a box is on something that isn't smoke.
-   - `BOUNDARY` — the box is on smoke but the edges break the §2 rules (e.g. too loose, misses the base, includes too much tail).
+1. The reviewer makes a separate CVAT task with the 60 files and labels them **from scratch, without seeing the existing labels**, so the check is truly independent. Export as YOLO 1.1 and put the `.txt` files in `dataset/labels_qc/`.
+2. Run `python code/qc_compare.py --qc dataset/labels_qc --csv dataset/qc_results.csv`. It matches the two label sets at IoU ≥ 0.5 and prints full-agreement rate, box-level precision/recall/F1 and mean IoU, and marks each image `agree` or `discuss`.
+3. For every `discuss` image, annotator and reviewer look at it together and log one outcome in `dataset/qc/second_check_log.csv`:
+   - `MISSING` — a plume was not boxed in the main labels.
+   - `FALSE` — a main-label box is on something that isn't smoke.
+   - `BOUNDARY` — the box is on smoke but the edges break the §2 rules.
    - `DUPLICATE` — two boxes for one plume.
+   - `REVIEWER` — the main label was right; the reviewer's differed.
    - `OTHER` — anything else (write a note).
-3. The reviewer does not edit labels directly. Disagreements are logged, then the annotator and reviewer resolve them together. If they can't agree, the third team member (or the whole team for a two-person team) decides, and the guide gets a new rule.
-4. The final, corrected labels replace the originals.
-
-**Log** each review in `dataset/qc/second_check_log.csv`:
+4. Fix the main labels. If the two can't agree, the third team member (or the whole team for a two-person team) decides, and the guide gets a new rule.
 
 ```csv
 image,annotator,reviewer,outcome,boxes_before,boxes_after,note
-1723496059_+01861.jpg,A,B,BOUNDARY,1,1,box cut off plume base behind ridge
-1706730306_+00900.jpg,B,A,OK,2,2,
+E07_1644862570_+02040.jpg,A,B,BOUNDARY,1,1,box cut off plume base behind ridge
 ```
 
 **What we report.**
-- Share of reviewed images marked `OK`.
-- Count of each error type.
-- Mean IoU between the original and corrected boxes on images where boxes were matched (to show boundary consistency).
+- `qc_compare.py`'s agreement rate, precision/recall and mean IoU (annotation consistency).
+- Count of each outcome type from the log.
 - If any error type is above ~10% of the sample, re-check the rest of that annotator's images for that error, and say so in the report.
 
 ---
@@ -168,3 +166,4 @@ _[To fill in once labeling starts: add 6–10 screenshots with boxes drawn, save
 | Date | Version | Change | By |
 |---|---|---|---|
 | 2026-11-25 | 0.1 | First draft from the project brief. | |
+| 2026-11-25 | 0.2 | Tool set to CVAT with export steps; fixed 578-image selection; `check_labels.py` and an independent 10% relabel with `qc_compare.py`. | |

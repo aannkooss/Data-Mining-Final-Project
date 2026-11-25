@@ -1,0 +1,579 @@
+dataset_file,source_file,split,event,camera,site,ignition_utc,offset_s,width,height,role,qc_sample,source
+E01_1610044421_+00120.jpg,1610044421_+00120.jpg,train,E01,Otay Mountain West,Otay Mountain,2021-01-07 18:31,120,3072,2048,fire_sequence,no,instructor_box
+E01_1610044601_+00300.jpg,1610044601_+00300.jpg,train,E01,Otay Mountain West,Otay Mountain,2021-01-07 18:31,300,3072,2048,fire_sequence,yes,instructor_box
+E01_1610044781_+00480.jpg,1610044781_+00480.jpg,train,E01,Otay Mountain West,Otay Mountain,2021-01-07 18:31,480,3072,2048,fire_sequence,no,instructor_box
+E01_1610045081_+00780.jpg,1610045081_+00780.jpg,train,E01,Otay Mountain West,Otay Mountain,2021-01-07 18:31,780,3072,2048,fire_sequence,no,instructor_box
+E01_1610045261_+00960.jpg,1610045261_+00960.jpg,train,E01,Otay Mountain West,Otay Mountain,2021-01-07 18:31,960,3072,2048,fire_sequence,no,instructor_box
+E01_1610045441_+01140.jpg,1610045441_+01140.jpg,train,E01,Otay Mountain West,Otay Mountain,2021-01-07 18:31,1140,3072,2048,fire_sequence,no,instructor_box
+E01_1610045621_+01320.jpg,1610045621_+01320.jpg,train,E01,Otay Mountain West,Otay Mountain,2021-01-07 18:31,1320,3072,2048,fire_sequence,no,instructor_box
+E01_1610045861_+01560.jpg,1610045861_+01560.jpg,train,E01,Otay Mountain West,Otay Mountain,2021-01-07 18:31,1560,3072,2048,fire_sequence,no,instructor_box
+E01_1610046041_+01740.jpg,1610046041_+01740.jpg,train,E01,Otay Mountain West,Otay Mountain,2021-01-07 18:31,1740,3072,2048,fire_sequence,no,instructor_box
+E01_1610046221_+01920.jpg,1610046221_+01920.jpg,train,E01,Otay Mountain West,Otay Mountain,2021-01-07 18:31,1920,3072,2048,fire_sequence,no,instructor_box
+E02_1610306045_+00959.jpg,1610306045_+00959.jpg,train,E02,Lyons Peak South,Lyons Peak,2021-01-10 18:58,959,3072,2048,fire_sequence,no,instructor_box
+E02_1610306225_+01139.jpg,1610306225_+01139.jpg,train,E02,Lyons Peak South,Lyons Peak,2021-01-10 18:58,1139,3072,2048,fire_sequence,no,instructor_box
+E02_1610306405_+01319.jpg,1610306405_+01319.jpg,train,E02,Lyons Peak South,Lyons Peak,2021-01-10 18:58,1319,3072,2048,fire_sequence,no,instructor_box
+E02_1610306645_+01559.jpg,1610306645_+01559.jpg,train,E02,Lyons Peak South,Lyons Peak,2021-01-10 18:58,1559,3072,2048,fire_sequence,no,instructor_box
+E02_1610306825_+01739.jpg,1610306825_+01739.jpg,train,E02,Lyons Peak South,Lyons Peak,2021-01-10 18:58,1739,3072,2048,fire_sequence,yes,instructor_box
+E02_1610307005_+01919.jpg,1610307005_+01919.jpg,train,E02,Lyons Peak South,Lyons Peak,2021-01-10 18:58,1919,3072,2048,fire_sequence,no,instructor_box
+E02_1610307185_+02099.jpg,1610307185_+02099.jpg,train,E02,Lyons Peak South,Lyons Peak,2021-01-10 18:58,2099,3072,2048,fire_sequence,no,instructor_box
+E03_1610572987_+00780.jpg,1610572987_+00780.jpg,train,E03,Los Pinos South,Los Pinos,2021-01-13 21:10,780,3072,2048,fire_sequence,no,instructor_box
+E03_1610573167_+00960.jpg,1610573167_+00960.jpg,train,E03,Los Pinos South,Los Pinos,2021-01-13 21:10,960,3072,2048,fire_sequence,no,instructor_box
+E03_1610573347_+01140.jpg,1610573347_+01140.jpg,train,E03,Los Pinos South,Los Pinos,2021-01-13 21:10,1140,3072,2048,fire_sequence,no,instructor_box
+E03_1610573527_+01320.jpg,1610573527_+01320.jpg,train,E03,Los Pinos South,Los Pinos,2021-01-13 21:10,1320,3072,2048,fire_sequence,no,instructor_box
+E03_1610573707_+01500.jpg,1610573707_+01500.jpg,train,E03,Los Pinos South,Los Pinos,2021-01-13 21:10,1500,3072,2048,fire_sequence,no,instructor_box
+E03_1610573827_+01620.jpg,1610573827_+01620.jpg,train,E03,Los Pinos South,Los Pinos,2021-01-13 21:10,1620,3072,2048,fire_sequence,no,instructor_box
+E03_1610574007_+01800.jpg,1610574007_+01800.jpg,train,E03,Los Pinos South,Los Pinos,2021-01-13 21:10,1800,3072,2048,fire_sequence,no,instructor_box
+E03_1610574187_+01980.jpg,1610574187_+01980.jpg,train,E03,Los Pinos South,Los Pinos,2021-01-13 21:10,1980,3072,2048,fire_sequence,no,instructor_box
+E03_1610573363_+01260.jpg,1610573363_+01260.jpg,train,E03,Mt. Laguna Observatory South,Mt. Laguna,2021-01-13 21:08,1260,3072,2048,fire_sequence,no,instructor_box
+E03_1610573543_+01440.jpg,1610573543_+01440.jpg,train,E03,Mt. Laguna Observatory South,Mt. Laguna,2021-01-13 21:08,1440,3072,2048,fire_sequence,no,instructor_box
+E03_1610573843_+01740.jpg,1610573843_+01740.jpg,train,E03,Mt. Laguna Observatory South,Mt. Laguna,2021-01-13 21:08,1740,3072,2048,fire_sequence,yes,instructor_box
+E03_1610574023_+01920.jpg,1610574023_+01920.jpg,train,E03,Mt. Laguna Observatory South,Mt. Laguna,2021-01-13 21:08,1920,3072,2048,fire_sequence,no,instructor_box
+E03_1610574203_+02100.jpg,1610574203_+02100.jpg,train,E03,Mt. Laguna Observatory South,Mt. Laguna,2021-01-13 21:08,2100,3072,2048,fire_sequence,no,instructor_box
+E04_1612466053_+00300.jpg,1612466053_+00300.jpg,train,E04,Toro Peak South,Toro Peak,2021-02-04 19:09,300,3072,2048,fire_sequence,no,instructor_box
+E04_1612466113_+00360.jpg,1612466113_+00360.jpg,train,E04,Toro Peak South,Toro Peak,2021-02-04 19:09,360,3072,2048,fire_sequence,no,instructor_box
+E04_1612466173_+00420.jpg,1612466173_+00420.jpg,train,E04,Toro Peak South,Toro Peak,2021-02-04 19:09,420,3072,2048,fire_sequence,no,instructor_box
+E04_1612466233_+00480.jpg,1612466233_+00480.jpg,train,E04,Toro Peak South,Toro Peak,2021-02-04 19:09,480,3072,2048,fire_sequence,yes,instructor_box
+E04_1612466293_+00540.jpg,1612466293_+00540.jpg,train,E04,Toro Peak South,Toro Peak,2021-02-04 19:09,540,3072,2048,fire_sequence,no,instructor_box
+E04_1612466353_+00600.jpg,1612466353_+00600.jpg,train,E04,Toro Peak South,Toro Peak,2021-02-04 19:09,600,3072,2048,fire_sequence,no,instructor_box
+E05_1612894407_+01440.jpg,1612894407_+01440.jpg,train,E05,High Point East,High Point,2021-02-09 17:49,1440,2048,1536,fire_sequence,yes,instructor_box
+E05_1612894527_+01560.jpg,1612894527_+01560.jpg,train,E05,High Point East,High Point,2021-02-09 17:49,1560,2048,1536,fire_sequence,no,instructor_box
+E05_1612894707_+01740.jpg,1612894707_+01740.jpg,train,E05,High Point East,High Point,2021-02-09 17:49,1740,2048,1536,fire_sequence,no,instructor_box
+E05_1612894827_+01860.jpg,1612894827_+01860.jpg,train,E05,High Point East,High Point,2021-02-09 17:49,1860,2048,1536,fire_sequence,no,instructor_box
+E05_1612895007_+02040.jpg,1612895007_+02040.jpg,train,E05,High Point East,High Point,2021-02-09 17:49,2040,2048,1536,fire_sequence,no,instructor_box
+E05_1612895127_+02160.jpg,1612895127_+02160.jpg,train,E05,High Point East,High Point,2021-02-09 17:49,2160,2048,1536,fire_sequence,no,instructor_box
+E06_1628643300_+00120.jpg,1628643300_+00120.jpg,train,E06,Lyons Peak North,Lyons Peak,2021-08-11 00:53,120,3072,2048,fire_sequence,yes,instructor_box
+E06_1628643720_+00540.jpg,1628643720_+00540.jpg,train,E06,Lyons Peak North,Lyons Peak,2021-08-11 00:53,540,3072,2048,fire_sequence,no,instructor_box
+E06_1628644140_+00960.jpg,1628644140_+00960.jpg,train,E06,Lyons Peak North,Lyons Peak,2021-08-11 00:53,960,3072,2048,fire_sequence,no,instructor_box
+E06_1628644380_+01200.jpg,1628644380_+01200.jpg,train,E06,Lyons Peak North,Lyons Peak,2021-08-11 00:53,1200,3072,2048,fire_sequence,no,instructor_box
+E06_1628644740_+01560.jpg,1628644740_+01560.jpg,train,E06,Lyons Peak North,Lyons Peak,2021-08-11 00:53,1560,3072,2048,fire_sequence,no,instructor_box
+E06_1628645040_+01860.jpg,1628645040_+01860.jpg,train,E06,Lyons Peak North,Lyons Peak,2021-08-11 00:53,1860,3072,2048,fire_sequence,no,instructor_box
+E06_1628645220_+02040.jpg,1628645220_+02040.jpg,train,E06,Lyons Peak North,Lyons Peak,2021-08-11 00:53,2040,3072,2048,fire_sequence,no,instructor_box
+E07_1644861250_+00720.jpg,1644861250_+00720.jpg,train,E07,Los Pinos North,Los Pinos,2022-02-14 17:42,720,3072,2048,fire_sequence,no,instructor_box
+E07_1644861430_+00900.jpg,1644861430_+00900.jpg,train,E07,Los Pinos North,Los Pinos,2022-02-14 17:42,900,3072,2048,fire_sequence,no,instructor_box
+E07_1644861610_+01080.jpg,1644861610_+01080.jpg,train,E07,Los Pinos North,Los Pinos,2022-02-14 17:42,1080,3072,2048,fire_sequence,no,instructor_box
+E07_1644861790_+01260.jpg,1644861790_+01260.jpg,train,E07,Los Pinos North,Los Pinos,2022-02-14 17:42,1260,3072,2048,fire_sequence,no,instructor_box
+E07_1644862030_+01500.jpg,1644862030_+01500.jpg,train,E07,Los Pinos North,Los Pinos,2022-02-14 17:42,1500,3072,2048,fire_sequence,yes,instructor_box
+E07_1644862210_+01680.jpg,1644862210_+01680.jpg,train,E07,Los Pinos North,Los Pinos,2022-02-14 17:42,1680,3072,2048,fire_sequence,no,instructor_box
+E07_1644862390_+01860.jpg,1644862390_+01860.jpg,train,E07,Los Pinos North,Los Pinos,2022-02-14 17:42,1860,3072,2048,fire_sequence,no,instructor_box
+E07_1644862570_+02040.jpg,1644862570_+02040.jpg,train,E07,Los Pinos North,Los Pinos,2022-02-14 17:42,2040,3072,2048,fire_sequence,no,instructor_box
+E08_1646241706_+00004.jpg,1646241706_+00004.jpg,val,E08,Santiago Peak South,Santiago Peak,2022-03-02 17:21,4,3072,2048,fire_sequence,no,instructor_box
+E08_1646241766_+00064.jpg,1646241766_+00064.jpg,val,E08,Santiago Peak South,Santiago Peak,2022-03-02 17:21,64,3072,2048,fire_sequence,no,instructor_box
+E08_1646241826_+00124.jpg,1646241826_+00124.jpg,val,E08,Santiago Peak South,Santiago Peak,2022-03-02 17:21,124,3072,2048,fire_sequence,yes,instructor_box
+E09_1706636333_+01262.jpg,1706636333_+01262.jpg,val,E09,Mt. Wilson Observatory East,Mt. Wilson,2024-01-30 17:17,1262,3072,2048,fire_sequence,no,instructor_box
+E09_1706636511_+01440.jpg,1706636511_+01440.jpg,val,E09,Mt. Wilson Observatory East,Mt. Wilson,2024-01-30 17:17,1440,3072,2048,fire_sequence,no,instructor_box
+E09_1706636693_+01622.jpg,1706636693_+01622.jpg,val,E09,Mt. Wilson Observatory East,Mt. Wilson,2024-01-30 17:17,1622,3072,2048,fire_sequence,no,instructor_box
+E09_1706636813_+01742.jpg,1706636813_+01742.jpg,val,E09,Mt. Wilson Observatory East,Mt. Wilson,2024-01-30 17:17,1742,3072,2048,fire_sequence,no,instructor_box
+E09_1706636991_+01920.jpg,1706636991_+01920.jpg,val,E09,Mt. Wilson Observatory East,Mt. Wilson,2024-01-30 17:17,1920,3072,2048,fire_sequence,no,instructor_box
+E09_1706637172_+02101.jpg,1706637172_+02101.jpg,val,E09,Mt. Wilson Observatory East,Mt. Wilson,2024-01-30 17:17,2101,3072,2048,fire_sequence,yes,instructor_box
+E10_1706729527_+00121.jpg,1706729527_+00121.jpg,train,E10,Red Mountain South,Red Mountain,2024-01-31 19:30,121,3072,2048,fire_sequence,no,instructor_box
+E10_1706729766_+00360.jpg,1706729766_+00360.jpg,train,E10,Red Mountain South,Red Mountain,2024-01-31 19:30,360,3072,2048,fire_sequence,no,instructor_box
+E10_1706729945_+00539.jpg,1706729945_+00539.jpg,train,E10,Red Mountain South,Red Mountain,2024-01-31 19:30,539,3072,2048,fire_sequence,no,instructor_box
+E10_1706730186_+00780.jpg,1706730186_+00780.jpg,train,E10,Red Mountain South,Red Mountain,2024-01-31 19:30,780,3072,2048,fire_sequence,no,instructor_box
+E10_1706730367_+00961.jpg,1706730367_+00961.jpg,train,E10,Red Mountain South,Red Mountain,2024-01-31 19:30,961,3072,2048,fire_sequence,no,instructor_box
+E10_1706730607_+01201.jpg,1706730607_+01201.jpg,train,E10,Red Mountain South,Red Mountain,2024-01-31 19:30,1201,3072,2048,fire_sequence,yes,instructor_box
+E11_1706797309_+00180.jpg,1706797309_+00180.jpg,train,E11,Mt. Laguna South,Mt. Laguna,2024-02-01 14:18,180,2048,1536,fire_sequence,no,instructor_box
+E11_1706797490_+00361.jpg,1706797490_+00361.jpg,train,E11,Mt. Laguna South,Mt. Laguna,2024-02-01 14:18,361,2048,1536,fire_sequence,no,instructor_box
+E11_1706797669_+00540.jpg,1706797669_+00540.jpg,train,E11,Mt. Laguna South,Mt. Laguna,2024-02-01 14:18,540,2048,1536,fire_sequence,no,instructor_box
+E11_1706797849_+00720.jpg,1706797849_+00720.jpg,train,E11,Mt. Laguna South,Mt. Laguna,2024-02-01 14:18,720,2048,1536,fire_sequence,no,instructor_box
+E11_1706798029_+00900.jpg,1706798029_+00900.jpg,train,E11,Mt. Laguna South,Mt. Laguna,2024-02-01 14:18,900,2048,1536,fire_sequence,no,instructor_box
+E11_1706798269_+01140.jpg,1706798269_+01140.jpg,train,E11,Mt. Laguna South,Mt. Laguna,2024-02-01 14:18,1140,2048,1536,fire_sequence,no,instructor_box
+E11_1706798450_+01321.jpg,1706798450_+01321.jpg,train,E11,Mt. Laguna South,Mt. Laguna,2024-02-01 14:18,1321,2048,1536,fire_sequence,no,instructor_box
+E11_1706798629_+01500.jpg,1706798629_+01500.jpg,train,E11,Mt. Laguna South,Mt. Laguna,2024-02-01 14:18,1500,2048,1536,fire_sequence,yes,instructor_box
+E11_1706798809_+01680.jpg,1706798809_+01680.jpg,train,E11,Mt. Laguna South,Mt. Laguna,2024-02-01 14:18,1680,2048,1536,fire_sequence,no,instructor_box
+E11_1706798989_+01860.jpg,1706798989_+01860.jpg,train,E11,Mt. Laguna South,Mt. Laguna,2024-02-01 14:18,1860,2048,1536,fire_sequence,no,instructor_box
+E12_1715568335_+00420.jpg,1715568335_+00420.jpg,train,E12,High Point North,High Point,2024-05-13 02:38,420,3072,2048,fire_sequence,no,instructor_box
+E12_1715568515_+00600.jpg,1715568515_+00600.jpg,train,E12,High Point North,High Point,2024-05-13 02:38,600,3072,2048,fire_sequence,no,instructor_box
+E12_1715568695_+00780.jpg,1715568695_+00780.jpg,train,E12,High Point North,High Point,2024-05-13 02:38,780,3072,2048,fire_sequence,no,instructor_box
+E12_1715568935_+01020.jpg,1715568935_+01020.jpg,train,E12,High Point North,High Point,2024-05-13 02:38,1020,3072,2048,fire_sequence,no,instructor_box
+E12_1715569115_+01200.jpg,1715569115_+01200.jpg,train,E12,High Point North,High Point,2024-05-13 02:38,1200,3072,2048,fire_sequence,no,instructor_box
+E12_1715569296_+01381.jpg,1715569296_+01381.jpg,train,E12,High Point North,High Point,2024-05-13 02:38,1381,3072,2048,fire_sequence,yes,instructor_box
+E12_1715569535_+01620.jpg,1715569535_+01620.jpg,train,E12,High Point North,High Point,2024-05-13 02:38,1620,3072,2048,fire_sequence,no,instructor_box
+E12_1715569715_+01800.jpg,1715569715_+01800.jpg,train,E12,High Point North,High Point,2024-05-13 02:38,1800,3072,2048,fire_sequence,no,instructor_box
+E12_1715569895_+01980.jpg,1715569895_+01980.jpg,train,E12,High Point North,High Point,2024-05-13 02:38,1980,3072,2048,fire_sequence,no,instructor_box
+E13_1715716056_+00480.jpg,1715716056_+00480.jpg,train,E13,High Point North,High Point,2024-05-14 19:39,480,3072,2048,fire_sequence,no,instructor_box
+E13_1715716236_+00660.jpg,1715716236_+00660.jpg,train,E13,High Point North,High Point,2024-05-14 19:39,660,3072,2048,fire_sequence,no,instructor_box
+E13_1715716416_+00840.jpg,1715716416_+00840.jpg,train,E13,High Point North,High Point,2024-05-14 19:39,840,3072,2048,fire_sequence,no,instructor_box
+E13_1715716595_+01019.jpg,1715716595_+01019.jpg,train,E13,High Point North,High Point,2024-05-14 19:39,1019,3072,2048,fire_sequence,no,instructor_box
+E13_1715716775_+01199.jpg,1715716775_+01199.jpg,train,E13,High Point North,High Point,2024-05-14 19:39,1199,3072,2048,fire_sequence,no,instructor_box
+E13_1715717016_+01440.jpg,1715717016_+01440.jpg,train,E13,High Point North,High Point,2024-05-14 19:39,1440,3072,2048,fire_sequence,no,instructor_box
+E13_1715717196_+01620.jpg,1715717196_+01620.jpg,train,E13,High Point North,High Point,2024-05-14 19:39,1620,3072,2048,fire_sequence,no,instructor_box
+E13_1715717375_+01799.jpg,1715717375_+01799.jpg,train,E13,High Point North,High Point,2024-05-14 19:39,1799,3072,2048,fire_sequence,no,instructor_box
+E13_1715717555_+01979.jpg,1715717555_+01979.jpg,train,E13,High Point North,High Point,2024-05-14 19:39,1979,3072,2048,fire_sequence,yes,instructor_box
+E14_1715793035_+00121.jpg,1715793035_+00121.jpg,train,E14,High Point East,High Point,2024-05-15 17:08,121,3072,2048,fire_sequence,no,instructor_box
+E14_1715793274_+00360.jpg,1715793274_+00360.jpg,train,E14,High Point East,High Point,2024-05-15 17:08,360,3072,2048,fire_sequence,no,instructor_box
+E14_1715793455_+00541.jpg,1715793455_+00541.jpg,train,E14,High Point East,High Point,2024-05-15 17:08,541,3072,2048,fire_sequence,no,instructor_box
+E14_1715793695_+00781.jpg,1715793695_+00781.jpg,train,E14,High Point East,High Point,2024-05-15 17:08,781,3072,2048,fire_sequence,no,instructor_box
+E14_1715793875_+00961.jpg,1715793875_+00961.jpg,train,E14,High Point East,High Point,2024-05-15 17:08,961,3072,2048,fire_sequence,no,instructor_box
+E14_1715794055_+01141.jpg,1715794055_+01141.jpg,train,E14,High Point East,High Point,2024-05-15 17:08,1141,3072,2048,fire_sequence,no,instructor_box
+E14_1715794234_+01320.jpg,1715794234_+01320.jpg,train,E14,High Point East,High Point,2024-05-15 17:08,1320,3072,2048,fire_sequence,no,instructor_box
+E14_1715794475_+01561.jpg,1715794475_+01561.jpg,train,E14,High Point East,High Point,2024-05-15 17:08,1561,3072,2048,fire_sequence,no,instructor_box
+E14_1715794655_+01741.jpg,1715794655_+01741.jpg,train,E14,High Point East,High Point,2024-05-15 17:08,1741,3072,2048,fire_sequence,no,instructor_box
+E14_1715794835_+01921.jpg,1715794835_+01921.jpg,train,E14,High Point East,High Point,2024-05-15 17:08,1921,3072,2048,fire_sequence,yes,instructor_box
+E15_1717877291_+00120.jpg,1717877291_+00120.jpg,train,E15,SDSC East,SDSC,2024-06-08 20:06,120,3072,2048,fire_sequence,no,instructor_box
+E15_1717877351_+00180.jpg,1717877351_+00180.jpg,train,E15,SDSC East,SDSC,2024-06-08 20:06,180,3072,2048,fire_sequence,no,instructor_box
+E15_1717877471_+00300.jpg,1717877471_+00300.jpg,train,E15,SDSC East,SDSC,2024-06-08 20:06,300,3072,2048,fire_sequence,no,instructor_box
+E15_1717877531_+00360.jpg,1717877531_+00360.jpg,train,E15,SDSC East,SDSC,2024-06-08 20:06,360,3072,2048,fire_sequence,no,instructor_box
+E15_1717877651_+00480.jpg,1717877651_+00480.jpg,train,E15,SDSC East,SDSC,2024-06-08 20:06,480,3072,2048,fire_sequence,no,instructor_box
+E15_1717877711_+00540.jpg,1717877711_+00540.jpg,train,E15,SDSC East,SDSC,2024-06-08 20:06,540,3072,2048,fire_sequence,yes,instructor_box
+E16_1718565242_+00062.jpg,1718565242_+00062.jpg,train,E16,Los Pinos South,Los Pinos,2024-06-16 19:13,62,3072,2048,fire_sequence,yes,instructor_box
+E16_1718565420_+00240.jpg,1718565420_+00240.jpg,train,E16,Los Pinos South,Los Pinos,2024-06-16 19:13,240,3072,2048,fire_sequence,no,instructor_box
+E16_1718565662_+00482.jpg,1718565662_+00482.jpg,train,E16,Los Pinos South,Los Pinos,2024-06-16 19:13,482,3072,2048,fire_sequence,no,instructor_box
+E16_1718565841_+00661.jpg,1718565841_+00661.jpg,train,E16,Los Pinos South,Los Pinos,2024-06-16 19:13,661,3072,2048,fire_sequence,no,instructor_box
+E16_1718566021_+00841.jpg,1718566021_+00841.jpg,train,E16,Los Pinos South,Los Pinos,2024-06-16 19:13,841,3072,2048,fire_sequence,no,instructor_box
+E16_1718566201_+01021.jpg,1718566201_+01021.jpg,train,E16,Los Pinos South,Los Pinos,2024-06-16 19:13,1021,3072,2048,fire_sequence,no,instructor_box
+E16_1718566441_+01261.jpg,1718566441_+01261.jpg,train,E16,Los Pinos South,Los Pinos,2024-06-16 19:13,1261,3072,2048,fire_sequence,no,instructor_box
+E16_1718566620_+01440.jpg,1718566620_+01440.jpg,train,E16,Los Pinos South,Los Pinos,2024-06-16 19:13,1440,3072,2048,fire_sequence,no,instructor_box
+E17_1719093958_+00060.jpg,1719093958_+00060.jpg,train,E17,Otay Mountain West,Otay Mountain,2024-06-22 22:04,60,3072,2048,fire_sequence,no,instructor_box
+E17_1719094199_+00301.jpg,1719094199_+00301.jpg,train,E17,Otay Mountain West,Otay Mountain,2024-06-22 22:04,301,3072,2048,fire_sequence,no,instructor_box
+E17_1719094439_+00541.jpg,1719094439_+00541.jpg,train,E17,Otay Mountain West,Otay Mountain,2024-06-22 22:04,541,3072,2048,fire_sequence,no,instructor_box
+E17_1719094618_+00720.jpg,1719094618_+00720.jpg,train,E17,Otay Mountain West,Otay Mountain,2024-06-22 22:04,720,3072,2048,fire_sequence,no,instructor_box
+E17_1719094798_+00900.jpg,1719094798_+00900.jpg,train,E17,Otay Mountain West,Otay Mountain,2024-06-22 22:04,900,3072,2048,fire_sequence,no,instructor_box
+E17_1719095039_+01141.jpg,1719095039_+01141.jpg,train,E17,Otay Mountain West,Otay Mountain,2024-06-22 22:04,1141,3072,2048,fire_sequence,no,instructor_box
+E17_1719095217_+01319.jpg,1719095217_+01319.jpg,train,E17,Otay Mountain West,Otay Mountain,2024-06-22 22:04,1319,3072,2048,fire_sequence,no,instructor_box
+E17_1719095399_+01501.jpg,1719095399_+01501.jpg,train,E17,Otay Mountain West,Otay Mountain,2024-06-22 22:04,1501,3072,2048,fire_sequence,yes,instructor_box
+E17_1719095639_+01741.jpg,1719095639_+01741.jpg,train,E17,Otay Mountain West,Otay Mountain,2024-06-22 22:04,1741,3072,2048,fire_sequence,no,instructor_box
+E17_1719095819_+01921.jpg,1719095819_+01921.jpg,train,E17,Otay Mountain West,Otay Mountain,2024-06-22 22:04,1921,3072,2048,fire_sequence,no,instructor_box
+E18_1719350441_+00900.jpg,1719350441_+00900.jpg,train,E18,Theatre District LLN North,Theatre District,2024-06-25 21:05,900,3072,2048,fire_sequence,no,instructor_box
+E18_1719350620_+01079.jpg,1719350620_+01079.jpg,train,E18,Theatre District LLN North,Theatre District,2024-06-25 21:05,1079,3072,2048,fire_sequence,no,instructor_box
+E18_1719350801_+01260.jpg,1719350801_+01260.jpg,train,E18,Theatre District LLN North,Theatre District,2024-06-25 21:05,1260,3072,2048,fire_sequence,yes,instructor_box
+E18_1719351041_+01500.jpg,1719351041_+01500.jpg,train,E18,Theatre District LLN North,Theatre District,2024-06-25 21:05,1500,3072,2048,fire_sequence,no,instructor_box
+E18_1719351221_+01680.jpg,1719351221_+01680.jpg,train,E18,Theatre District LLN North,Theatre District,2024-06-25 21:05,1680,3072,2048,fire_sequence,no,instructor_box
+E18_1719351401_+01860.jpg,1719351401_+01860.jpg,train,E18,Theatre District LLN North,Theatre District,2024-06-25 21:05,1860,3072,2048,fire_sequence,no,instructor_box
+E18_1719351580_+02039.jpg,1719351580_+02039.jpg,train,E18,Theatre District LLN North,Theatre District,2024-06-25 21:05,2039,3072,2048,fire_sequence,no,instructor_box
+E19_1719855239_+00181.jpg,1719855239_+00181.jpg,train,E19,Los Pinos East,Los Pinos,2024-07-01 17:30,181,3072,2048,fire_sequence,no,instructor_box
+E19_1719855351_+00301.jpg,1719855351_+00301.jpg,train,E19,Los Pinos East,Los Pinos,2024-07-01 17:30,301,3072,2048,fire_sequence,no,instructor_box
+E19_1719855411_+00361.jpg,1719855411_+00361.jpg,train,E19,Los Pinos East,Los Pinos,2024-07-01 17:30,361,3072,2048,fire_sequence,no,instructor_box
+E19_1719855471_+00421.jpg,1719855471_+00421.jpg,train,E19,Los Pinos East,Los Pinos,2024-07-01 17:30,421,3072,2048,fire_sequence,no,instructor_box
+E19_1719855538_+00480.jpg,1719855538_+00480.jpg,train,E19,Los Pinos East,Los Pinos,2024-07-01 17:30,480,3072,2048,fire_sequence,no,instructor_box
+E19_1719855651_+00601.jpg,1719855651_+00601.jpg,train,E19,Los Pinos East,Los Pinos,2024-07-01 17:30,601,3072,2048,fire_sequence,no,instructor_box
+E19_1719855951_+00901.jpg,1719855951_+00901.jpg,train,E19,Los Pinos East,Los Pinos,2024-07-01 17:30,901,3072,2048,fire_sequence,no,instructor_box
+E19_1719856018_+00960.jpg,1719856018_+00960.jpg,train,E19,Los Pinos East,Los Pinos,2024-07-01 17:30,960,3072,2048,fire_sequence,yes,instructor_box
+E19_1719856071_+01021.jpg,1719856071_+01021.jpg,train,E19,Los Pinos East,Los Pinos,2024-07-01 17:30,1021,3072,2048,fire_sequence,no,instructor_box
+E19_1719856139_+01081.jpg,1719856139_+01081.jpg,train,E19,Los Pinos East,Los Pinos,2024-07-01 17:30,1081,3072,2048,fire_sequence,no,instructor_box
+E19_1719856192_+01142.jpg,1719856192_+01142.jpg,train,E19,Los Pinos East,Los Pinos,2024-07-01 17:30,1142,3072,2048,fire_sequence,no,instructor_box
+E19_1719856251_+01201.jpg,1719856251_+01201.jpg,train,E19,Los Pinos East,Los Pinos,2024-07-01 17:30,1201,3072,2048,fire_sequence,no,instructor_box
+E19_1719856319_+01261.jpg,1719856319_+01261.jpg,train,E19,Los Pinos East,Los Pinos,2024-07-01 17:30,1261,3072,2048,fire_sequence,no,instructor_box
+E19_1719856379_+01321.jpg,1719856379_+01321.jpg,train,E19,Los Pinos East,Los Pinos,2024-07-01 17:30,1321,3072,2048,fire_sequence,no,instructor_box
+E19_1719856440_+01382.jpg,1719856440_+01382.jpg,train,E19,Los Pinos East,Los Pinos,2024-07-01 17:30,1382,3072,2048,fire_sequence,no,instructor_box
+E19_1719856499_+01441.jpg,1719856499_+01441.jpg,train,E19,Los Pinos East,Los Pinos,2024-07-01 17:30,1441,3072,2048,fire_sequence,no,instructor_box
+E19_1719856551_+01501.jpg,1719856551_+01501.jpg,train,E19,Los Pinos East,Los Pinos,2024-07-01 17:30,1501,3072,2048,fire_sequence,no,instructor_box
+E19_1719856611_+01561.jpg,1719856611_+01561.jpg,train,E19,Los Pinos East,Los Pinos,2024-07-01 17:30,1561,3072,2048,fire_sequence,no,instructor_box
+E19_1719856838_+01620.jpg,1719856838_+01620.jpg,train,E19,Los Pinos East,Los Pinos,2024-07-01 17:33,1620,3072,2048,fire_sequence,no,instructor_box
+E19_1719856739_+01681.jpg,1719856739_+01681.jpg,train,E19,Los Pinos East,Los Pinos,2024-07-01 17:30,1681,3072,2048,fire_sequence,no,instructor_box
+E19_1719856791_+01741.jpg,1719856791_+01741.jpg,train,E19,Los Pinos East,Los Pinos,2024-07-01 17:30,1741,3072,2048,fire_sequence,no,instructor_box
+E19_1719857018_+01800.jpg,1719857018_+01800.jpg,train,E19,Los Pinos East,Los Pinos,2024-07-01 17:33,1800,3072,2048,fire_sequence,no,instructor_box
+E19_1719856919_+01861.jpg,1719856919_+01861.jpg,train,E19,Los Pinos East,Los Pinos,2024-07-01 17:30,1861,3072,2048,fire_sequence,no,instructor_box
+E19_1719856971_+01921.jpg,1719856971_+01921.jpg,train,E19,Los Pinos East,Los Pinos,2024-07-01 17:30,1921,3072,2048,fire_sequence,no,instructor_box
+E19_1719857258_+02040.jpg,1719857258_+02040.jpg,train,E19,Los Pinos East,Los Pinos,2024-07-01 17:33,2040,3072,2048,fire_sequence,no,instructor_box
+E19_1719857437_+02219.jpg,1719857437_+02219.jpg,train,E19,Los Pinos East,Los Pinos,2024-07-01 17:33,2219,3072,2048,fire_sequence,no,instructor_box
+E19_1719855900_+00719.jpg,1719855900_+00719.jpg,train,E19,White Star West,White Star,2024-07-01 17:33,719,3072,2048,fire_sequence,no,instructor_box
+E19_1719855960_+00779.jpg,1719855960_+00779.jpg,train,E19,White Star West,White Star,2024-07-01 17:33,779,3072,2048,fire_sequence,no,instructor_box
+E19_1719856021_+00840.jpg,1719856021_+00840.jpg,train,E19,White Star West,White Star,2024-07-01 17:33,840,3072,2048,fire_sequence,no,instructor_box
+E19_1719856860_+01679.jpg,1719856860_+01679.jpg,train,E19,White Star West,White Star,2024-07-01 17:33,1679,3072,2048,fire_sequence,no,instructor_box
+E19_1719857040_+01859.jpg,1719857040_+01859.jpg,train,E19,White Star West,White Star,2024-07-01 17:33,1859,3072,2048,fire_sequence,no,instructor_box
+E20_1719873478_+00179.jpg,1719873478_+00179.jpg,train,E20,White Star East,White Star,2024-07-01 22:34,179,3072,2048,fire_sequence,no,instructor_box
+E20_1719873659_+00360.jpg,1719873659_+00360.jpg,train,E20,White Star East,White Star,2024-07-01 22:34,360,3072,2048,fire_sequence,yes,instructor_box
+E20_1719873839_+00540.jpg,1719873839_+00540.jpg,train,E20,White Star East,White Star,2024-07-01 22:34,540,3072,2048,fire_sequence,no,instructor_box
+E20_1719874078_+00779.jpg,1719874078_+00779.jpg,train,E20,White Star East,White Star,2024-07-01 22:34,779,3072,2048,fire_sequence,no,instructor_box
+E20_1719874258_+00959.jpg,1719874258_+00959.jpg,train,E20,White Star East,White Star,2024-07-01 22:34,959,3072,2048,fire_sequence,no,instructor_box
+E20_1719874438_+01139.jpg,1719874438_+01139.jpg,train,E20,White Star East,White Star,2024-07-01 22:34,1139,3072,2048,fire_sequence,no,instructor_box
+E20_1719874619_+01320.jpg,1719874619_+01320.jpg,train,E20,White Star East,White Star,2024-07-01 22:34,1320,3072,2048,fire_sequence,no,instructor_box
+E20_1719874859_+01560.jpg,1719874859_+01560.jpg,train,E20,White Star East,White Star,2024-07-01 22:34,1560,3072,2048,fire_sequence,no,instructor_box
+E20_1719875039_+01740.jpg,1719875039_+01740.jpg,train,E20,White Star East,White Star,2024-07-01 22:34,1740,3072,2048,fire_sequence,no,instructor_box
+E20_1719875219_+01920.jpg,1719875219_+01920.jpg,train,E20,White Star East,White Star,2024-07-01 22:34,1920,3072,2048,fire_sequence,no,instructor_box
+E21_1720306506_+00601.jpg,1720306506_+00601.jpg,train,E21,Red Mountain East,Red Mountain,2024-07-06 22:45,601,3072,2048,fire_sequence,no,instructor_box
+E21_1720306866_+00961.jpg,1720306866_+00961.jpg,train,E21,Red Mountain East,Red Mountain,2024-07-06 22:45,961,3072,2048,fire_sequence,no,instructor_box
+E21_1720307105_+01200.jpg,1720307105_+01200.jpg,train,E21,Red Mountain East,Red Mountain,2024-07-06 22:45,1200,3072,2048,fire_sequence,no,instructor_box
+E21_1720307286_+01381.jpg,1720307286_+01381.jpg,train,E21,Red Mountain East,Red Mountain,2024-07-06 22:45,1381,3072,2048,fire_sequence,no,instructor_box
+E21_1720307526_+01621.jpg,1720307526_+01621.jpg,train,E21,Red Mountain East,Red Mountain,2024-07-06 22:45,1621,3072,2048,fire_sequence,no,instructor_box
+E21_1720307766_+01861.jpg,1720307766_+01861.jpg,train,E21,Red Mountain East,Red Mountain,2024-07-06 22:45,1861,3072,2048,fire_sequence,yes,instructor_box
+E21_1720307945_+02040.jpg,1720307945_+02040.jpg,train,E21,Red Mountain East,Red Mountain,2024-07-06 22:45,2040,3072,2048,fire_sequence,no,instructor_box
+E22_1721348959_+00302.jpg,1721348959_+00302.jpg,train,E22,Big Black Mountain South,Big Black Mountain,2024-07-19 00:24,302,3072,2048,fire_sequence,yes,instructor_box
+E22_1721349139_+00482.jpg,1721349139_+00482.jpg,train,E22,Big Black Mountain South,Big Black Mountain,2024-07-19 00:24,482,3072,2048,fire_sequence,no,instructor_box
+E22_1721349378_+00721.jpg,1721349378_+00721.jpg,train,E22,Big Black Mountain South,Big Black Mountain,2024-07-19 00:24,721,3072,2048,fire_sequence,no,instructor_box
+E22_1721349559_+00902.jpg,1721349559_+00902.jpg,train,E22,Big Black Mountain South,Big Black Mountain,2024-07-19 00:24,902,3072,2048,fire_sequence,no,instructor_box
+E22_1721349799_+01142.jpg,1721349799_+01142.jpg,train,E22,Big Black Mountain South,Big Black Mountain,2024-07-19 00:24,1142,3072,2048,fire_sequence,no,instructor_box
+E22_1721349979_+01322.jpg,1721349979_+01322.jpg,train,E22,Big Black Mountain South,Big Black Mountain,2024-07-19 00:24,1322,3072,2048,fire_sequence,no,instructor_box
+E22_1721350159_+01502.jpg,1721350159_+01502.jpg,train,E22,Big Black Mountain South,Big Black Mountain,2024-07-19 00:24,1502,3072,2048,fire_sequence,no,instructor_box
+E22_1721350399_+01742.jpg,1721350399_+01742.jpg,train,E22,Big Black Mountain South,Big Black Mountain,2024-07-19 00:24,1742,3072,2048,fire_sequence,no,instructor_box
+E22_1721350578_+01921.jpg,1721350578_+01921.jpg,train,E22,Big Black Mountain South,Big Black Mountain,2024-07-19 00:24,1921,3072,2048,fire_sequence,no,instructor_box
+E23_1721428972_+00359.jpg,1721428972_+00359.jpg,val,E23,Mt. Wilson Observatory East,Mt. Wilson,2024-07-19 22:36,359,3072,2048,fire_sequence,no,instructor_box
+E23_1721429151_+00538.jpg,1721429151_+00538.jpg,val,E23,Mt. Wilson Observatory East,Mt. Wilson,2024-07-19 22:36,538,3072,2048,fire_sequence,no,instructor_box
+E23_1721429391_+00778.jpg,1721429391_+00778.jpg,val,E23,Mt. Wilson Observatory East,Mt. Wilson,2024-07-19 22:36,778,3072,2048,fire_sequence,no,instructor_box
+E23_1721429572_+00959.jpg,1721429572_+00959.jpg,val,E23,Mt. Wilson Observatory East,Mt. Wilson,2024-07-19 22:36,959,3072,2048,fire_sequence,no,instructor_box
+E23_1721429812_+01199.jpg,1721429812_+01199.jpg,val,E23,Mt. Wilson Observatory East,Mt. Wilson,2024-07-19 22:36,1199,3072,2048,fire_sequence,no,instructor_box
+E23_1721429992_+01379.jpg,1721429992_+01379.jpg,val,E23,Mt. Wilson Observatory East,Mt. Wilson,2024-07-19 22:36,1379,3072,2048,fire_sequence,yes,instructor_box
+E23_1721430173_+01560.jpg,1721430173_+01560.jpg,val,E23,Mt. Wilson Observatory East,Mt. Wilson,2024-07-19 22:36,1560,3072,2048,fire_sequence,no,instructor_box
+E23_1721430413_+01800.jpg,1721430413_+01800.jpg,val,E23,Mt. Wilson Observatory East,Mt. Wilson,2024-07-19 22:36,1800,3072,2048,fire_sequence,no,instructor_box
+E23_1721430592_+01979.jpg,1721430592_+01979.jpg,val,E23,Mt. Wilson Observatory East,Mt. Wilson,2024-07-19 22:36,1979,3072,2048,fire_sequence,no,instructor_box
+E24_1722194041_-02400.jpg,1722194041_-02400.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,-2400,3072,2048,negative_pre_ignition,yes,instructor_box
+E24_1722194282_-02159.jpg,1722194282_-02159.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,-2159,3072,2048,negative_pre_ignition,no,instructor_box
+E24_1722194581_-01860.jpg,1722194581_-01860.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,-1860,3072,2048,negative_pre_ignition,no,instructor_box
+E24_1722194821_-01620.jpg,1722194821_-01620.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,-1620,3072,2048,negative_pre_ignition,no,instructor_box
+E24_1722195061_-01380.jpg,1722195061_-01380.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,-1380,3072,2048,negative_pre_ignition,no,instructor_box
+E24_1722195361_-01080.jpg,1722195361_-01080.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,-1080,3072,2048,negative_pre_ignition,no,instructor_box
+E24_1722195601_-00840.jpg,1722195601_-00840.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,-840,3072,2048,negative_pre_ignition,no,instructor_box
+E24_1722195841_-00600.jpg,1722195841_-00600.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,-600,3072,2048,negative_pre_ignition,no,instructor_box
+E24_1722196141_-00300.jpg,1722196141_-00300.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,-300,3072,2048,negative_pre_ignition,no,instructor_box
+E24_1722196381_-00060.jpg,1722196381_-00060.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,-60,3072,2048,negative_pre_ignition,no,instructor_box
+E24_1722196441_+00000.jpg,1722196441_+00000.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,0,3072,2048,fire_sequence,no,instructor_box
+E24_1722196620_+00179.jpg,1722196620_+00179.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,179,3072,2048,fire_sequence,no,instructor_box
+E24_1722196718_+00239.jpg,1722196718_+00239.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,239,3072,2048,fire_sequence,no,instructor_box
+E24_1722196740_+00299.jpg,1722196740_+00299.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,299,3072,2048,fire_sequence,no,instructor_box
+E24_1722196801_+00360.jpg,1722196801_+00360.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,360,3072,2048,fire_sequence,no,instructor_box
+E24_1722196861_+00420.jpg,1722196861_+00420.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,420,3072,2048,fire_sequence,no,instructor_box
+E24_1722196959_+00480.jpg,1722196959_+00480.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,480,3072,2048,fire_sequence,no,instructor_box
+E24_1722197036_+00540.jpg,1722197036_+00540.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,540,3072,2048,fire_sequence,yes,instructor_box
+E24_1722197096_+00600.jpg,1722197096_+00600.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,600,3072,2048,fire_sequence,no,instructor_box
+E24_1722197140_+00661.jpg,1722197140_+00661.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,661,3072,2048,fire_sequence,no,instructor_box
+E24_1722197216_+00720.jpg,1722197216_+00720.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,720,3072,2048,fire_sequence,no,instructor_box
+E24_1722197276_+00780.jpg,1722197276_+00780.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,780,3072,2048,fire_sequence,no,instructor_box
+E24_1722197336_+00840.jpg,1722197336_+00840.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,840,3072,2048,fire_sequence,no,instructor_box
+E24_1722197380_+00901.jpg,1722197380_+00901.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,901,3072,2048,fire_sequence,no,instructor_box
+E24_1722197439_+00960.jpg,1722197439_+00960.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,960,3072,2048,fire_sequence,no,instructor_box
+E24_1722197500_+01021.jpg,1722197500_+01021.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,1021,3072,2048,fire_sequence,no,instructor_box
+E24_1722197576_+01080.jpg,1722197576_+01080.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,1080,3072,2048,fire_sequence,no,instructor_box
+E24_1722197619_+01140.jpg,1722197619_+01140.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,1140,3072,2048,fire_sequence,no,instructor_box
+E24_1722197696_+01200.jpg,1722197696_+01200.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,1200,3072,2048,fire_sequence,no,instructor_box
+E24_1722197739_+01260.jpg,1722197739_+01260.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,1260,3072,2048,fire_sequence,no,instructor_box
+E24_1722197799_+01320.jpg,1722197799_+01320.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,1320,3072,2048,fire_sequence,no,instructor_box
+E24_1722197876_+01380.jpg,1722197876_+01380.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,1380,3072,2048,fire_sequence,no,instructor_box
+E24_1722197979_+01500.jpg,1722197979_+01500.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,1500,3072,2048,fire_sequence,no,instructor_box
+E24_1722198056_+01560.jpg,1722198056_+01560.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,1560,3072,2048,fire_sequence,no,instructor_box
+E24_1722198159_+01680.jpg,1722198159_+01680.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,1680,3072,2048,fire_sequence,no,instructor_box
+E24_1722198236_+01740.jpg,1722198236_+01740.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,1740,3072,2048,fire_sequence,no,instructor_box
+E24_1722198339_+01860.jpg,1722198339_+01860.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,1860,3072,2048,fire_sequence,no,instructor_box
+E24_1722198416_+01920.jpg,1722198416_+01920.jpg,train,E24,Los Pinos South,Los Pinos,2024-07-28 19:54,1920,3072,2048,fire_sequence,no,instructor_box
+E25_1722281256_+00300.jpg,1722281256_+00300.jpg,train,E25,High Point North,High Point,2024-07-29 19:22,300,3072,2048,fire_sequence,no,instructor_box
+E25_1722281435_+00479.jpg,1722281435_+00479.jpg,train,E25,High Point North,High Point,2024-07-29 19:22,479,3072,2048,fire_sequence,no,instructor_box
+E25_1722281675_+00719.jpg,1722281675_+00719.jpg,train,E25,High Point North,High Point,2024-07-29 19:22,719,3072,2048,fire_sequence,no,instructor_box
+E25_1722281856_+00900.jpg,1722281856_+00900.jpg,train,E25,High Point North,High Point,2024-07-29 19:22,900,3072,2048,fire_sequence,no,instructor_box
+E25_1722282096_+01140.jpg,1722282096_+01140.jpg,train,E25,High Point North,High Point,2024-07-29 19:22,1140,3072,2048,fire_sequence,yes,instructor_box
+E25_1722282276_+01320.jpg,1722282276_+01320.jpg,train,E25,High Point North,High Point,2024-07-29 19:22,1320,3072,2048,fire_sequence,no,instructor_box
+E25_1722282456_+01500.jpg,1722282456_+01500.jpg,train,E25,High Point North,High Point,2024-07-29 19:22,1500,3072,2048,fire_sequence,no,instructor_box
+E25_1722282696_+01740.jpg,1722282696_+01740.jpg,train,E25,High Point North,High Point,2024-07-29 19:22,1740,3072,2048,fire_sequence,no,instructor_box
+E25_1722282875_+01919.jpg,1722282875_+01919.jpg,train,E25,High Point North,High Point,2024-07-29 19:22,1919,3072,2048,fire_sequence,no,instructor_box
+E26_1722632308_+00660.jpg,1722632308_+00660.jpg,train,E26,Sky Oaks South,Sky Oaks,2024-08-02 20:47,660,3072,2048,fire_sequence,no,instructor_box
+E26_1722632488_+00840.jpg,1722632488_+00840.jpg,train,E26,Sky Oaks South,Sky Oaks,2024-08-02 20:47,840,3072,2048,fire_sequence,yes,instructor_box
+E26_1722633027_+01379.jpg,1722633027_+01379.jpg,train,E26,Sky Oaks South,Sky Oaks,2024-08-02 20:47,1379,3072,2048,fire_sequence,no,instructor_box
+E26_1722633329_+01681.jpg,1722633329_+01681.jpg,train,E26,Sky Oaks South,Sky Oaks,2024-08-02 20:47,1681,3072,2048,fire_sequence,no,instructor_box
+E26_1722633568_+01920.jpg,1722633568_+01920.jpg,train,E26,Sky Oaks South,Sky Oaks,2024-08-02 20:47,1920,3072,2048,fire_sequence,no,instructor_box
+E26_1722633748_+02100.jpg,1722633748_+02100.jpg,train,E26,Sky Oaks South,Sky Oaks,2024-08-02 20:47,2100,3072,2048,fire_sequence,no,instructor_box
+E27_1723494257_+00059.jpg,1723494257_+00059.jpg,val,E27,Mt. San Miguel North,Mt. San Miguel,2024-08-12 20:23,59,3072,2048,fire_sequence,no,instructor_box
+E27_1723494618_+00420.jpg,1723494618_+00420.jpg,val,E27,Mt. San Miguel North,Mt. San Miguel,2024-08-12 20:23,420,3072,2048,fire_sequence,no,instructor_box
+E27_1723494798_+00600.jpg,1723494798_+00600.jpg,val,E27,Mt. San Miguel North,Mt. San Miguel,2024-08-12 20:23,600,3072,2048,fire_sequence,no,instructor_box
+E27_1723494979_+00781.jpg,1723494979_+00781.jpg,val,E27,Mt. San Miguel North,Mt. San Miguel,2024-08-12 20:23,781,3072,2048,fire_sequence,no,instructor_box
+E27_1723495158_+00960.jpg,1723495158_+00960.jpg,val,E27,Mt. San Miguel North,Mt. San Miguel,2024-08-12 20:23,960,3072,2048,fire_sequence,no,instructor_box
+E27_1723495398_+01200.jpg,1723495398_+01200.jpg,val,E27,Mt. San Miguel North,Mt. San Miguel,2024-08-12 20:23,1200,3072,2048,fire_sequence,no,instructor_box
+E27_1723495578_+01380.jpg,1723495578_+01380.jpg,val,E27,Mt. San Miguel North,Mt. San Miguel,2024-08-12 20:23,1380,3072,2048,fire_sequence,no,instructor_box
+E27_1723495758_+01560.jpg,1723495758_+01560.jpg,val,E27,Mt. San Miguel North,Mt. San Miguel,2024-08-12 20:23,1560,3072,2048,fire_sequence,no,instructor_box
+E27_1723495938_+01740.jpg,1723495938_+01740.jpg,val,E27,Mt. San Miguel North,Mt. San Miguel,2024-08-12 20:23,1740,3072,2048,fire_sequence,yes,instructor_box
+E27_1723496118_+01920.jpg,1723496118_+01920.jpg,val,E27,Mt. San Miguel North,Mt. San Miguel,2024-08-12 20:23,1920,3072,2048,fire_sequence,no,instructor_box
+E28_1723575006_+00180.jpg,1723575006_+00180.jpg,train,E28,Red Mountain West,Red Mountain,2024-08-13 18:47,180,3072,2048,fire_sequence,no,instructor_box
+E28_1723575186_+00360.jpg,1723575186_+00360.jpg,train,E28,Red Mountain West,Red Mountain,2024-08-13 18:47,360,3072,2048,fire_sequence,no,instructor_box
+E28_1723575366_+00540.jpg,1723575366_+00540.jpg,train,E28,Red Mountain West,Red Mountain,2024-08-13 18:47,540,3072,2048,fire_sequence,no,instructor_box
+E28_1723575606_+00780.jpg,1723575606_+00780.jpg,train,E28,Red Mountain West,Red Mountain,2024-08-13 18:47,780,3072,2048,fire_sequence,no,instructor_box
+E28_1723575787_+00961.jpg,1723575787_+00961.jpg,train,E28,Red Mountain West,Red Mountain,2024-08-13 18:47,961,3072,2048,fire_sequence,yes,instructor_box
+E28_1723575967_+01141.jpg,1723575967_+01141.jpg,train,E28,Red Mountain West,Red Mountain,2024-08-13 18:47,1141,3072,2048,fire_sequence,no,instructor_box
+E28_1723576146_+01320.jpg,1723576146_+01320.jpg,train,E28,Red Mountain West,Red Mountain,2024-08-13 18:47,1320,3072,2048,fire_sequence,no,instructor_box
+E28_1723576386_+01560.jpg,1723576386_+01560.jpg,train,E28,Red Mountain West,Red Mountain,2024-08-13 18:47,1560,3072,2048,fire_sequence,no,instructor_box
+E28_1723576566_+01740.jpg,1723576566_+01740.jpg,train,E28,Red Mountain West,Red Mountain,2024-08-13 18:47,1740,3072,2048,fire_sequence,no,instructor_box
+E28_1723576747_+01921.jpg,1723576747_+01921.jpg,train,E28,Red Mountain West,Red Mountain,2024-08-13 18:47,1921,3072,2048,fire_sequence,no,instructor_box
+E29_1724458878_+00060.jpg,1724458878_+00060.jpg,val,E29,Mt. San Miguel South,Mt. San Miguel,2024-08-24 00:20,60,3072,2048,fire_sequence,no,instructor_box
+E29_1724459058_+00240.jpg,1724459058_+00240.jpg,val,E29,Mt. San Miguel South,Mt. San Miguel,2024-08-24 00:20,240,3072,2048,fire_sequence,yes,instructor_box
+E29_1724459238_+00420.jpg,1724459238_+00420.jpg,val,E29,Mt. San Miguel South,Mt. San Miguel,2024-08-24 00:20,420,3072,2048,fire_sequence,no,instructor_box
+E29_1724459419_+00601.jpg,1724459419_+00601.jpg,val,E29,Mt. San Miguel South,Mt. San Miguel,2024-08-24 00:20,601,3072,2048,fire_sequence,no,instructor_box
+E29_1724459598_+00780.jpg,1724459598_+00780.jpg,val,E29,Mt. San Miguel South,Mt. San Miguel,2024-08-24 00:20,780,3072,2048,fire_sequence,no,instructor_box
+E29_1724459838_+01020.jpg,1724459838_+01020.jpg,val,E29,Mt. San Miguel South,Mt. San Miguel,2024-08-24 00:20,1020,3072,2048,fire_sequence,no,instructor_box
+E29_1724460019_+01201.jpg,1724460019_+01201.jpg,val,E29,Mt. San Miguel South,Mt. San Miguel,2024-08-24 00:20,1201,3072,2048,fire_sequence,no,instructor_box
+E29_1724460198_+01380.jpg,1724460198_+01380.jpg,val,E29,Mt. San Miguel South,Mt. San Miguel,2024-08-24 00:20,1380,3072,2048,fire_sequence,no,instructor_box
+E29_1724460379_+01561.jpg,1724460379_+01561.jpg,val,E29,Mt. San Miguel South,Mt. San Miguel,2024-08-24 00:20,1561,3072,2048,fire_sequence,no,instructor_box
+E29_1724460558_+01740.jpg,1724460558_+01740.jpg,val,E29,Mt. San Miguel South,Mt. San Miguel,2024-08-24 00:20,1740,3072,2048,fire_sequence,no,instructor_box
+E29_1724460739_+01921.jpg,1724460739_+01921.jpg,val,E29,Mt. San Miguel South,Mt. San Miguel,2024-08-24 00:20,1921,3072,2048,fire_sequence,no,instructor_box
+E30_1724611701_+00300.jpg,1724611701_+00300.jpg,train,E30,Buffalo Bump North,Buffalo Bump,2024-08-25 18:43,300,3072,2048,fire_sequence,no,instructor_box
+E30_1724611881_+00480.jpg,1724611881_+00480.jpg,train,E30,Buffalo Bump North,Buffalo Bump,2024-08-25 18:43,480,3072,2048,fire_sequence,no,instructor_box
+E30_1724612121_+00720.jpg,1724612121_+00720.jpg,train,E30,Buffalo Bump North,Buffalo Bump,2024-08-25 18:43,720,3072,2048,fire_sequence,no,instructor_box
+E30_1724612300_+00899.jpg,1724612300_+00899.jpg,train,E30,Buffalo Bump North,Buffalo Bump,2024-08-25 18:43,899,3072,2048,fire_sequence,yes,instructor_box
+E30_1724612541_+01140.jpg,1724612541_+01140.jpg,train,E30,Buffalo Bump North,Buffalo Bump,2024-08-25 18:43,1140,3072,2048,fire_sequence,no,instructor_box
+E30_1724612721_+01320.jpg,1724612721_+01320.jpg,train,E30,Buffalo Bump North,Buffalo Bump,2024-08-25 18:43,1320,3072,2048,fire_sequence,no,instructor_box
+E30_1724612901_+01500.jpg,1724612901_+01500.jpg,train,E30,Buffalo Bump North,Buffalo Bump,2024-08-25 18:43,1500,3072,2048,fire_sequence,no,instructor_box
+E30_1724613140_+01739.jpg,1724613140_+01739.jpg,train,E30,Buffalo Bump North,Buffalo Bump,2024-08-25 18:43,1739,3072,2048,fire_sequence,no,instructor_box
+E30_1724613321_+01920.jpg,1724613321_+01920.jpg,train,E30,Buffalo Bump North,Buffalo Bump,2024-08-25 18:43,1920,3072,2048,fire_sequence,no,instructor_box
+E31_1724878751_+00180.jpg,1724878751_+00180.jpg,val,E31,Boucher Hill West,Boucher Hill,2024-08-28 20:56,180,3072,2048,fire_sequence,no,instructor_box
+E31_1724878930_+00359.jpg,1724878930_+00359.jpg,val,E31,Boucher Hill West,Boucher Hill,2024-08-28 20:56,359,3072,2048,fire_sequence,no,instructor_box
+E31_1724879111_+00540.jpg,1724879111_+00540.jpg,val,E31,Boucher Hill West,Boucher Hill,2024-08-28 20:56,540,3072,2048,fire_sequence,no,instructor_box
+E31_1724879351_+00780.jpg,1724879351_+00780.jpg,val,E31,Boucher Hill West,Boucher Hill,2024-08-28 20:56,780,3072,2048,fire_sequence,no,instructor_box
+E31_1724879531_+00960.jpg,1724879531_+00960.jpg,val,E31,Boucher Hill West,Boucher Hill,2024-08-28 20:56,960,3072,2048,fire_sequence,no,instructor_box
+E31_1724879711_+01140.jpg,1724879711_+01140.jpg,val,E31,Boucher Hill West,Boucher Hill,2024-08-28 20:56,1140,3072,2048,fire_sequence,yes,instructor_box
+E31_1724879891_+01320.jpg,1724879891_+01320.jpg,val,E31,Boucher Hill West,Boucher Hill,2024-08-28 20:56,1320,3072,2048,fire_sequence,no,instructor_box
+E31_1724880130_+01559.jpg,1724880130_+01559.jpg,val,E31,Boucher Hill West,Boucher Hill,2024-08-28 20:56,1559,3072,2048,fire_sequence,no,instructor_box
+E31_1724880311_+01740.jpg,1724880311_+01740.jpg,val,E31,Boucher Hill West,Boucher Hill,2024-08-28 20:56,1740,3072,2048,fire_sequence,no,instructor_box
+E31_1724880490_+01919.jpg,1724880490_+01919.jpg,val,E31,Boucher Hill West,Boucher Hill,2024-08-28 20:56,1919,3072,2048,fire_sequence,no,instructor_box
+E32_1725317452_+00419.jpg,1725317452_+00419.jpg,val,E32,Mt. Wilson Observatory East,Mt. Wilson,2024-09-02 22:43,419,3072,2048,fire_sequence,yes,instructor_box
+E32_1725317632_+00599.jpg,1725317632_+00599.jpg,val,E32,Mt. Wilson Observatory East,Mt. Wilson,2024-09-02 22:43,599,3072,2048,fire_sequence,no,instructor_box
+E32_1725317813_+00780.jpg,1725317813_+00780.jpg,val,E32,Mt. Wilson Observatory East,Mt. Wilson,2024-09-02 22:43,780,3072,2048,fire_sequence,no,instructor_box
+E32_1725318053_+01020.jpg,1725318053_+01020.jpg,val,E32,Mt. Wilson Observatory East,Mt. Wilson,2024-09-02 22:43,1020,3072,2048,fire_sequence,no,instructor_box
+E32_1725318233_+01200.jpg,1725318233_+01200.jpg,val,E32,Mt. Wilson Observatory East,Mt. Wilson,2024-09-02 22:43,1200,3072,2048,fire_sequence,no,instructor_box
+E32_1725318413_+01380.jpg,1725318413_+01380.jpg,val,E32,Mt. Wilson Observatory East,Mt. Wilson,2024-09-02 22:43,1380,3072,2048,fire_sequence,no,instructor_box
+E32_1725318653_+01620.jpg,1725318653_+01620.jpg,val,E32,Mt. Wilson Observatory East,Mt. Wilson,2024-09-02 22:43,1620,3072,2048,fire_sequence,no,instructor_box
+E32_1725318832_+01799.jpg,1725318832_+01799.jpg,val,E32,Mt. Wilson Observatory East,Mt. Wilson,2024-09-02 22:43,1799,3072,2048,fire_sequence,no,instructor_box
+E32_1725319013_+01980.jpg,1725319013_+01980.jpg,val,E32,Mt. Wilson Observatory East,Mt. Wilson,2024-09-02 22:43,1980,3072,2048,fire_sequence,no,instructor_box
+E33_1725409589_+00299.jpg,1725409589_+00299.jpg,val,E33,Cuyamaca Peak North,Cuyamaca Peak,2024-09-04 00:21,299,3072,2048,fire_sequence,no,instructor_box
+E33_1725409769_+00479.jpg,1725409769_+00479.jpg,val,E33,Cuyamaca Peak North,Cuyamaca Peak,2024-09-04 00:21,479,3072,2048,fire_sequence,no,instructor_box
+E33_1725410010_+00720.jpg,1725410010_+00720.jpg,val,E33,Cuyamaca Peak North,Cuyamaca Peak,2024-09-04 00:21,720,3072,2048,fire_sequence,no,instructor_box
+E33_1725410190_+00900.jpg,1725410190_+00900.jpg,val,E33,Cuyamaca Peak North,Cuyamaca Peak,2024-09-04 00:21,900,3072,2048,fire_sequence,no,instructor_box
+E33_1725410429_+01139.jpg,1725410429_+01139.jpg,val,E33,Cuyamaca Peak North,Cuyamaca Peak,2024-09-04 00:21,1139,3072,2048,fire_sequence,no,instructor_box
+E33_1725410609_+01319.jpg,1725410609_+01319.jpg,val,E33,Cuyamaca Peak North,Cuyamaca Peak,2024-09-04 00:21,1319,3072,2048,fire_sequence,no,instructor_box
+E33_1725410789_+01499.jpg,1725410789_+01499.jpg,val,E33,Cuyamaca Peak North,Cuyamaca Peak,2024-09-04 00:21,1499,3072,2048,fire_sequence,yes,instructor_box
+E33_1725411029_+01739.jpg,1725411029_+01739.jpg,val,E33,Cuyamaca Peak North,Cuyamaca Peak,2024-09-04 00:21,1739,3072,2048,fire_sequence,no,instructor_box
+E33_1725411209_+01919.jpg,1725411209_+01919.jpg,val,E33,Cuyamaca Peak North,Cuyamaca Peak,2024-09-04 00:21,1919,3072,2048,fire_sequence,no,instructor_box
+E34_1725562348_+00060.jpg,1725562348_+00060.jpg,val,E34,Cuyamaca Peak South,Cuyamaca Peak,2024-09-05 18:51,60,3072,2048,fire_sequence,yes,instructor_box
+E34_1725562528_+00240.jpg,1725562528_+00240.jpg,val,E34,Cuyamaca Peak South,Cuyamaca Peak,2024-09-05 18:51,240,3072,2048,fire_sequence,no,instructor_box
+E34_1725562708_+00420.jpg,1725562708_+00420.jpg,val,E34,Cuyamaca Peak South,Cuyamaca Peak,2024-09-05 18:51,420,3072,2048,fire_sequence,no,instructor_box
+E34_1725562888_+00600.jpg,1725562888_+00600.jpg,val,E34,Cuyamaca Peak South,Cuyamaca Peak,2024-09-05 18:51,600,3072,2048,fire_sequence,no,instructor_box
+E34_1725563068_+00780.jpg,1725563068_+00780.jpg,val,E34,Cuyamaca Peak South,Cuyamaca Peak,2024-09-05 18:51,780,3072,2048,fire_sequence,no,instructor_box
+E34_1725563308_+01020.jpg,1725563308_+01020.jpg,val,E34,Cuyamaca Peak South,Cuyamaca Peak,2024-09-05 18:51,1020,3072,2048,fire_sequence,no,instructor_box
+E34_1725563488_+01200.jpg,1725563488_+01200.jpg,val,E34,Cuyamaca Peak South,Cuyamaca Peak,2024-09-05 18:51,1200,3072,2048,fire_sequence,no,instructor_box
+E34_1725563668_+01380.jpg,1725563668_+01380.jpg,val,E34,Cuyamaca Peak South,Cuyamaca Peak,2024-09-05 18:51,1380,3072,2048,fire_sequence,no,instructor_box
+E34_1725563849_+01561.jpg,1725563849_+01561.jpg,val,E34,Cuyamaca Peak South,Cuyamaca Peak,2024-09-05 18:51,1561,3072,2048,fire_sequence,no,instructor_box
+E34_1725564028_+01740.jpg,1725564028_+01740.jpg,val,E34,Cuyamaca Peak South,Cuyamaca Peak,2024-09-05 18:51,1740,3072,2048,fire_sequence,no,instructor_box
+E34_1725564209_+01921.jpg,1725564209_+01921.jpg,val,E34,Cuyamaca Peak South,Cuyamaca Peak,2024-09-05 18:51,1921,3072,2048,fire_sequence,no,instructor_box
+E35_1725731881_+00181.jpg,1725731881_+00181.jpg,train,E35,White Star South,White Star,2024-09-07 17:55,181,3072,2048,fire_sequence,no,instructor_box
+E35_1725732061_+00361.jpg,1725732061_+00361.jpg,train,E35,White Star South,White Star,2024-09-07 17:55,361,3072,2048,fire_sequence,no,instructor_box
+E35_1725732240_+00540.jpg,1725732240_+00540.jpg,train,E35,White Star South,White Star,2024-09-07 17:55,540,3072,2048,fire_sequence,no,instructor_box
+E35_1725732420_+00720.jpg,1725732420_+00720.jpg,train,E35,White Star South,White Star,2024-09-07 17:55,720,3072,2048,fire_sequence,no,instructor_box
+E35_1725732601_+00901.jpg,1725732601_+00901.jpg,train,E35,White Star South,White Star,2024-09-07 17:55,901,3072,2048,fire_sequence,no,instructor_box
+E35_1725732841_+01141.jpg,1725732841_+01141.jpg,train,E35,White Star South,White Star,2024-09-07 17:55,1141,3072,2048,fire_sequence,no,instructor_box
+E35_1725733021_+01321.jpg,1725733021_+01321.jpg,train,E35,White Star South,White Star,2024-09-07 17:55,1321,3072,2048,fire_sequence,no,instructor_box
+E35_1725733201_+01501.jpg,1725733201_+01501.jpg,train,E35,White Star South,White Star,2024-09-07 17:55,1501,3072,2048,fire_sequence,yes,instructor_box
+E35_1725733381_+01681.jpg,1725733381_+01681.jpg,train,E35,White Star South,White Star,2024-09-07 17:55,1681,3072,2048,fire_sequence,no,instructor_box
+E35_1725733560_+01860.jpg,1725733560_+01860.jpg,train,E35,White Star South,White Star,2024-09-07 17:55,1860,3072,2048,fire_sequence,no,instructor_box
+E36_1725733801_+00000.jpg,1725733801_+00000.jpg,train,E36,White Star West,White Star,2024-09-07 18:30,0,3072,2048,fire_sequence,no,instructor_box
+E36_1725733982_+00181.jpg,1725733982_+00181.jpg,train,E36,White Star West,White Star,2024-09-07 18:30,181,3072,2048,fire_sequence,no,instructor_box
+E36_1725734161_+00360.jpg,1725734161_+00360.jpg,train,E36,White Star West,White Star,2024-09-07 18:30,360,3072,2048,fire_sequence,no,instructor_box
+E36_1725734342_+00541.jpg,1725734342_+00541.jpg,train,E36,White Star West,White Star,2024-09-07 18:30,541,3072,2048,fire_sequence,no,instructor_box
+E36_1725734522_+00721.jpg,1725734522_+00721.jpg,train,E36,White Star West,White Star,2024-09-07 18:30,721,3072,2048,fire_sequence,no,instructor_box
+E36_1725734761_+00960.jpg,1725734761_+00960.jpg,train,E36,White Star West,White Star,2024-09-07 18:30,960,3072,2048,fire_sequence,no,instructor_box
+E36_1725734941_+01140.jpg,1725734941_+01140.jpg,train,E36,White Star West,White Star,2024-09-07 18:30,1140,3072,2048,fire_sequence,no,instructor_box
+E36_1725735121_+01320.jpg,1725735121_+01320.jpg,train,E36,White Star West,White Star,2024-09-07 18:30,1320,3072,2048,fire_sequence,no,instructor_box
+E36_1725735301_+01500.jpg,1725735301_+01500.jpg,train,E36,White Star West,White Star,2024-09-07 18:30,1500,3072,2048,fire_sequence,no,instructor_box
+E36_1725735481_+01680.jpg,1725735481_+01680.jpg,train,E36,White Star West,White Star,2024-09-07 18:30,1680,3072,2048,fire_sequence,yes,instructor_box
+E36_1725735661_+01860.jpg,1725735661_+01860.jpg,train,E36,White Star West,White Star,2024-09-07 18:30,1860,3072,2048,fire_sequence,no,instructor_box
+E37_1725912753_+00541.jpg,1725912753_+00541.jpg,train,E37,Upper Bell North,Upper Bell,2024-09-09 20:03,541,3072,2048,fire_sequence,no,instructor_box
+E37_1725912932_+00720.jpg,1725912932_+00720.jpg,train,E37,Upper Bell North,Upper Bell,2024-09-09 20:03,720,3072,2048,fire_sequence,no,instructor_box
+E37_1725913172_+00960.jpg,1725913172_+00960.jpg,train,E37,Upper Bell North,Upper Bell,2024-09-09 20:03,960,3072,2048,fire_sequence,no,instructor_box
+E37_1725913352_+01140.jpg,1725913352_+01140.jpg,train,E37,Upper Bell North,Upper Bell,2024-09-09 20:03,1140,3072,2048,fire_sequence,yes,instructor_box
+E37_1725913532_+01320.jpg,1725913532_+01320.jpg,train,E37,Upper Bell North,Upper Bell,2024-09-09 20:03,1320,3072,2048,fire_sequence,no,instructor_box
+E37_1725913713_+01501.jpg,1725913713_+01501.jpg,train,E37,Upper Bell North,Upper Bell,2024-09-09 20:03,1501,3072,2048,fire_sequence,no,instructor_box
+E37_1725913952_+01740.jpg,1725913952_+01740.jpg,train,E37,Upper Bell North,Upper Bell,2024-09-09 20:03,1740,3072,2048,fire_sequence,no,instructor_box
+E37_1725914132_+01920.jpg,1725914132_+01920.jpg,train,E37,Upper Bell North,Upper Bell,2024-09-09 20:03,1920,3072,2048,fire_sequence,no,instructor_box
+E38_1725913418_+00060.jpg,1725913418_+00060.jpg,val,E38,Upper Talega North,Upper Talega,2024-09-09 20:22,60,3072,2048,fire_sequence,no,instructor_box
+E38_1725913598_+00240.jpg,1725913598_+00240.jpg,val,E38,Upper Talega North,Upper Talega,2024-09-09 20:22,240,3072,2048,fire_sequence,no,instructor_box
+E38_1725913778_+00420.jpg,1725913778_+00420.jpg,val,E38,Upper Talega North,Upper Talega,2024-09-09 20:22,420,3072,2048,fire_sequence,no,instructor_box
+E38_1725913958_+00600.jpg,1725913958_+00600.jpg,val,E38,Upper Talega North,Upper Talega,2024-09-09 20:22,600,3072,2048,fire_sequence,no,instructor_box
+E38_1725914138_+00780.jpg,1725914138_+00780.jpg,val,E38,Upper Talega North,Upper Talega,2024-09-09 20:22,780,3072,2048,fire_sequence,no,instructor_box
+E38_1725914378_+01020.jpg,1725914378_+01020.jpg,val,E38,Upper Talega North,Upper Talega,2024-09-09 20:22,1020,3072,2048,fire_sequence,no,instructor_box
+E38_1725914558_+01200.jpg,1725914558_+01200.jpg,val,E38,Upper Talega North,Upper Talega,2024-09-09 20:22,1200,3072,2048,fire_sequence,no,instructor_box
+E38_1725914738_+01380.jpg,1725914738_+01380.jpg,val,E38,Upper Talega North,Upper Talega,2024-09-09 20:22,1380,3072,2048,fire_sequence,yes,instructor_box
+E38_1725914918_+01560.jpg,1725914918_+01560.jpg,val,E38,Upper Talega North,Upper Talega,2024-09-09 20:22,1560,3072,2048,fire_sequence,no,instructor_box
+E38_1725915098_+01740.jpg,1725915098_+01740.jpg,val,E38,Upper Talega North,Upper Talega,2024-09-09 20:22,1740,3072,2048,fire_sequence,no,instructor_box
+E38_1725915278_+01920.jpg,1725915278_+01920.jpg,val,E38,Upper Talega North,Upper Talega,2024-09-09 20:22,1920,3072,2048,fire_sequence,no,instructor_box
+E39_1727218496_+00300.jpg,1727218496_+00300.jpg,train,E39,Otay Mountain West,Otay Mountain,2024-09-24 22:49,300,3072,2048,fire_sequence,no,instructor_box
+E39_1727218677_+00481.jpg,1727218677_+00481.jpg,train,E39,Otay Mountain West,Otay Mountain,2024-09-24 22:49,481,3072,2048,fire_sequence,no,instructor_box
+E39_1727218917_+00721.jpg,1727218917_+00721.jpg,train,E39,Otay Mountain West,Otay Mountain,2024-09-24 22:49,721,3072,2048,fire_sequence,no,instructor_box
+E39_1727219097_+00901.jpg,1727219097_+00901.jpg,train,E39,Otay Mountain West,Otay Mountain,2024-09-24 22:49,901,3072,2048,fire_sequence,no,instructor_box
+E39_1727219337_+01141.jpg,1727219337_+01141.jpg,train,E39,Otay Mountain West,Otay Mountain,2024-09-24 22:49,1141,3072,2048,fire_sequence,yes,instructor_box
+E39_1727219517_+01321.jpg,1727219517_+01321.jpg,train,E39,Otay Mountain West,Otay Mountain,2024-09-24 22:49,1321,3072,2048,fire_sequence,no,instructor_box
+E39_1727219696_+01500.jpg,1727219696_+01500.jpg,train,E39,Otay Mountain West,Otay Mountain,2024-09-24 22:49,1500,3072,2048,fire_sequence,no,instructor_box
+E39_1727219937_+01741.jpg,1727219937_+01741.jpg,train,E39,Otay Mountain West,Otay Mountain,2024-09-24 22:49,1741,3072,2048,fire_sequence,no,instructor_box
+E39_1727220116_+01920.jpg,1727220116_+01920.jpg,train,E39,Otay Mountain West,Otay Mountain,2024-09-24 22:49,1920,3072,2048,fire_sequence,no,instructor_box
+E40_1727484104_+00295.jpg,1727484104_+00295.jpg,train,E40,Toro Peak East,Toro Peak,2024-09-28 00:36,295,3072,2048,fire_sequence,no,instructor_box
+E40_1727484284_+00475.jpg,1727484284_+00475.jpg,train,E40,Toro Peak East,Toro Peak,2024-09-28 00:36,475,3072,2048,fire_sequence,no,instructor_box
+E40_1727484523_+00714.jpg,1727484523_+00714.jpg,train,E40,Toro Peak East,Toro Peak,2024-09-28 00:36,714,3072,2048,fire_sequence,no,instructor_box
+E40_1727484703_+00894.jpg,1727484703_+00894.jpg,train,E40,Toro Peak East,Toro Peak,2024-09-28 00:36,894,3072,2048,fire_sequence,no,instructor_box
+E40_1727484944_+01135.jpg,1727484944_+01135.jpg,train,E40,Toro Peak East,Toro Peak,2024-09-28 00:36,1135,3072,2048,fire_sequence,yes,instructor_box
+E40_1727485123_+01314.jpg,1727485123_+01314.jpg,train,E40,Toro Peak East,Toro Peak,2024-09-28 00:36,1314,3072,2048,fire_sequence,no,instructor_box
+E40_1727485303_+01494.jpg,1727485303_+01494.jpg,train,E40,Toro Peak East,Toro Peak,2024-09-28 00:36,1494,3072,2048,fire_sequence,no,instructor_box
+E40_1727485543_+01734.jpg,1727485543_+01734.jpg,train,E40,Toro Peak East,Toro Peak,2024-09-28 00:36,1734,3072,2048,fire_sequence,no,instructor_box
+E40_1727485724_+01915.jpg,1727485724_+01915.jpg,train,E40,Toro Peak East,Toro Peak,2024-09-28 00:36,1915,3072,2048,fire_sequence,no,instructor_box
+E41_1728244897_+00181.jpg,1728244897_+00181.jpg,val,E41,Santiago Peak West,Santiago Peak,2024-10-06 19:58,181,3072,2048,fire_sequence,no,instructor_box
+E41_1728245077_+00361.jpg,1728245077_+00361.jpg,val,E41,Santiago Peak West,Santiago Peak,2024-10-06 19:58,361,3072,2048,fire_sequence,no,instructor_box
+E41_1728245256_+00540.jpg,1728245256_+00540.jpg,val,E41,Santiago Peak West,Santiago Peak,2024-10-06 19:58,540,3072,2048,fire_sequence,no,instructor_box
+E41_1728245437_+00721.jpg,1728245437_+00721.jpg,val,E41,Santiago Peak West,Santiago Peak,2024-10-06 19:58,721,3072,2048,fire_sequence,no,instructor_box
+E41_1728245617_+00901.jpg,1728245617_+00901.jpg,val,E41,Santiago Peak West,Santiago Peak,2024-10-06 19:58,901,3072,2048,fire_sequence,no,instructor_box
+E41_1728245856_+01140.jpg,1728245856_+01140.jpg,val,E41,Santiago Peak West,Santiago Peak,2024-10-06 19:58,1140,3072,2048,fire_sequence,no,instructor_box
+E41_1728246036_+01320.jpg,1728246036_+01320.jpg,val,E41,Santiago Peak West,Santiago Peak,2024-10-06 19:58,1320,3072,2048,fire_sequence,yes,instructor_box
+E41_1728246216_+01500.jpg,1728246216_+01500.jpg,val,E41,Santiago Peak West,Santiago Peak,2024-10-06 19:58,1500,3072,2048,fire_sequence,no,instructor_box
+E41_1728246396_+01680.jpg,1728246396_+01680.jpg,val,E41,Santiago Peak West,Santiago Peak,2024-10-06 19:58,1680,3072,2048,fire_sequence,no,instructor_box
+E41_1728246576_+01860.jpg,1728246576_+01860.jpg,val,E41,Santiago Peak West,Santiago Peak,2024-10-06 19:58,1860,3072,2048,fire_sequence,no,instructor_box
+E42_1728337077_+00420.jpg,1728337077_+00420.jpg,train,E42,Los Pinos East,Los Pinos,2024-10-07 21:30,420,3072,2048,fire_sequence,no,instructor_box
+E42_1728337257_+00600.jpg,1728337257_+00600.jpg,train,E42,Los Pinos East,Los Pinos,2024-10-07 21:30,600,3072,2048,fire_sequence,no,instructor_box
+E42_1728337737_+01080.jpg,1728337737_+01080.jpg,train,E42,Los Pinos East,Los Pinos,2024-10-07 21:30,1080,3072,2048,fire_sequence,no,instructor_box
+E42_1728337917_+01260.jpg,1728337917_+01260.jpg,train,E42,Los Pinos East,Los Pinos,2024-10-07 21:30,1260,3072,2048,fire_sequence,no,instructor_box
+E42_1728337977_+01320.jpg,1728337977_+01320.jpg,train,E42,Los Pinos East,Los Pinos,2024-10-07 21:30,1320,3072,2048,fire_sequence,no,instructor_box
+E42_1728338037_+01380.jpg,1728338037_+01380.jpg,train,E42,Los Pinos East,Los Pinos,2024-10-07 21:30,1380,3072,2048,fire_sequence,no,instructor_box
+E42_1728338157_+01500.jpg,1728338157_+01500.jpg,train,E42,Los Pinos East,Los Pinos,2024-10-07 21:30,1500,3072,2048,fire_sequence,no,instructor_box
+E42_1728337200_+00480.jpg,1728337200_+00480.jpg,train,E42,White Star North,White Star,2024-10-07 21:32,480,3072,2048,fire_sequence,no,instructor_box
+E42_1728337380_+00660.jpg,1728337380_+00660.jpg,train,E42,White Star North,White Star,2024-10-07 21:32,660,3072,2048,fire_sequence,no,instructor_box
+E42_1728337500_+00780.jpg,1728337500_+00780.jpg,train,E42,White Star North,White Star,2024-10-07 21:32,780,3072,2048,fire_sequence,no,instructor_box
+E42_1728337619_+00899.jpg,1728337619_+00899.jpg,train,E42,White Star North,White Star,2024-10-07 21:32,899,3072,2048,fire_sequence,no,instructor_box
+E42_1728337680_+00960.jpg,1728337680_+00960.jpg,train,E42,White Star North,White Star,2024-10-07 21:32,960,3072,2048,fire_sequence,no,instructor_box
+E42_1728337861_+01141.jpg,1728337861_+01141.jpg,train,E42,White Star North,White Star,2024-10-07 21:32,1141,3072,2048,fire_sequence,no,instructor_box
+E42_1728338340_+01620.jpg,1728338340_+01620.jpg,train,E42,White Star North,White Star,2024-10-07 21:32,1620,3072,2048,fire_sequence,no,instructor_box
+E42_1728338520_+01800.jpg,1728338520_+01800.jpg,train,E42,White Star North,White Star,2024-10-07 21:32,1800,3072,2048,fire_sequence,no,instructor_box
+E42_1728338701_+01981.jpg,1728338701_+01981.jpg,train,E42,White Star North,White Star,2024-10-07 21:32,1981,3072,2048,fire_sequence,no,instructor_box
+E42_1728338101_+01440.jpg,1728338101_+01440.jpg,train,E42,White Star West,White Star,2024-10-07 21:31,1440,3072,2048,fire_sequence,no,instructor_box
+E42_1728338221_+01560.jpg,1728338221_+01560.jpg,train,E42,White Star West,White Star,2024-10-07 21:31,1560,3072,2048,fire_sequence,no,instructor_box
+E42_1728338341_+01680.jpg,1728338341_+01680.jpg,train,E42,White Star West,White Star,2024-10-07 21:31,1680,3072,2048,fire_sequence,yes,instructor_box
+E42_1728338401_+01740.jpg,1728338401_+01740.jpg,train,E42,White Star West,White Star,2024-10-07 21:31,1740,3072,2048,fire_sequence,no,instructor_box
+E42_1728338522_+01861.jpg,1728338522_+01861.jpg,train,E42,White Star West,White Star,2024-10-07 21:31,1861,3072,2048,fire_sequence,no,instructor_box
+E42_1728338582_+01921.jpg,1728338582_+01921.jpg,train,E42,White Star West,White Star,2024-10-07 21:31,1921,3072,2048,fire_sequence,no,instructor_box
+E42_1728338822_+02161.jpg,1728338822_+02161.jpg,train,E42,White Star West,White Star,2024-10-07 21:31,2161,3072,2048,fire_sequence,no,instructor_box
+E43_1730403204_+01500.jpg,1730403204_+01500.jpg,val,E43,Mt. San Miguel West,Mt. San Miguel,2024-10-31 19:08,1500,3072,2048,fire_sequence,yes,instructor_box
+E43_1730403324_+01620.jpg,1730403324_+01620.jpg,val,E43,Mt. San Miguel West,Mt. San Miguel,2024-10-31 19:08,1620,3072,2048,fire_sequence,no,instructor_box
+E43_1730403445_+01741.jpg,1730403445_+01741.jpg,val,E43,Mt. San Miguel West,Mt. San Miguel,2024-10-31 19:08,1741,3072,2048,fire_sequence,no,instructor_box
+E43_1730403624_+01920.jpg,1730403624_+01920.jpg,val,E43,Mt. San Miguel West,Mt. San Miguel,2024-10-31 19:08,1920,3072,2048,fire_sequence,no,instructor_box
+E43_1730403745_+02041.jpg,1730403745_+02041.jpg,val,E43,Mt. San Miguel West,Mt. San Miguel,2024-10-31 19:08,2041,3072,2048,fire_sequence,no,instructor_box
+E43_1730403864_+02160.jpg,1730403864_+02160.jpg,val,E43,Mt. San Miguel West,Mt. San Miguel,2024-10-31 19:08,2160,3072,2048,fire_sequence,no,instructor_box
+E44_1730407284_+00420.jpg,1730407284_+00420.jpg,val,E44,Mt. San Miguel West,Mt. San Miguel,2024-10-31 20:34,420,3072,2048,fire_sequence,no,instructor_box
+E44_1730407464_+00600.jpg,1730407464_+00600.jpg,val,E44,Mt. San Miguel West,Mt. San Miguel,2024-10-31 20:34,600,3072,2048,fire_sequence,no,instructor_box
+E44_1730407644_+00780.jpg,1730407644_+00780.jpg,val,E44,Mt. San Miguel West,Mt. San Miguel,2024-10-31 20:34,780,3072,2048,fire_sequence,no,instructor_box
+E44_1730407824_+00960.jpg,1730407824_+00960.jpg,val,E44,Mt. San Miguel West,Mt. San Miguel,2024-10-31 20:34,960,3072,2048,fire_sequence,no,instructor_box
+E44_1730408004_+01140.jpg,1730408004_+01140.jpg,val,E44,Mt. San Miguel West,Mt. San Miguel,2024-10-31 20:34,1140,3072,2048,fire_sequence,no,instructor_box
+E44_1730408244_+01380.jpg,1730408244_+01380.jpg,val,E44,Mt. San Miguel West,Mt. San Miguel,2024-10-31 20:34,1380,3072,2048,fire_sequence,yes,instructor_box
+E44_1730408425_+01561.jpg,1730408425_+01561.jpg,val,E44,Mt. San Miguel West,Mt. San Miguel,2024-10-31 20:34,1561,3072,2048,fire_sequence,no,instructor_box
+E44_1730408605_+01741.jpg,1730408605_+01741.jpg,val,E44,Mt. San Miguel West,Mt. San Miguel,2024-10-31 20:34,1741,3072,2048,fire_sequence,no,instructor_box
+E44_1730408785_+01921.jpg,1730408785_+01921.jpg,val,E44,Mt. San Miguel West,Mt. San Miguel,2024-10-31 20:34,1921,3072,2048,fire_sequence,no,instructor_box
+E45_1731098692_+00359.jpg,1731098692_+00359.jpg,train,E45,Mt. Woodson North,Mt. Woodson,2024-11-08 20:38,359,3072,2048,fire_sequence,no,instructor_box
+E45_1731098813_+00480.jpg,1731098813_+00480.jpg,train,E45,Mt. Woodson North,Mt. Woodson,2024-11-08 20:38,480,3072,2048,fire_sequence,no,instructor_box
+E45_1731098992_+00659.jpg,1731098992_+00659.jpg,train,E45,Mt. Woodson North,Mt. Woodson,2024-11-08 20:38,659,3072,2048,fire_sequence,no,instructor_box
+E45_1731099112_+00779.jpg,1731099112_+00779.jpg,train,E45,Mt. Woodson North,Mt. Woodson,2024-11-08 20:38,779,3072,2048,fire_sequence,no,instructor_box
+E45_1731100749_+02160.jpg,1731100749_+02160.jpg,train,E45,Red Mountain South,Red Mountain,2024-11-08 20:43,2160,3072,2048,fire_sequence,no,instructor_box
+E45_1731100869_+02280.jpg,1731100869_+02280.jpg,train,E45,Red Mountain South,Red Mountain,2024-11-08 20:43,2280,3072,2048,fire_sequence,yes,instructor_box
+E46_1731110086_+00840.jpg,1731110086_+00840.jpg,train,E46,Mesa Grande North,Mesa Grande,2024-11-08 23:40,840,3072,2048,fire_sequence,no,instructor_box
+E46_1731110265_+01019.jpg,1731110265_+01019.jpg,train,E46,Mesa Grande North,Mesa Grande,2024-11-08 23:40,1019,3072,2048,fire_sequence,no,instructor_box
+E46_1731110446_+01200.jpg,1731110446_+01200.jpg,train,E46,Mesa Grande North,Mesa Grande,2024-11-08 23:40,1200,3072,2048,fire_sequence,no,instructor_box
+E46_1731110626_+01380.jpg,1731110626_+01380.jpg,train,E46,Mesa Grande North,Mesa Grande,2024-11-08 23:40,1380,3072,2048,fire_sequence,no,instructor_box
+E46_1731111199_+01440.jpg,1731111199_+01440.jpg,train,E46,Mesa Grande North,Mesa Grande,2024-11-08 23:49,1440,3072,2048,fire_sequence,no,instructor_box
+E46_1731110806_+01560.jpg,1731110806_+01560.jpg,train,E46,Mesa Grande North,Mesa Grande,2024-11-08 23:40,1560,3072,2048,fire_sequence,no,instructor_box
+E46_1731111379_+01620.jpg,1731111379_+01620.jpg,train,E46,Mesa Grande North,Mesa Grande,2024-11-08 23:49,1620,3072,2048,fire_sequence,no,instructor_box
+E46_1731110986_+01740.jpg,1731110986_+01740.jpg,train,E46,Mesa Grande North,Mesa Grande,2024-11-08 23:40,1740,3072,2048,fire_sequence,no,instructor_box
+E46_1731111560_+01801.jpg,1731111560_+01801.jpg,train,E46,Mesa Grande North,Mesa Grande,2024-11-08 23:49,1801,3072,2048,fire_sequence,yes,instructor_box
+E46_1731111680_+01921.jpg,1731111680_+01921.jpg,train,E46,Mesa Grande North,Mesa Grande,2024-11-08 23:49,1921,3072,2048,fire_sequence,no,instructor_box
+E46_1731111286_+02040.jpg,1731111286_+02040.jpg,train,E46,Mesa Grande North,Mesa Grande,2024-11-08 23:40,2040,3072,2048,fire_sequence,no,instructor_box
+E46_1731111919_+02160.jpg,1731111919_+02160.jpg,train,E46,Mesa Grande North,Mesa Grande,2024-11-08 23:49,2160,3072,2048,fire_sequence,no,instructor_box
+E47_1731520413_+00360.jpg,1731520413_+00360.jpg,train,E47,Green Peak South,Green Peak,2024-11-13 17:47,360,3072,2048,fire_sequence,no,instructor_box
+E47_1731520653_+00600.jpg,1731520653_+00600.jpg,train,E47,Green Peak South,Green Peak,2024-11-13 17:47,600,3072,2048,fire_sequence,no,instructor_box
+E47_1731520894_+00841.jpg,1731520894_+00841.jpg,train,E47,Green Peak South,Green Peak,2024-11-13 17:47,841,3072,2048,fire_sequence,yes,instructor_box
+E47_1731521133_+01080.jpg,1731521133_+01080.jpg,train,E47,Green Peak South,Green Peak,2024-11-13 17:47,1080,3072,2048,fire_sequence,no,instructor_box
+E47_1731521433_+01380.jpg,1731521433_+01380.jpg,train,E47,Green Peak South,Green Peak,2024-11-13 17:47,1380,3072,2048,fire_sequence,no,instructor_box
+E47_1731521553_+01500.jpg,1731521553_+01500.jpg,train,E47,Green Peak South,Green Peak,2024-11-13 17:47,1500,3072,2048,fire_sequence,no,instructor_box
+E47_1731521793_+01740.jpg,1731521793_+01740.jpg,train,E47,Green Peak South,Green Peak,2024-11-13 17:47,1740,3072,2048,fire_sequence,no,instructor_box
+E47_1731521913_+01860.jpg,1731521913_+01860.jpg,train,E47,Green Peak South,Green Peak,2024-11-13 17:47,1860,3072,2048,fire_sequence,no,instructor_box
+E47_1731522033_+01980.jpg,1731522033_+01980.jpg,train,E47,Green Peak South,Green Peak,2024-11-13 17:47,1980,3072,2048,fire_sequence,no,instructor_box
+E47_1731520534_+00481.jpg,1731520534_+00481.jpg,train,E47,Green Peak West,Green Peak,2024-11-13 17:47,481,3072,2048,fire_sequence,no,instructor_box
+E47_1731520774_+00721.jpg,1731520774_+00721.jpg,train,E47,Green Peak West,Green Peak,2024-11-13 17:47,721,3072,2048,fire_sequence,no,instructor_box
+E47_1731521014_+00961.jpg,1731521014_+00961.jpg,train,E47,Green Peak West,Green Peak,2024-11-13 17:47,961,3072,2048,fire_sequence,no,instructor_box
+E47_1731521314_+01261.jpg,1731521314_+01261.jpg,train,E47,Green Peak West,Green Peak,2024-11-13 17:47,1261,3072,2048,fire_sequence,no,instructor_box
+E47_1731521613_+01560.jpg,1731521613_+01560.jpg,train,E47,Green Peak West,Green Peak,2024-11-13 17:47,1560,3072,2048,fire_sequence,no,instructor_box
+E48_1733152027_+00539.jpg,1733152027_+00539.jpg,train,E48,Red Mountain East,Red Mountain,2024-12-02 14:58,539,3072,2048,fire_sequence,no,instructor_box
+E48_1733152208_+00720.jpg,1733152208_+00720.jpg,train,E48,Red Mountain East,Red Mountain,2024-12-02 14:58,720,3072,2048,fire_sequence,no,instructor_box
+E48_1733152447_+00959.jpg,1733152447_+00959.jpg,train,E48,Red Mountain East,Red Mountain,2024-12-02 14:58,959,3072,2048,fire_sequence,no,instructor_box
+E48_1733152626_+01138.jpg,1733152626_+01138.jpg,train,E48,Red Mountain East,Red Mountain,2024-12-02 14:58,1138,3072,2048,fire_sequence,yes,instructor_box
+E48_1733152866_+01378.jpg,1733152866_+01378.jpg,train,E48,Red Mountain East,Red Mountain,2024-12-02 14:58,1378,3072,2048,fire_sequence,no,instructor_box
+E48_1733153047_+01559.jpg,1733153047_+01559.jpg,train,E48,Red Mountain East,Red Mountain,2024-12-02 14:58,1559,3072,2048,fire_sequence,no,instructor_box
+E48_1733153287_+01799.jpg,1733153287_+01799.jpg,train,E48,Red Mountain East,Red Mountain,2024-12-02 14:58,1799,3072,2048,fire_sequence,no,instructor_box
+E48_1733153466_+01978.jpg,1733153466_+01978.jpg,train,E48,Red Mountain East,Red Mountain,2024-12-02 14:58,1978,3072,2048,fire_sequence,no,instructor_box
+E49_1734371360_+01220.jpg,1734371360_+01220.jpg,train,E49,Big Black Mountain South,Big Black Mountain,2024-12-16 17:29,1220,3072,2048,fire_sequence,yes,instructor_box
+E49_1734371479_+01320.jpg,1734371479_+01320.jpg,train,E49,Big Black Mountain South,Big Black Mountain,2024-12-16 17:29,1320,3072,2048,fire_sequence,no,instructor_box
+E49_1734371539_+01399.jpg,1734371539_+01399.jpg,train,E49,Big Black Mountain South,Big Black Mountain,2024-12-16 17:29,1399,3072,2048,fire_sequence,no,instructor_box
+E49_1734371660_+01501.jpg,1734371660_+01501.jpg,train,E49,Big Black Mountain South,Big Black Mountain,2024-12-16 17:29,1501,3072,2048,fire_sequence,no,instructor_box
+E49_1734371720_+01580.jpg,1734371720_+01580.jpg,train,E49,Big Black Mountain South,Big Black Mountain,2024-12-16 17:29,1580,3072,2048,fire_sequence,no,instructor_box
+E49_1734371840_+01700.jpg,1734371840_+01700.jpg,train,E49,Big Black Mountain South,Big Black Mountain,2024-12-16 17:29,1700,3072,2048,fire_sequence,no,instructor_box
+E49_1734371959_+01800.jpg,1734371959_+01800.jpg,train,E49,Big Black Mountain South,Big Black Mountain,2024-12-16 17:29,1800,3072,2048,fire_sequence,no,instructor_box
+E49_1734372020_+01880.jpg,1734372020_+01880.jpg,train,E49,Big Black Mountain South,Big Black Mountain,2024-12-16 17:29,1880,3072,2048,fire_sequence,no,instructor_box
+E49_1734372140_+01981.jpg,1734372140_+01981.jpg,train,E49,Big Black Mountain South,Big Black Mountain,2024-12-16 17:29,1981,3072,2048,fire_sequence,no,instructor_box
+E49_1734372200_+02060.jpg,1734372200_+02060.jpg,train,E49,Big Black Mountain South,Big Black Mountain,2024-12-16 17:29,2060,3072,2048,fire_sequence,no,instructor_box
+E50_1736274572_+00240.jpg,1736274572_+00240.jpg,train,E50,Green Peak South,Green Peak,2025-01-07 18:25,240,3072,2048,fire_sequence,no,instructor_box
+E50_1736274752_+00420.jpg,1736274752_+00420.jpg,train,E50,Green Peak South,Green Peak,2025-01-07 18:25,420,3072,2048,fire_sequence,no,instructor_box
+E50_1736274872_+00540.jpg,1736274872_+00540.jpg,train,E50,Green Peak South,Green Peak,2025-01-07 18:25,540,3072,2048,fire_sequence,no,instructor_box
+E50_1736274992_+00660.jpg,1736274992_+00660.jpg,train,E50,Green Peak South,Green Peak,2025-01-07 18:25,660,3072,2048,fire_sequence,no,instructor_box
+E50_1736275052_+00720.jpg,1736275052_+00720.jpg,train,E50,Green Peak South,Green Peak,2025-01-07 18:25,720,3072,2048,fire_sequence,no,instructor_box
+E50_1736275712_+01380.jpg,1736275712_+01380.jpg,train,E50,Green Peak South,Green Peak,2025-01-07 18:25,1380,3072,2048,fire_sequence,no,instructor_box
+E50_1736276012_+01680.jpg,1736276012_+01680.jpg,train,E50,Green Peak South,Green Peak,2025-01-07 18:25,1680,3072,2048,fire_sequence,no,instructor_box
+E50_1736276192_+01860.jpg,1736276192_+01860.jpg,train,E50,Green Peak South,Green Peak,2025-01-07 18:25,1860,3072,2048,fire_sequence,no,instructor_box
+E50_1736276253_+01921.jpg,1736276253_+01921.jpg,train,E50,Green Peak South,Green Peak,2025-01-07 18:25,1921,3072,2048,fire_sequence,no,instructor_box
+E50_1736275082_+00841.jpg,1736275082_+00841.jpg,train,E50,LACoFD Helibase 69 Bravo East,LACoFD Helibase 69 Bravo,2025-01-07 18:24,841,3072,2048,fire_sequence,yes,instructor_box
+E50_1736275142_+00901.jpg,1736275142_+00901.jpg,train,E50,LACoFD Helibase 69 Bravo East,LACoFD Helibase 69 Bravo,2025-01-07 18:24,901,3072,2048,fire_sequence,no,instructor_box
+E50_1736275261_+01020.jpg,1736275261_+01020.jpg,train,E50,LACoFD Helibase 69 Bravo East,LACoFD Helibase 69 Bravo,2025-01-07 18:24,1020,3072,2048,fire_sequence,no,instructor_box
+E50_1736275322_+01081.jpg,1736275322_+01081.jpg,train,E50,LACoFD Helibase 69 Bravo East,LACoFD Helibase 69 Bravo,2025-01-07 18:24,1081,3072,2048,fire_sequence,no,instructor_box
+E50_1736275442_+01201.jpg,1736275442_+01201.jpg,train,E50,LACoFD Helibase 69 Bravo East,LACoFD Helibase 69 Bravo,2025-01-07 18:24,1201,3072,2048,fire_sequence,no,instructor_box
+E50_1736275561_+01320.jpg,1736275561_+01320.jpg,train,E50,LACoFD Helibase 69 Bravo East,LACoFD Helibase 69 Bravo,2025-01-07 18:24,1320,3072,2048,fire_sequence,no,instructor_box
+E50_1736275741_+01500.jpg,1736275741_+01500.jpg,train,E50,LACoFD Helibase 69 Bravo East,LACoFD Helibase 69 Bravo,2025-01-07 18:24,1500,3072,2048,fire_sequence,no,instructor_box
+E50_1736275802_+01561.jpg,1736275802_+01561.jpg,train,E50,LACoFD Helibase 69 Bravo East,LACoFD Helibase 69 Bravo,2025-01-07 18:24,1561,3072,2048,fire_sequence,no,instructor_box
+E50_1736275982_+01741.jpg,1736275982_+01741.jpg,train,E50,LACoFD Helibase 69 Bravo East,LACoFD Helibase 69 Bravo,2025-01-07 18:24,1741,3072,2048,fire_sequence,no,instructor_box
+E51_1737566484_+01620.jpg,1737566484_+01620.jpg,train,E51,Coronado Hills South,Coronado Hills,2025-01-22 16:54,1620,3072,2048,fire_sequence,yes,instructor_box
+E51_1737566604_+01740.jpg,1737566604_+01740.jpg,train,E51,Coronado Hills South,Coronado Hills,2025-01-22 16:54,1740,3072,2048,fire_sequence,no,instructor_box
+E51_1737566724_+01860.jpg,1737566724_+01860.jpg,train,E51,Coronado Hills South,Coronado Hills,2025-01-22 16:54,1860,3072,2048,fire_sequence,no,instructor_box
+E51_1737566844_+01980.jpg,1737566844_+01980.jpg,train,E51,Coronado Hills South,Coronado Hills,2025-01-22 16:54,1980,3072,2048,fire_sequence,no,instructor_box
+E51_1737566964_+02100.jpg,1737566964_+02100.jpg,train,E51,Coronado Hills South,Coronado Hills,2025-01-22 16:54,2100,3072,2048,fire_sequence,no,instructor_box
+E51_1737567085_+02221.jpg,1737567085_+02221.jpg,train,E51,Coronado Hills South,Coronado Hills,2025-01-22 16:54,2221,3072,2048,fire_sequence,no,instructor_box
+E52_1737669357_+01919.jpg,1737669357_+01919.jpg,train,E52,Otay Mountain West,Otay Mountain,2025-01-23 21:23,1919,3072,2048,fire_sequence,no,instructor_box
+E52_1737669417_+01979.jpg,1737669417_+01979.jpg,train,E52,Otay Mountain West,Otay Mountain,2025-01-23 21:23,1979,3072,2048,fire_sequence,yes,instructor_box
+E52_1737669477_+02039.jpg,1737669477_+02039.jpg,train,E52,Otay Mountain West,Otay Mountain,2025-01-23 21:23,2039,3072,2048,fire_sequence,no,instructor_box
+E52_1737669538_+02100.jpg,1737669538_+02100.jpg,train,E52,Otay Mountain West,Otay Mountain,2025-01-23 21:23,2100,3072,2048,fire_sequence,no,instructor_box
+E52_1737669598_+02160.jpg,1737669598_+02160.jpg,train,E52,Otay Mountain West,Otay Mountain,2025-01-23 21:23,2160,3072,2048,fire_sequence,no,instructor_box
+E53_1737670904_+00540.jpg,1737670904_+00540.jpg,train,E53,Theatre District LLN South,Theatre District,2025-01-23 22:12,540,3072,2048,fire_sequence,no,instructor_box
+E53_1737671085_+00721.jpg,1737671085_+00721.jpg,train,E53,Theatre District LLN South,Theatre District,2025-01-23 22:12,721,3072,2048,fire_sequence,no,instructor_box
+E53_1737671325_+00961.jpg,1737671325_+00961.jpg,train,E53,Theatre District LLN South,Theatre District,2025-01-23 22:12,961,3072,2048,fire_sequence,no,instructor_box
+E53_1737671504_+01140.jpg,1737671504_+01140.jpg,train,E53,Theatre District LLN South,Theatre District,2025-01-23 22:12,1140,3072,2048,fire_sequence,no,instructor_box
+E53_1737671684_+01320.jpg,1737671684_+01320.jpg,train,E53,Theatre District LLN South,Theatre District,2025-01-23 22:12,1320,3072,2048,fire_sequence,no,instructor_box
+E53_1737671865_+01501.jpg,1737671865_+01501.jpg,train,E53,Theatre District LLN South,Theatre District,2025-01-23 22:12,1501,3072,2048,fire_sequence,yes,instructor_box
+E53_1737672105_+01741.jpg,1737672105_+01741.jpg,train,E53,Theatre District LLN South,Theatre District,2025-01-23 22:12,1741,3072,2048,fire_sequence,no,instructor_box
+E53_1737672286_+01922.jpg,1737672286_+01922.jpg,train,E53,Theatre District LLN South,Theatre District,2025-01-23 22:12,1922,3072,2048,fire_sequence,no,instructor_box
+E54_1740607428_+00660.jpg,1740607428_+00660.jpg,train,E54,Mt. Laguna West,Mt. Laguna,2025-02-26 21:52,660,3072,2048,fire_sequence,no,instructor_box
+E54_1740607608_+00840.jpg,1740607608_+00840.jpg,train,E54,Mt. Laguna West,Mt. Laguna,2025-02-26 21:52,840,3072,2048,fire_sequence,yes,instructor_box
+E54_1740607848_+01080.jpg,1740607848_+01080.jpg,train,E54,Mt. Laguna West,Mt. Laguna,2025-02-26 21:52,1080,3072,2048,fire_sequence,no,instructor_box
+E54_1740608028_+01260.jpg,1740608028_+01260.jpg,train,E54,Mt. Laguna West,Mt. Laguna,2025-02-26 21:52,1260,3072,2048,fire_sequence,no,instructor_box
+E54_1740608209_+01441.jpg,1740608209_+01441.jpg,train,E54,Mt. Laguna West,Mt. Laguna,2025-02-26 21:52,1441,3072,2048,fire_sequence,no,instructor_box
+E54_1740608388_+01620.jpg,1740608388_+01620.jpg,train,E54,Mt. Laguna West,Mt. Laguna,2025-02-26 21:52,1620,3072,2048,fire_sequence,no,instructor_box
+E54_1740608629_+01861.jpg,1740608629_+01861.jpg,train,E54,Mt. Laguna West,Mt. Laguna,2025-02-26 21:52,1861,3072,2048,fire_sequence,no,instructor_box
+E54_1740608809_+02041.jpg,1740608809_+02041.jpg,train,E54,Mt. Laguna West,Mt. Laguna,2025-02-26 21:52,2041,3072,2048,fire_sequence,no,instructor_box
+E55_1746132227_+00300.jpg,1746132227_+00300.jpg,train,E55,Mt. Laguna North,Mt. Laguna,2025-05-01 20:38,300,2048,1536,fire_sequence,no,instructor_box
+E55_1746132287_+00360.jpg,1746132287_+00360.jpg,train,E55,Mt. Laguna North,Mt. Laguna,2025-05-01 20:38,360,2048,1536,fire_sequence,no,instructor_box
+E55_1746132407_+00480.jpg,1746132407_+00480.jpg,train,E55,Mt. Laguna North,Mt. Laguna,2025-05-01 20:38,480,2048,1536,fire_sequence,no,instructor_box
+E55_1746132468_+00541.jpg,1746132468_+00541.jpg,train,E55,Mt. Laguna North,Mt. Laguna,2025-05-01 20:38,541,2048,1536,fire_sequence,no,instructor_box
+E55_1746132587_+00660.jpg,1746132587_+00660.jpg,train,E55,Mt. Laguna North,Mt. Laguna,2025-05-01 20:38,660,2048,1536,fire_sequence,yes,instructor_box
+E55_1746132647_+00720.jpg,1746132647_+00720.jpg,train,E55,Mt. Laguna North,Mt. Laguna,2025-05-01 20:38,720,2048,1536,fire_sequence,no,instructor_box
+E56_1747244374_+00476.jpg,1747244374_+00476.jpg,train,E56,High Point East,High Point,2025-05-14 17:31,476,3072,2048,fire_sequence,no,instructor_box
+E56_1747244553_+00655.jpg,1747244553_+00655.jpg,train,E56,High Point East,High Point,2025-05-14 17:31,655,3072,2048,fire_sequence,no,instructor_box
+E56_1747244734_+00836.jpg,1747244734_+00836.jpg,train,E56,High Point East,High Point,2025-05-14 17:31,836,3072,2048,fire_sequence,no,instructor_box
+E56_1747244913_+01015.jpg,1747244913_+01015.jpg,train,E56,High Point East,High Point,2025-05-14 17:31,1015,3072,2048,fire_sequence,no,instructor_box
+E56_1747245093_+01195.jpg,1747245093_+01195.jpg,train,E56,High Point East,High Point,2025-05-14 17:31,1195,3072,2048,fire_sequence,no,instructor_box
+E56_1747245333_+01435.jpg,1747245333_+01435.jpg,train,E56,High Point East,High Point,2025-05-14 17:31,1435,3072,2048,fire_sequence,no,instructor_box
+E56_1747245513_+01615.jpg,1747245513_+01615.jpg,train,E56,High Point East,High Point,2025-05-14 17:31,1615,3072,2048,fire_sequence,no,instructor_box
+E56_1747245693_+01795.jpg,1747245693_+01795.jpg,train,E56,High Point East,High Point,2025-05-14 17:31,1795,3072,2048,fire_sequence,no,instructor_box
+E56_1747245873_+01975.jpg,1747245873_+01975.jpg,train,E56,High Point East,High Point,2025-05-14 17:31,1975,3072,2048,fire_sequence,yes,instructor_box
+E57_1747431835_+00299.jpg,1747431835_+00299.jpg,train,E57,Mt. Woodson North,Mt. Woodson,2025-05-16 21:38,299,3072,2048,fire_sequence,no,instructor_box
+E57_1747432015_+00479.jpg,1747432015_+00479.jpg,train,E57,Mt. Woodson North,Mt. Woodson,2025-05-16 21:38,479,3072,2048,fire_sequence,yes,instructor_box
+E57_1747432254_+00718.jpg,1747432254_+00718.jpg,train,E57,Mt. Woodson North,Mt. Woodson,2025-05-16 21:38,718,3072,2048,fire_sequence,no,instructor_box
+E57_1747432435_+00899.jpg,1747432435_+00899.jpg,train,E57,Mt. Woodson North,Mt. Woodson,2025-05-16 21:38,899,3072,2048,fire_sequence,no,instructor_box
+E57_1747432675_+01139.jpg,1747432675_+01139.jpg,train,E57,Mt. Woodson North,Mt. Woodson,2025-05-16 21:38,1139,3072,2048,fire_sequence,no,instructor_box
+E57_1747432855_+01319.jpg,1747432855_+01319.jpg,train,E57,Mt. Woodson North,Mt. Woodson,2025-05-16 21:38,1319,3072,2048,fire_sequence,no,instructor_box
+E57_1747433035_+01499.jpg,1747433035_+01499.jpg,train,E57,Mt. Woodson North,Mt. Woodson,2025-05-16 21:38,1499,3072,2048,fire_sequence,no,instructor_box
+E57_1747433275_+01739.jpg,1747433275_+01739.jpg,train,E57,Mt. Woodson North,Mt. Woodson,2025-05-16 21:38,1739,3072,2048,fire_sequence,no,instructor_box
+E57_1747433455_+01919.jpg,1747433455_+01919.jpg,train,E57,Mt. Woodson North,Mt. Woodson,2025-05-16 21:38,1919,3072,2048,fire_sequence,no,instructor_box
+E58_1747774233_+00958.jpg,1747774233_+00958.jpg,train,E58,High Point North,High Point,2025-05-20 20:34,958,3072,2048,fire_sequence,no,instructor_box
+E58_1747774414_+01139.jpg,1747774414_+01139.jpg,train,E58,High Point North,High Point,2025-05-20 20:34,1139,3072,2048,fire_sequence,yes,instructor_box
+E58_1747774594_+01319.jpg,1747774594_+01319.jpg,train,E58,High Point North,High Point,2025-05-20 20:34,1319,3072,2048,fire_sequence,no,instructor_box
+E58_1747774834_+01559.jpg,1747774834_+01559.jpg,train,E58,High Point North,High Point,2025-05-20 20:34,1559,3072,2048,fire_sequence,no,instructor_box
+E58_1747775014_+01739.jpg,1747775014_+01739.jpg,train,E58,High Point North,High Point,2025-05-20 20:34,1739,3072,2048,fire_sequence,no,instructor_box
+E58_1747775194_+01919.jpg,1747775194_+01919.jpg,train,E58,High Point North,High Point,2025-05-20 20:34,1919,3072,2048,fire_sequence,no,instructor_box
+E58_1747775374_+02099.jpg,1747775374_+02099.jpg,train,E58,High Point North,High Point,2025-05-20 20:34,2099,3072,2048,fire_sequence,no,instructor_box
+E59_1748652790_+00960.jpg,1748652790_+00960.jpg,val,E59,Boucher Hill West,Boucher Hill,2025-05-31 00:37,960,3072,2048,fire_sequence,no,instructor_box
+E59_1748652970_+01140.jpg,1748652970_+01140.jpg,val,E59,Boucher Hill West,Boucher Hill,2025-05-31 00:37,1140,3072,2048,fire_sequence,yes,instructor_box
+E59_1748653150_+01320.jpg,1748653150_+01320.jpg,val,E59,Boucher Hill West,Boucher Hill,2025-05-31 00:37,1320,3072,2048,fire_sequence,no,instructor_box
+E59_1748653389_+01559.jpg,1748653389_+01559.jpg,val,E59,Boucher Hill West,Boucher Hill,2025-05-31 00:37,1559,3072,2048,fire_sequence,no,instructor_box
+E59_1748653570_+01740.jpg,1748653570_+01740.jpg,val,E59,Boucher Hill West,Boucher Hill,2025-05-31 00:37,1740,3072,2048,fire_sequence,no,instructor_box
+E59_1748653750_+01920.jpg,1748653750_+01920.jpg,val,E59,Boucher Hill West,Boucher Hill,2025-05-31 00:37,1920,3072,2048,fire_sequence,no,instructor_box
+E59_1748653930_+02100.jpg,1748653930_+02100.jpg,val,E59,Boucher Hill West,Boucher Hill,2025-05-31 00:37,2100,3072,2048,fire_sequence,no,instructor_box
