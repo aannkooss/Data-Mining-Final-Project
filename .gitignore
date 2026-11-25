@@ -1,0 +1,4 @@
+dataset/images/
+dataset/labels.cache
+dataset/labels/*.cache
+__pycache__/
