@@ -50,19 +50,20 @@ An image with no smoke is still labeled: it gets an **empty** `.txt` file. A mis
 ## 5. Labeling workflow
 
 1. Run `python code/prepare_dataset.py --raw ~/Downloads/training` once. It copies the 578 picked images into `dataset/images/train` and `dataset/images/val`, named `E07_1644862570_+02040.jpg` (event id first) so each fire sorts together in time order.
-2. Open [makesense.ai](https://www.makesense.ai) (runs in the browser, images stay on your computer). Choose **Object Detection**, load one batch of images (one or a few events at a time, about 50 images), and create the single label `smoke`.
-3. Draw boxes following sections 1 to 4. Work through a fire in time order: start from the last frame, where the plume is largest, to find the source, then go back to earlier frames.
-4. Export with **Actions → Export Annotations → YOLO format**, and unzip the `.txt` files into `dataset/labels/train` or `dataset/labels/val` (same split as the images). Export after every batch, because makesense.ai doesn't save your work between sessions.
-5. For images with no smoke, create an empty `.txt` file with the same name (makesense.ai doesn't export empty files). `check_labels.py` lists any image without a label file.
-6. Run `python code/check_labels.py` and fix every problem it reports.
+2. In [CVAT](https://app.cvat.ai) (or a self-hosted CVAT), create one **Project** called `smoke` with a single **Rectangle** label named `smoke`. Every task you create inside it inherits that label, so the class id is always `0`.
+3. Create one **Task** per batch inside the project: about 50 images, i.e. a few whole fires. Because the files are named `E07_...`, sorting by name keeps each fire together and in time order. Keep train and val images in separate tasks so the export lands in the right split. Assign each task to one labeler.
+4. Draw boxes following sections 1 to 4. Work through a fire in time order, but start by looking at its last frame, where the plume is largest, to find the source. Frames with no smoke get no boxes. Press **Save** often.
+5. When a task is done, export it: **Actions → Export task dataset → YOLO 1.1**, without images. Unzip it and copy the `.txt` files from `obj_train_data/` into `dataset/labels/train` or `dataset/labels/val` (same split as the task). Ignore `obj.names`, `obj.data` and `train.txt` in the zip.
+6. Images with no smoke need an **empty** `.txt` file with the same name. CVAT's YOLO export normally writes one for every image, but run the check anyway: `check_labels.py` lists any image that has no label file.
+7. Run `python code/check_labels.py` and fix every problem it reports.
 
-CVAT, Label Studio or LabelImg work too, as long as the export is YOLO format with class `0` = `smoke`.
+If you use another tool (Label Studio, LabelImg, makesense.ai), the export must be YOLO format with class `0` = `smoke`.
 
 ## 6. Quality control (at least 10% independently checked)
 
 The QC sample is fixed in `dataset/qc_sample.txt`: **60 images (10.4% of 578)**, one random frame from each of the 59 fires plus one pre-ignition frame, picked with seed 458. The column `qc_sample` in `selection_manifest.csv` marks the same images.
 
-1. The reviewer is a teammate who did **not** label that fire. They label the QC images from scratch, without looking at the main labels, and save the `.txt` files in `dataset/labels_qc/`.
+1. The reviewer is a teammate who did **not** label that fire. In CVAT they make a separate task with just the 60 files listed in `qc_sample.txt` and label them from scratch, without looking at the main labels, and save the `.txt` files in `dataset/labels_qc/`.
 2. Run `python code/qc_compare.py --qc dataset/labels_qc --csv dataset/qc_results.csv`. It matches boxes at IoU ≥ 0.5 and reports agreement, box-level precision and recall, and mean IoU.
 3. Labeler and reviewer go through every image marked `discuss`, agree on the right answer, fix the main labels, and record any new rule in the decisions log below.
 4. If more than about 1 in 5 QC images needs a fix, re-check the rest of the labels for the same mistake before training.
