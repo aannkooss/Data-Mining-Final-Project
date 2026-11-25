@@ -10,12 +10,12 @@ Every image in our dataset comes from one of three source types, as required by 
 
 | Source ID | Type | Description | Raw images available | Images selected | Positives | Negatives | Licence / permission |
 |---|---|---|---|---|---|---|---|
-| `INSTR` | Instructor-provided | Raw unlabeled images from the course Nevadabox | 1,664 | _TBD_ | _TBD_ | _TBD_ | Provided by the instructor for this course |
+| `INSTR` | Instructor-provided | Raw unlabeled images from the course Nevadabox | 1,664 | 578 | _TBD_ (≤ 568) | _TBD_ (≥ 10) | Provided by the instructor for this course |
 | `TEAM-*` | Team-collected | _none yet_ | — | — | — | — | — |
 | `EXT-*` | External | _none yet_ | — | — | — | — | — |
-| **Total** | | | | _TBD_ | _TBD_ | _TBD_ | |
+| **Total** | | | | 578 | _TBD_ | _TBD_ | |
 
-Fill in "Images selected", "Positives" and "Negatives" from the dataset stats script once labeling is done, so the numbers here match the split files exactly.
+Fill in "Positives" and "Negatives" from `python code/check_labels.py` once labeling is done (568 fire-sequence frames and 10 pre-ignition frames were picked; early frames with no visible smoke become negatives), so the numbers here match the split files exactly.
 
 ---
 
@@ -32,7 +32,22 @@ Fill in "Images selected", "Positives" and "Negatives" from the dataset stats sc
   - `timestamp − offset` gives a constant **sequence ID** for all frames of one fire-camera sequence. The 1,664 images fall into **71 sequence IDs**, with 3 to 64 frames each (most have about 10–32).
   - 40 frames have a negative offset (before the logged start, from −2400 s). These are likely smoke-free and are our first candidate negatives, but each must still be checked by eye (annotation guide §3).
   - Sequence IDs that are within a few minutes of each other may be the same fire seen from different cameras. If we treat them as separate sequences, a fire could leak across splits. See §5.
-- **Selection:** _[describe how we picked images from the 1,664: e.g. all frames, or every Nth frame per sequence, plus all pre-ignition frames as negatives. Record the rule and the script that applies it.]_
+  - The overlay text in each frame names the HPWREN camera (e.g. "Otay Mountain West"). Reading it gives **44 camera views on 25 mountaintop sites**; every picked image's camera and site are in `dataset/selection_manifest.csv`.
+- **Selection** (applied once, saved in `dataset/selection_manifest.csv`; `code/prepare_dataset.py` copies exactly these images):
+
+`dataset/selection_manifest.csv` lists the 578 images picked for labeling and why. How they were chosen:
+
+1. **Grouped into fire events** by ignition time (capture time minus offset). Frames whose ignition times are within 15 minutes of each other are one event (E01 to E59). The camera name in each frame's overlay was read so every image has a camera and a site.
+2. **Spaced out in time** to avoid near-duplicate neighbours: from each event, about one frame in three, evenly spaced from the first to the last frame, always keeping the earliest frame (small, early smoke) and the last frame. Small events (8 frames or fewer) keep at least 6 frames.
+3. **No-smoke frames:** 10 of the 40 pre-ignition frames from E24, evenly spaced, to give the model some true negatives.
+
+| | Images |
+| --- | --- |
+| Fire-sequence frames | 568 |
+| Pre-ignition frames (no smoke) | 10 |
+| **Total picked** | **578** of 1,664 |
+
+The 1,086 frames that weren't picked are mostly near-duplicates of a picked neighbour one minute away. They can be added later as a dataset-expansion experiment.
 
 ---
 
@@ -67,15 +82,15 @@ Guidance:
 
 ## 5. Splits
 
-The brief asks us to split by sequence, camera, location, or event whenever that information exists, not by random frame. For `INSTR`, we split by **sequence ID** (`timestamp − offset` from the filename), and we put sequence IDs that start within 10 minutes of each other into the same group, so a single fire seen from more than one camera stays on one side of the split. With that 10-minute rule the 71 sequence IDs collapse to **59 groups** (a 5-minute rule gives 60, 30 minutes gives 58, so the grouping is not sensitive to the exact window).
+The brief asks us to split by sequence, camera, location, or event whenever that information exists, not by random frame. We split by **camera site** (the strictest of those): every image from a site goes to the same side, and sites that watched the same fire (for example Los Pinos and White Star) are kept together. So no fire, no camera view and no mountaintop appears in both train and val. Fires were first grouped into 59 events by ignition time (frames whose `timestamp − offset` is within 15 minutes are one event), which matches the 59 groups found with the sequence-ID rule.
 
-| Split | File | # sequence groups | # images | # positives | # negatives | # boxes |
-|---|---|---|---|---|---|---|
-| Train | `dataset/splits/train.txt` | _TBD_ | _TBD_ | _TBD_ | _TBD_ | _TBD_ |
-| Internal val | `dataset/splits/val.txt` | _TBD_ | _TBD_ | _TBD_ | _TBD_ | _TBD_ |
+| Split | File | Sites | Events | # images | # positives | # negatives | # boxes |
+|---|---|---|---|---|---|---|---|
+| Train | `dataset/splits/train.txt` | 19 | 45 | 457 | _TBD_ | _TBD_ | _TBD_ |
+| Internal val | `dataset/splits/val.txt` | 6: Mt. San Miguel, Mt. Wilson, Cuyamaca Peak, Boucher Hill, Santiago Peak, Upper Talega | 14 | 121 | _TBD_ | _TBD_ | _TBD_ |
 
-- Target ratio: about 80/20 by image count, with a fixed random seed recorded here: `seed = ___`.
-- Try to balance the val set across times of day, seasons, and image resolutions so it reflects the variety of the hidden set as well as we can guess.
+- Ratio 79/21 by image count. The val sites were chosen by hand (no random seed) to cover both San Diego County and the Los Angeles / Orange County cameras, so val measures generalization to unseen views.
+- The 10% QC sample (`dataset/qc_sample.txt`, 60 images) was drawn with seed 458: one random frame per fire plus one pre-ignition frame.
 - Team-collected and external images go into **train only**, unless we have a specific reason (e.g. a cross-source generalization experiment), so the internal val set stays comparable to the instructor's data.
 
 ---
@@ -95,3 +110,4 @@ Images that we looked at and decided not to use, with the reason. This includes 
 | Date | Change | By |
 |---|---|---|
 | 2026-11-25 | First draft; profiled the 1,664 instructor images. | |
+| 2026-11-25 | Picked 578 images, read camera names, fixed the site-level train/val split and the 10% QC sample. | |

@@ -1,0 +1,7 @@
+# Template. Running `python code/prepare_dataset.py --raw <folder>` rewrites this
+# file with the absolute path to the dataset folder on your machine.
+path: dataset
+train: images/train
+val: images/val
+names:
+  0: smoke

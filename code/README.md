@@ -6,7 +6,9 @@ The random seed is **42** everywhere (`model/train_config.yaml`, splits, samplin
 
 | Script | What it does |
 |---|---|
-| `make_splits.py` | Checks labels, groups frames by fire event, writes `dataset/train.txt`, `val.txt`, `data.yaml` |
+| `prepare_dataset.py` | Copies the 578 picked images into `dataset/images/{train,val}` (site-level split) and writes `data.yaml` |
+| `check_labels.py` | Label QC: missing files, bad class ids, out-of-bounds/tiny/duplicate boxes, dataset stats |
+| `qc_compare.py` | Compares main labels with a teammate's independent labels of the 10% QC sample |
 | `train.py` | Fine-tunes a pretrained YOLO with `model/train_config.yaml`, records seed + versions + hardware |
 | `eval.py` | mAP@0.5:0.95, AP@0.5, P/R/F1, threshold choice, per-image and per-box error tables |
 | `predict.py` | Final inference: image id, boxes, class scores → CSV + JSON |
@@ -22,33 +24,20 @@ pip install -r code/requirements.txt
 On Colab: `!git clone <repo> && cd Data-Mining-Final-Project && pip install -q -r code/requirements.txt`,
 then run the same commands with a `!` in front. Use `--device 0` for the GPU.
 
-## 1. Build the splits
+## 1. Prepare the dataset and check labels
+
+All three scripts need only Python 3. Labeling rules and the CVAT workflow are in `dataset/annotation_guide.md`; how images were picked and split is in `dataset/data_source_inventory.md`.
 
 ```bash
-python code/make_splits.py --images /path/to/selected_images --labels /path/to/yolo_labels
+python code/prepare_dataset.py --raw ~/Downloads/training   # copy the 578 picked images, write dataset/data.yaml
+# ... label in CVAT, export YOLO 1.1 into dataset/labels/{train,val}/ ...
+python code/check_labels.py                                  # fix everything it reports before training
+python code/qc_compare.py --qc dataset/labels_qc --csv dataset/qc_results.csv   # 10% independent check
 ```
 
-- Label files must have the same name as the image (`1610044421_+00120.jpg` → `1610044421_+00120.txt`),
-  one line per box: `0 xc yc w h` (normalized). An image with no label file is used as a smoke-free negative.
-  Add `--require-labels` once labelling is finished so a forgotten file fails loudly.
-- **How the split avoids leakage.** The instructor images are named `<unix_time>_<offset>.jpg`, where
-  offset is seconds from the fire's reference time. `unix_time - offset` is constant within a sequence,
-  so it identifies the sequence. Sequences starting within `--event-gap` seconds (default 1 h) are merged
-  into one event, so different cameras watching the same fire stay on the same side. Whole events go to
-  val (about 20% of images, also balancing the share of boxes); nothing from those events is in train.
-- External or team-collected images that don't follow that naming: give them a group in a CSV
-  (`image,group`, e.g. `my_photo.jpg,cam_northridge`) and pass `--groups that.csv`. Otherwise each such
-  image is its own group and a warning is printed.
-- Images are symlinked into `dataset/images/` (ignored by git); use `--copy` for the final package.
-  Labels are copied to `dataset/labels/`.
-- Check `dataset/label_qc.csv` (bad class ids, boxes outside the image, zero-size boxes, duplicates)
-  and `dataset/split_summary.json` (image, box and event counts per split; record these in the report).
-
-Label QC sheet and a checklist for the 10% independent review:
-
-```bash
-python code/visualize.py labels --split train --n 40
-```
+- The split is fixed per camera site in `dataset/selection_manifest.csv` (457 train / 121 val), so no fire or camera is in both sets.
+- Images are named `E07_1644862570_+02040.jpg` (event id + original name); labels have the same base name.
+- A label QC contact sheet is also available: `python code/visualize.py labels --split train --n 40`.
 
 ## 2. Train the baseline
 
