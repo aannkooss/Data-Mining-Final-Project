@@ -6,7 +6,7 @@ The random seed is **42** everywhere (`model/train_config.yaml`, splits, samplin
 
 | Script | What it does |
 |---|---|
-| `prepare_dataset.py` | Copies the 265 picked images into `dataset/images/{train,val}` (site-level split) and writes `data.yaml` |
+| `prepare_dataset.py` | Copies the 145 picked images into `dataset/images/{train,val}` (site-level split) and writes `data.yaml` |
 | `check_labels.py` | Label QC: missing files, bad class ids, out-of-bounds/tiny/duplicate boxes, dataset stats |
 | `qc_compare.py` | Compares main labels with a teammate's independent labels of the 10% QC sample |
 | `train.py` | Fine-tunes a pretrained YOLO with `model/train_config.yaml`, records seed + versions + hardware |
@@ -29,14 +29,14 @@ then run the same commands with a `!` in front. Use `--device 0` for the GPU.
 All three scripts need only Python 3. Labeling rules and the CVAT workflow are in `dataset/annotation_guide.md`; how images were picked and split is in `dataset/data_source_inventory.md`.
 
 ```bash
-python code/prepare_dataset.py --raw ~/Downloads/training   # copy the 265 picked images, write dataset/data.yaml
+python code/prepare_dataset.py --raw ~/Downloads/training   # copy the 145 picked images, write dataset/data.yaml
 # ... label in CVAT, export YOLO 1.1 into dataset/labels/{train,val}/ ...
 python code/check_labels.py                                  # fix everything it reports before training
 python code/qc_compare.py --qc dataset/labels_qc --csv dataset/qc_results.csv   # 10% independent check
 ```
 
-- Already copied the earlier 578-image selection? Re-run with `--move-extra` to move the 313 images that were dropped into `dataset/unused/`.
-- The split is fixed per camera site in `dataset/selection_manifest.csv` (204 train / 61 val), so no fire or camera is in both sets.
+- Already copied an earlier, larger selection? Re-run with `--move-extra` to move every image that is no longer picked (and its labels) into `dataset/unused/`.
+- The split is fixed per camera site in `dataset/selection_manifest.csv` (111 train / 34 val), so no fire or camera is in both sets.
 - Images are named `E07_1644862570_+02040.jpg` (event id + original name); labels have the same base name.
 - A label QC contact sheet is also available: `python code/visualize.py labels --split train --n 40`.
 

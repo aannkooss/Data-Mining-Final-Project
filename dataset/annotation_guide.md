@@ -1,6 +1,6 @@
 # Annotation Guide: Wildfire Smoke Detection
 
-**Version:** 0.3 · **Class list:** `0: smoke` · **Label format:** YOLO bounding box (`class x_center y_center width height`, normalized 0–1)
+**Version:** 0.4 · **Class list:** `0: smoke` · **Label format:** YOLO bounding box (`class x_center y_center width height`, normalized 0–1)
 
 This guide is the team's operational definition of smoke and the rules every annotator follows. If you hit a case this guide does not cover, do not guess: tag the image `ambiguous` (see §6), and we add a rule here so the next person handles it the same way. Every change to this guide gets a line in the changelog at the bottom.
 
@@ -61,7 +61,7 @@ The hidden-set ranking metric averages over IoU 0.50–0.95, so loose or inconsi
 
 - Label **every** visible plume in every selected image. A missed plume teaches the model that smoke is background; that is worse than not including the image.
 - **Negative images** (no smoke) are kept with an empty label file. Aim for a mix that includes look-alikes (clouds, fog, haze, glare), not just clear-sky frames.
-- The 265 images to label are fixed in `dataset/selection_manifest.csv` (how they were picked is in the data source inventory). `python code/prepare_dataset.py --raw ~/Downloads/training` copies exactly those into `dataset/images/train` and `dataset/images/val`. Don't pick images by hand.
+- The 145 images to label are fixed in `dataset/selection_manifest.csv` (how they were picked is in the data source inventory). `python code/prepare_dataset.py --raw ~/Downloads/training` copies exactly those into `dataset/images/train` and `dataset/images/val`. Don't pick images by hand.
 - The pre-ignition frames in the instructor set (filename offset is negative, e.g. `..._-00300.jpg`) are probably smoke-free. Treat them as candidate negatives, but still look at each one: sometimes smoke is already visible before the logged start time. If you see smoke, label it.
 - Near-duplicate frames from the same sequence add little. Prefer frames that show the plume at different sizes and stages (first wisp, growing, large) over many identical consecutive frames.
 
@@ -71,9 +71,9 @@ The hidden-set ranking metric averages over IoU 0.50–0.95, so loose or inconsi
 
 **Tool: CVAT** ([app.cvat.ai](https://app.cvat.ai) or self-hosted). Everyone works in the same CVAT project with the single label `smoke`.
 
-1. Run `python code/prepare_dataset.py --raw ~/Downloads/training` once. It copies the 265 picked images into `dataset/images/train` and `dataset/images/val` and renames them with the fire's event id in front, e.g. `1644862570_+02040.jpg` → `E07_1644862570_+02040.jpg`, so each fire sorts together in time order. The original name is kept after the prefix. Don't rename files any further. If you ran it before the selection was trimmed to 265, run it again with `--move-extra`: it moves the images that are no longer picked (and any labels for them) into `dataset/unused/` instead of deleting them.
+1. Run `python code/prepare_dataset.py --raw ~/Downloads/training` once. It copies the 145 picked images into `dataset/images/train` and `dataset/images/val` and renames them with the fire's event id in front, e.g. `1644862570_+02040.jpg` → `E07_1644862570_+02040.jpg`, so each fire sorts together in time order. The original name is kept after the prefix. Don't rename files any further. If you ran it before the selection was trimmed to 145, run it again with `--move-extra`: it moves the images that are no longer picked (and any labels for them) into `dataset/unused/` instead of deleting them.
 2. In CVAT, create one **Project** called `smoke` with a single **Rectangle** label named `smoke`. Every task in it inherits that label, so the class id is always `0`.
-3. Create one **Task** per batch of about 50 images (a few whole fires; sorted by name, the first 50 is about the first 11 fires). Keep train and val images in separate tasks so each export lands in the right split. Assign each task to one annotator.
+3. Create one **Task** per batch of about 50 images (a few whole fires; sorted by name, the first 50 is about the first 20 fires). Keep train and val images in separate tasks so each export lands in the right split. Assign each task to one annotator.
 4. Draw boxes following §1–§2. For each fire, look at its last frame first, where the plume is largest, to find the source; then label the frames in time order. Press **Save** often. Use a CVAT tag or the task's issue list for the `ambiguous` / `tiny` / `occluded` / `lookalike` tags in §6.
 5. When a task is done: **Actions → Export task dataset → YOLO 1.1**, without images. Unzip it and copy the `.txt` files from `obj_train_data/` into `dataset/labels/train` or `dataset/labels/val`. Ignore `obj.names`, `obj.data` and `train.txt` in the zip.
 6. Label files are named like their image (`E07_1644862570_+02040.jpg` → `E07_1644862570_+02040.txt`). Negative images need an **empty** `.txt` file, not a missing one. CVAT's YOLO export normally writes one for every image; §5.2's script lists any that are missing.
@@ -109,10 +109,10 @@ It also prints dataset stats for the report: labeled images per split, boxes, im
 
 **Goal:** catch missing objects, false boxes, and inconsistent boundaries, and give us a number we can report for annotation consistency.
 
-**Sampling.** The sample is fixed in `dataset/qc_sample.txt` (also the `qc_sample` column of the manifest): **27 images, 10.2% of 265**: one random frame from each of 26 randomly chosen fires plus one pre-ignition negative, seed 458. It includes both train (19) and val (8) images. The reviewer must be **a different team member** from the one who labeled that fire.
+**Sampling.** The sample is fixed in `dataset/qc_sample.txt` (also the `qc_sample` column of the manifest): **15 images, 10.3% of 145**: one random frame from each of 14 randomly chosen fires plus one pre-ignition negative, seed 458. It includes both train (8) and val (7) images. The reviewer must be **a different team member** from the one who labeled that fire.
 
 **Procedure.**
-1. The reviewer makes a separate CVAT task with the 27 files and labels them **from scratch, without seeing the existing labels**, so the check is truly independent. Export as YOLO 1.1 and put the `.txt` files in `dataset/labels_qc/`.
+1. The reviewer makes a separate CVAT task with the 15 files and labels them **from scratch, without seeing the existing labels**, so the check is truly independent. Export as YOLO 1.1 and put the `.txt` files in `dataset/labels_qc/`.
 2. Run `python code/qc_compare.py --qc dataset/labels_qc --csv dataset/qc_results.csv`. It matches the two label sets at IoU ≥ 0.5 and prints full-agreement rate, box-level precision/recall/F1 and mean IoU, and marks each image `agree` or `discuss`.
 3. For every `discuss` image, annotator and reviewer look at it together and log one outcome in `dataset/qc/second_check_log.csv`:
    - `MISSING` — a plume was not boxed in the main labels.
@@ -168,3 +168,4 @@ _[To fill in once labeling starts: add 6–10 screenshots with boxes drawn, save
 | 2026-11-25 | 0.1 | First draft from the project brief. | |
 | 2026-11-25 | 0.2 | Tool set to CVAT with export steps; fixed image selection; `check_labels.py` and an independent 10% relabel with `qc_compare.py`. | |
 | 2026-11-25 | 0.3 | Selection trimmed to 265 images (4 to 6 per fire); QC sample redrawn (27 images). | |
+| 2026-11-25 | 0.4 | Selection trimmed to 145 images (2 or 3 per fire); QC sample redrawn (15 images). | |
