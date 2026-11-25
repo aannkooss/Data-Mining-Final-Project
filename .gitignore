@@ -10,3 +10,4 @@ __pycache__/
 .DS_Store
 dataset/labels.cache
 dataset/labels/*.cache
+dataset/unused/
