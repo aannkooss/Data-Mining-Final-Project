@@ -9,7 +9,7 @@
 
 # --- What to train -----------------------------------------------------------
 model: yolo26n.pt          # pretrained COCO checkpoint (auto-downloaded). Try yolo26s.pt for a size experiment.
-data: dataset/data.yaml    # written by code/make_splits.py
+data: dataset/data.yaml    # written by code/prepare_dataset.py
 project: runs              # results go to runs/<name>/
 name: baseline
 exist_ok: false            # a new run never overwrites an old one (Ultralytics adds a suffix)
