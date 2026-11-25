@@ -1,78 +1,169 @@
-# Smoke annotation guide
+# Annotation Guide: Wildfire Smoke Detection
 
-Version 1.0. One class: `smoke` (YOLO class id `0`). Every labeler and reviewer follows this guide. If a case is not covered, add it to the "Decisions log" at the bottom so the team stays consistent.
+**Version:** 0.2 · **Class list:** `0: smoke` · **Label format:** YOLO bounding box (`class x_center y_center width height`, normalized 0–1)
+
+This guide is the team's operational definition of smoke and the rules every annotator follows. If you hit a case this guide does not cover, do not guess: tag the image `ambiguous` (see §6), and we add a rule here so the next person handles it the same way. Every change to this guide gets a line in the changelog at the bottom.
+
+---
 
 ## 1. What counts as smoke
 
-**Smoke** is a plume or column of combustion smoke that you can trace back to, or that clearly rises from, a ground source in the scene. It usually:
+**Smoke** is a visible plume of combustion product rising from, or drifting away from, a fire on the ground. Label it when **all three** of these hold:
 
-- starts narrow at the ground or a ridge line and widens as it rises or drifts with the wind,
-- is grey, white, tan or brown, and often looks semi-transparent at the edges,
-- changes shape from frame to frame in the same sequence while clouds and terrain stay put.
+1. **It has a source or a rising shape.** It originates at (or points back to) a spot on the terrain, or it has the column/plume/wisp shape of something rising and being bent by wind. Clouds sit in the sky with no ground connection; smoke is anchored.
+2. **It differs from the background in a way you can point at.** A grey, white, brown, or bluish region with softer edges and different texture than sky, terrain, or haze around it.
+3. **You would still call it smoke after looking at the neighbouring frames.** Frames in our data come from fixed cameras in time sequences (see the data source inventory). If you are unsure on one frame, check the frames before and after: smoke grows, drifts, and changes shape between frames; clouds and haze move slowly and uniformly, and terrain features don't move at all.
 
-**Not smoke. Never draw a box on:**
+### Do NOT label as smoke
 
-- clouds (including low clouds sitting on ridges), fog, marine layer, haze along the horizon,
-- dust from roads or vehicles, steam, sun glare, lens flare, raindrops, dirt or reflections on the dome,
-- the camera's timestamp text, black fisheye corners, towers, buildings,
-- general regional haze or a brownish sky layer with no visible plume shape.
+| Look-alike | How to tell it apart |
+|---|---|
+| **Clouds** (incl. low clouds on ridgelines) | Detached from the ground, flat or puffy bases, sharp upper edges, present across many frames before any fire. |
+| **Fog / marine layer** | Fills valleys or lies flat along the horizon; broad, uniform, no point source. |
+| **Haze / smog / general atmospheric blur** | Covers the whole scene or a whole band of it evenly; no boundary you could box. |
+| **Dust** (vehicles, wind) | Brown/tan, hugs the ground, low and short-lived, often follows a road. |
+| **Steam / industrial plumes** | Bright white, from a fixed structure (stack, plant); present on many days. If you know it's a facility, don't label it. |
+| **Glare, sun flare, lens artifacts** | Tied to the sun position or the lens; same place in frame regardless of scene; rings, streaks, or circles. |
+| **Water droplets, dirt, or spider webs on the lens** | In focus differently from the scene, don't move with the wind. |
+| **Bright sky, snow, light rock, burn scars** | Static between frames; no plume shape. |
+| **Timestamp / camera overlay text** | Never label. |
 
-## 2. How to draw the box
+When it is a look-alike, leave the image **unlabeled** (no boxes = negative image). Look-alike negatives are valuable training data; keep them in the dataset.
 
-1. **Tight around the visible plume.** The box edges touch the outermost pixels you can confidently see as smoke. Do not pad. Do not box the whole sky or landscape.
-2. **Bottom edge at the source.** Include the base of the plume where it meets the ground or ridge line. If the base is hidden behind terrain, stop the box at the ridge line.
-3. **Top edge where the plume stops being identifiable**, not where it becomes invisible after squinting. If you need to zoom in past 200% and still can't decide, the faint part stays outside the box.
-4. **Wind-blown plumes.** When smoke bends and drifts sideways, the box covers the base and the drifting part while it is still connected and clearly smoke. A long, thin drift can make a wide, short box. That is fine.
-5. **Faint or early smoke.** Label it when it is visually identifiable in this frame. You may flip to the later frames of the same fire (the files sort by event and time) to confirm where the source is, but only box what is visible in the current frame. Very small boxes (around 10 to 20 px at full resolution) are expected in early frames.
-6. **Partially occluded smoke** (behind a tower, tree or antenna): one box around the full visible extent, drawn as if the occluder were not there, so the box spans across it.
-7. **Image edge.** If the plume runs off the edge of the image, stop the box at the edge. Never let a box go outside the image.
+---
 
-## 3. One box or several?
+## 2. Box rules
 
-- **One plume, one box.** A single continuous plume gets one box even if it has gaps in density.
-- **Separate boxes** when there are two or more sources whose plumes are clearly separated by clear sky or terrain along most of their height (for example two spot fires on different ridges).
-- **Merging plumes**: if two columns join into one cloud of smoke, use one box for the merged mass unless the two bases are far apart and the gap between them is clear for most of the height. When unsure, use one box.
-- **Detached smoke layer** (old smoke that has drifted away from the column and spread into a flat sheet): label it only when it is still clearly connected to or obviously part of the column. A flat sheet far from the column with no plume shape is not labeled.
+1. **One class only:** every box is class `0` (`smoke`). No other class IDs anywhere in the label files.
+2. **Box the visible plume, not the sky.** The box is the tightest rectangle that contains all smoke pixels you can identify at 100% zoom. Do not pad. Do not extend the box to the image edge, the horizon, or the whole sky.
+3. **Include the base.** If the base of the plume (where it meets terrain) is visible, the box must include it. The base is the most informative part for early detection.
+4. **Faint tails:** include the drifting part of the plume only as far as you can still clearly tell it apart from the background. Where it fades into haze, stop the box at the point where you would no longer be confident if that part were shown alone. Don't chase a thin tail across half the image.
+5. **Partially occluded plumes** (behind a ridge, tree, or structure): box only the **visible** smoke. Do not guess where the hidden part is. If the plume is split by an occluder into two visible pieces that obviously belong to the same column, use **one** box covering both pieces.
+6. **Multiple separate plumes:** one box per plume. Two columns count as separate plumes when their bases are distinct and there is clear background between them along most of their height.
+7. **Disconnected puffs of the same plume** (wind tearing a puff off the top): include the puff in the main box if it is close to the column and plainly the same smoke. If it has drifted far enough that one box would be mostly empty sky, give it its own box only if it is still clearly smoke; otherwise leave it out.
+8. **Merged plumes:** if two plumes have merged into one mass and you can't draw a clean boundary between them, use one box for the merged mass.
+9. **Huge/diffuse smoke** (large fire, smoke covering a big part of the frame): box the dense, clearly-smoke region, including the source. Do not box thin smoke that has spread into general haze across the horizon.
+10. **Small, distant smoke:** label it. Our images are mostly 3072×2048, so a tiny wisp is often still many pixels wide. Zoom to 100–200% to draw it. There is no minimum box size, but any box under 10 px on its longest side gets the `tiny` tag (§6) so we can study it in error analysis.
+11. **Boxes stay inside the image.** Clip at the image border; never go past it. In YOLO format all four values must be in [0, 1] and width/height must be > 0.
+12. **No duplicates.** One plume = one box. Before you submit an image, check that you haven't drawn two overlapping boxes for the same smoke.
 
-## 4. Ambiguous cases
+### Boundary consistency (the rule that matters most for mAP@0.5:0.95)
 
-| Situation | Decision |
-| --- | --- |
-| You can't tell smoke from a small cloud or haze, even comparing frames | Leave it unlabeled and add the file name to the decisions log with a note. |
-| Smoke is only visible by comparing with other frames (not in this frame alone) | Leave unlabeled. |
-| Very large smoke filling a big part of the frame, edges unclear | Box the dense, clearly-smoke part; don't extend into diffuse haze. |
-| Dusk, night or backlit frames where the plume is a dark shape | Label if the plume shape is clear. |
-| Pre-ignition frames (file name has a negative offset, e.g. `_-01380.jpg`) | No boxes. Save an empty label file. |
-| Early frames in a sequence where no smoke is visible yet | No boxes. Save an empty label file. |
+The hidden-set ranking metric averages over IoU 0.50–0.95, so loose or inconsistent edges cost us directly. Everyone uses the same edge rule:
 
-An image with no smoke is still labeled: it gets an **empty** `.txt` file. A missing `.txt` file means "not labeled yet".
+- **Top / sides:** stop where the smoke is no longer distinguishable from the background at 100% zoom.
+- **Bottom:** the base on the terrain, or the occluding ridge line if the base is hidden.
+- When in doubt between two edges, choose the **tighter** one.
 
-## 5. Labeling workflow
+---
 
-1. Run `python code/prepare_dataset.py --raw ~/Downloads/training` once. It copies the 578 picked images into `dataset/images/train` and `dataset/images/val`, named `E07_1644862570_+02040.jpg` (event id first) so each fire sorts together in time order.
-2. In [CVAT](https://app.cvat.ai) (or a self-hosted CVAT), create one **Project** called `smoke` with a single **Rectangle** label named `smoke`. Every task you create inside it inherits that label, so the class id is always `0`.
-3. Create one **Task** per batch inside the project: about 50 images, i.e. a few whole fires. Because the files are named `E07_...`, sorting by name keeps each fire together and in time order. Keep train and val images in separate tasks so the export lands in the right split. Assign each task to one labeler.
-4. Draw boxes following sections 1 to 4. Work through a fire in time order, but start by looking at its last frame, where the plume is largest, to find the source. Frames with no smoke get no boxes. Press **Save** often.
-5. When a task is done, export it: **Actions → Export task dataset → YOLO 1.1**, without images. Unzip it and copy the `.txt` files from `obj_train_data/` into `dataset/labels/train` or `dataset/labels/val` (same split as the task). Ignore `obj.names`, `obj.data` and `train.txt` in the zip.
-6. Images with no smoke need an **empty** `.txt` file with the same name. CVAT's YOLO export normally writes one for every image, but run the check anyway: `check_labels.py` lists any image that has no label file.
-7. Run `python code/check_labels.py` and fix every problem it reports.
+## 3. Which images to label
 
-If you use another tool (Label Studio, LabelImg, makesense.ai), the export must be YOLO format with class `0` = `smoke`.
+- Label **every** visible plume in every selected image. A missed plume teaches the model that smoke is background; that is worse than not including the image.
+- **Negative images** (no smoke) are kept with an empty label file. Aim for a mix that includes look-alikes (clouds, fog, haze, glare), not just clear-sky frames.
+- The 578 images to label are fixed in `dataset/selection_manifest.csv` (how they were picked is in the data source inventory). `python code/prepare_dataset.py --raw ~/Downloads/training` copies exactly those into `dataset/images/train` and `dataset/images/val`. Don't pick images by hand.
+- The pre-ignition frames in the instructor set (filename offset is negative, e.g. `..._-00300.jpg`) are probably smoke-free. Treat them as candidate negatives, but still look at each one: sometimes smoke is already visible before the logged start time. If you see smoke, label it.
+- Near-duplicate frames from the same sequence add little. Prefer frames that show the plume at different sizes and stages (first wisp, growing, large) over many identical consecutive frames.
 
-## 6. Quality control (at least 10% independently checked)
+---
 
-The QC sample is fixed in `dataset/qc_sample.txt`: **60 images (10.4% of 578)**, one random frame from each of the 59 fires plus one pre-ignition frame, picked with seed 458. The column `qc_sample` in `selection_manifest.csv` marks the same images.
+## 4. Tooling and export
 
-1. The reviewer is a teammate who did **not** label that fire. In CVAT they make a separate task with just the 60 files listed in `qc_sample.txt` and label them from scratch, without looking at the main labels, and save the `.txt` files in `dataset/labels_qc/`.
-2. Run `python code/qc_compare.py --qc dataset/labels_qc --csv dataset/qc_results.csv`. It matches boxes at IoU ≥ 0.5 and reports agreement, box-level precision and recall, and mean IoU.
-3. Labeler and reviewer go through every image marked `discuss`, agree on the right answer, fix the main labels, and record any new rule in the decisions log below.
-4. If more than about 1 in 5 QC images needs a fix, re-check the rest of the labels for the same mistake before training.
-5. Put the agreement numbers and the main disagreement types in the report's quality-control section.
+**Tool: CVAT** ([app.cvat.ai](https://app.cvat.ai) or self-hosted). Everyone works in the same CVAT project with the single label `smoke`.
 
-## 7. Decisions log
+1. Run `python code/prepare_dataset.py --raw ~/Downloads/training` once. It copies the 578 picked images into `dataset/images/train` and `dataset/images/val` and renames them with the fire's event id in front, e.g. `1644862570_+02040.jpg` → `E07_1644862570_+02040.jpg`, so each fire sorts together in time order. The original name is kept after the prefix. Don't rename files any further.
+2. In CVAT, create one **Project** called `smoke` with a single **Rectangle** label named `smoke`. Every task in it inherits that label, so the class id is always `0`.
+3. Create one **Task** per batch of about 50 images (a few whole fires; sorted by name, the first 50 is the first ~5 fires). Keep train and val images in separate tasks so each export lands in the right split. Assign each task to one annotator.
+4. Draw boxes following §1–§2. For each fire, look at its last frame first, where the plume is largest, to find the source; then label the frames in time order. Press **Save** often. Use a CVAT tag or the task's issue list for the `ambiguous` / `tiny` / `occluded` / `lookalike` tags in §6.
+5. When a task is done: **Actions → Export task dataset → YOLO 1.1**, without images. Unzip it and copy the `.txt` files from `obj_train_data/` into `dataset/labels/train` or `dataset/labels/val`. Ignore `obj.names`, `obj.data` and `train.txt` in the zip.
+6. Label files are named like their image (`E07_1644862570_+02040.jpg` → `E07_1644862570_+02040.txt`). Negative images need an **empty** `.txt` file, not a missing one. CVAT's YOLO export normally writes one for every image; §5.2's script lists any that are missing.
 
-Add a line whenever the team agrees on a case the guide didn't cover.
+---
 
-| Date | Image or situation | Decision | Who |
-| --- | --- | --- | --- |
-| | | | |
+## 5. Quality control
+
+### 5.1 Self-check (every image, by the annotator)
+
+Before marking an image done:
+
+- [ ] Every visible plume has a box; checked neighbouring frames if unsure.
+- [ ] No box on clouds, fog, haze, dust, steam, glare, or overlays.
+- [ ] Each box includes the plume base when visible and follows the edge rule in §2.
+- [ ] No duplicate or overlapping boxes for the same plume.
+- [ ] Tags applied where needed (§6).
+
+### 5.2 Automated checks (whole dataset, before every training run)
+
+Run `python code/check_labels.py`. It checks every image in `dataset/selection_manifest.csv` and reports:
+
+- A missing label file (image not labeled yet; negatives need an empty file).
+- Lines with the wrong number of values, or non-numeric values.
+- Class ID other than `0`.
+- Coordinates outside [0, 1], boxes past the image edge, or boxes under 4 px.
+- Near-duplicate boxes in the same image (IoU > 0.9).
+- Boxes on pre-ignition frames, and label files with no matching image.
+
+It also prints dataset stats for the report: labeled images per split, boxes, images with and without smoke, and the box size distribution (COCO small/medium/large). Train/val leakage can't happen by construction: the split is fixed per camera site in the manifest (see the data source inventory).
+
+### 5.3 Independent second check (≥ 10% of images, required by the brief)
+
+**Goal:** catch missing objects, false boxes, and inconsistent boundaries, and give us a number we can report for annotation consistency.
+
+**Sampling.** The sample is fixed in `dataset/qc_sample.txt` (also the `qc_sample` column of the manifest): **60 images, 10.4% of 578**, one random frame from each of the 59 fires plus one pre-ignition negative, seed 458. Covering every fire means every annotator, camera and lighting condition is represented. The reviewer must be **a different team member** from the one who labeled that fire.
+
+**Procedure.**
+1. The reviewer makes a separate CVAT task with the 60 files and labels them **from scratch, without seeing the existing labels**, so the check is truly independent. Export as YOLO 1.1 and put the `.txt` files in `dataset/labels_qc/`.
+2. Run `python code/qc_compare.py --qc dataset/labels_qc --csv dataset/qc_results.csv`. It matches the two label sets at IoU ≥ 0.5 and prints full-agreement rate, box-level precision/recall/F1 and mean IoU, and marks each image `agree` or `discuss`.
+3. For every `discuss` image, annotator and reviewer look at it together and log one outcome in `dataset/qc/second_check_log.csv`:
+   - `MISSING` — a plume was not boxed in the main labels.
+   - `FALSE` — a main-label box is on something that isn't smoke.
+   - `BOUNDARY` — the box is on smoke but the edges break the §2 rules.
+   - `DUPLICATE` — two boxes for one plume.
+   - `REVIEWER` — the main label was right; the reviewer's differed.
+   - `OTHER` — anything else (write a note).
+4. Fix the main labels. If the two can't agree, the third team member (or the whole team for a two-person team) decides, and the guide gets a new rule.
+
+```csv
+image,annotator,reviewer,outcome,boxes_before,boxes_after,note
+E07_1644862570_+02040.jpg,A,B,BOUNDARY,1,1,box cut off plume base behind ridge
+```
+
+**What we report.**
+- `qc_compare.py`'s agreement rate, precision/recall and mean IoU (annotation consistency).
+- Count of each outcome type from the log.
+- If any error type is above ~10% of the sample, re-check the rest of that annotator's images for that error, and say so in the report.
+
+---
+
+## 6. Ambiguous cases
+
+Some images are genuinely uncertain, even after looking at neighbouring frames. Our policy:
+
+1. **Tag** the image `ambiguous` in the annotation tool (or list it in `dataset/qc/ambiguous.txt`) with a one-line reason.
+2. **Decide as a team** in a short review session. Each ambiguous image ends up as one of:
+   - **Label it** — the team agrees it's smoke. Box it with the normal rules.
+   - **Keep as negative** — the team agrees it's not smoke (e.g. cloud). Empty label file.
+   - **Exclude** — the team can't agree. Remove the image from train/val entirely so we never train on an unsure label. Keep a record of excluded images and how many there were.
+3. Any decision that sets a new precedent gets added to §1 or §2 and to the changelog.
+
+**Other tags:**
+- `tiny` — any box under 10 px on its longest side.
+- `occluded` — plume partially hidden behind terrain or objects.
+- `lookalike` — negative image that contains a cloud/fog/haze/glare look-alike.
+
+These tags are not training labels. They exist so we can break down errors by case type in the error-analysis section of the report.
+
+---
+
+## 7. Worked examples
+
+_[To fill in once labeling starts: add 6–10 screenshots with boxes drawn, saved under `dataset/qc/examples/`. At minimum: a clean plume, a faint early plume, an occluded plume, two separate plumes, a large diffuse plume, a cloud negative, a fog/haze negative, and one ambiguous case with the team's decision.]_
+
+---
+
+## Changelog
+
+| Date | Version | Change | By |
+|---|---|---|---|
+| 2026-11-25 | 0.1 | First draft from the project brief. | |
+| 2026-11-25 | 0.2 | Tool set to CVAT with export steps; fixed 578-image selection; `check_labels.py` and an independent 10% relabel with `qc_compare.py`. | |

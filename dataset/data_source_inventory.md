@@ -1,13 +1,39 @@
-# Data source inventory
+# Data Source Inventory
 
-## Instructor-provided images
+Every image in our dataset comes from one of three source types, as required by the brief (§3): **instructor-provided**, **team-collected**, or **external**. This file lists each source, how many images we took from it, the licence or permission that allows us to use it, and how it is split. The report's dataset section is written from this file.
 
-- **Source:** the course Nevadabox folder (`https://nevada.box.com/s/dl5pfb9dxyt6rt3xlzkkayyqwl6b9igu`), downloaded as one flat folder of 1,664 JPEG images.
-- **Origin:** HPWREN fixed mountaintop cameras in Southern California. The overlay text in each image names the camera, e.g. "Otay Mountain West". File names are `<unix capture time>_<seconds from ignition>.jpg`, for example `1610045981_+01680.jpg` is 28 minutes after ignition.
-- **Content:** 59 fire events from January 2021 to May 2025, seen by 44 camera views on 25 mountaintop sites. Each event is a sequence of frames about 1 minute apart covering roughly the first 30 minutes after ignition. One event (E24, Los Pinos South) also includes 40 frames from the 40 minutes before ignition.
-- **Resolution:** 3072×2048 for most cameras, 2048×1536 for a few (High Point East 2021, Mt. Laguna South, Mt. Laguna North).
+**Hidden set rule:** we have not viewed, labeled, tuned against, or otherwise used the instructor's reserved evaluation set. No image here was obtained from it.
 
-## Selection
+---
+
+## 1. Summary
+
+| Source ID | Type | Description | Raw images available | Images selected | Positives | Negatives | Licence / permission |
+|---|---|---|---|---|---|---|---|
+| `INSTR` | Instructor-provided | Raw unlabeled images from the course Nevadabox | 1,664 | 578 | _TBD_ (≤ 568) | _TBD_ (≥ 10) | Provided by the instructor for this course |
+| `TEAM-*` | Team-collected | _none yet_ | — | — | — | — | — |
+| `EXT-*` | External | _none yet_ | — | — | — | — | — |
+| **Total** | | | | 578 | _TBD_ | _TBD_ | |
+
+Fill in "Positives" and "Negatives" from `python code/check_labels.py` once labeling is done (568 fire-sequence frames and 10 pre-ignition frames were picked; early frames with no visible smoke become negatives), so the numbers here match the split files exactly.
+
+---
+
+## 2. Instructor-provided data (`INSTR`)
+
+- **Where:** Nevadabox, https://nevada.box.com/s/dl5pfb9dxyt6rt3xlzkkayyqwl6b9igu
+- **Downloaded:** _[date]_ by _[name]_, into a local `training/` folder.
+- **Contents (checked 2026-11-25):**
+  - 1,664 JPEG images, about 725 MB, all in one flat folder, no labels.
+  - Resolution: 1,614 images at 3072×2048 and 50 at 2048×1536.
+  - Filenames follow the pattern `<unix_timestamp>_<offset>.jpg`, e.g. `1723496059_+01861.jpg`.
+  - Timestamps run from January 2021 to May 2025.
+- **Filename convention (our reading, to confirm with the instructor):** the pattern matches the one used by the HPWREN Fire Ignition images Library (FIgLib), where the first number is the frame's capture time and the signed offset is seconds relative to the fire's logged start. Under that reading:
+  - `timestamp − offset` gives a constant **sequence ID** for all frames of one fire-camera sequence. The 1,664 images fall into **71 sequence IDs**, with 3 to 64 frames each (most have about 10–32).
+  - 40 frames have a negative offset (before the logged start, from −2400 s). These are likely smoke-free and are our first candidate negatives, but each must still be checked by eye (annotation guide §3).
+  - Sequence IDs that are within a few minutes of each other may be the same fire seen from different cameras. If we treat them as separate sequences, a fire could leak across splits. See §5.
+  - The overlay text in each frame names the HPWREN camera (e.g. "Otay Mountain West"). Reading it gives **44 camera views on 25 mountaintop sites**; every picked image's camera and site are in `dataset/selection_manifest.csv`.
+- **Selection** (applied once, saved in `dataset/selection_manifest.csv`; `code/prepare_dataset.py` copies exactly these images):
 
 `dataset/selection_manifest.csv` lists the 578 images picked for labeling and why. How they were chosen:
 
@@ -23,25 +49,65 @@
 
 The 1,086 frames that weren't picked are mostly near-duplicates of a picked neighbour one minute away. They can be added later as a dataset-expansion experiment.
 
-## Train and internal validation split
+---
 
-Split by **camera site**, not by random image, so frames of the same fire or the same view never appear in both sets. Sites that share events (for example Los Pinos and White Star cameras watching the same fire) are kept together.
+## 3. Team-collected data (`TEAM-*`)
 
-| Split | Sites | Events | Images |
-| --- | --- | --- | --- |
-| train | 19 sites | 45 | 457 |
-| val | Mt. San Miguel, Mt. Wilson, Cuyamaca Peak, Boucher Hill, Santiago Peak, Upper Talega | 14 | 121 |
+None yet. If we add any (e.g. our own photos), give each batch a row here:
 
-The validation sites were chosen to cover both San Diego County and the Los Angeles / Orange County cameras, so validation measures generalization to unseen views. Files: `dataset/splits/train.txt`, `dataset/splits/val.txt`.
+| Source ID | Collected by | Date | Location / camera | # images | Notes |
+|---|---|---|---|---|---|
+| | | | | | |
 
-## Team-collected images
+Team members own the copyright of photos they take, so these are usable for the course. Strip location metadata if it identifies a private property.
 
-None yet.
+---
 
-## External images
+## 4. External data (`EXT-*`)
 
-None yet. Any image added later must be listed here with its source URL, license or terms of use, number of images and which split it went into.
+None yet. Every external source must be documented and legally usable for an academic course project (brief §3). Before adding any external images, fill in a row here **first** and check the licence.
 
-| Source | URL | License / terms | Images | Split |
-| --- | --- | --- | --- | --- |
-| | | | | |
+| Source ID | Name | URL | Licence | Citation | # images used | How selected | Labels reused or relabeled? |
+|---|---|---|---|---|---|---|---|
+| | | | | | | | |
+
+Guidance:
+
+- Prefer sources with an explicit licence that allows research or educational use (e.g. CC BY, CC BY-NC, or a dataset licence that says so). Note any attribution requirement and follow it in the report.
+- If an external dataset comes with labels, **relabel or at least review them against our annotation guide**. Other datasets use different box rules and will add inconsistency otherwise.
+- Check that external images don't overlap with the instructor's set (same cameras and fires are possible, e.g. if both draw on HPWREN). Duplicates across splits would be leakage. A perceptual-hash check against all `INSTR` images catches most of these.
+- Labeled datasets from other teams in this course are **not** allowed (brief §14).
+
+---
+
+## 5. Splits
+
+The brief asks us to split by sequence, camera, location, or event whenever that information exists, not by random frame. We split by **camera site** (the strictest of those): every image from a site goes to the same side, and sites that watched the same fire (for example Los Pinos and White Star) are kept together. So no fire, no camera view and no mountaintop appears in both train and val. Fires were first grouped into 59 events by ignition time (frames whose `timestamp − offset` is within 15 minutes are one event), which matches the 59 groups found with the sequence-ID rule.
+
+| Split | File | Sites | Events | # images | # positives | # negatives | # boxes |
+|---|---|---|---|---|---|---|---|
+| Train | `dataset/splits/train.txt` | 19 | 45 | 457 | _TBD_ | _TBD_ | _TBD_ |
+| Internal val | `dataset/splits/val.txt` | 6: Mt. San Miguel, Mt. Wilson, Cuyamaca Peak, Boucher Hill, Santiago Peak, Upper Talega | 14 | 121 | _TBD_ | _TBD_ | _TBD_ |
+
+- Ratio 79/21 by image count. The val sites were chosen by hand (no random seed) to cover both San Diego County and the Los Angeles / Orange County cameras, so val measures generalization to unseen views.
+- The 10% QC sample (`dataset/qc_sample.txt`, 60 images) was drawn with seed 458: one random frame per fire plus one pre-ignition frame.
+- Team-collected and external images go into **train only**, unless we have a specific reason (e.g. a cross-source generalization experiment), so the internal val set stays comparable to the instructor's data.
+
+---
+
+## 6. Excluded images
+
+Images that we looked at and decided not to use, with the reason. This includes `ambiguous` images the team could not agree on (annotation guide §6).
+
+| Image | Source | Reason |
+|---|---|---|
+| | | |
+
+---
+
+## 7. Changelog
+
+| Date | Change | By |
+|---|---|---|
+| 2026-11-25 | First draft; profiled the 1,664 instructor images. | |
+| 2026-11-25 | Picked 578 images, read camera names, fixed the site-level train/val split and the 10% QC sample. | |

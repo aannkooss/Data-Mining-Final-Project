@@ -1,4 +1,12 @@
+# Training/eval outputs (keep the final ones by copying into model/ or the report)
+runs/
+# Downloaded pretrained checkpoints
+yolo*.pt
+# Large image files: keep them on Box/Drive, not in git
 dataset/images/
+predictions/
+__pycache__/
+*.pyc
+.DS_Store
 dataset/labels.cache
 dataset/labels/*.cache
-__pycache__/
