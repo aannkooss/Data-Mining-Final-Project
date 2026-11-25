@@ -10,12 +10,12 @@ Every image in our dataset comes from one of three source types, as required by 
 
 | Source ID | Type | Description | Raw images available | Images selected | Positives | Negatives | Licence / permission |
 |---|---|---|---|---|---|---|---|
-| `INSTR` | Instructor-provided | Raw unlabeled images from the course Nevadabox | 1,664 | 578 | _TBD_ (≤ 568) | _TBD_ (≥ 10) | Provided by the instructor for this course |
+| `INSTR` | Instructor-provided | Raw unlabeled images from the course Nevadabox | 1,664 | 265 | _TBD_ (≤ 260) | _TBD_ (≥ 5) | Provided by the instructor for this course |
 | `TEAM-*` | Team-collected | _none yet_ | — | — | — | — | — |
 | `EXT-*` | External | _none yet_ | — | — | — | — | — |
-| **Total** | | | | 578 | _TBD_ | _TBD_ | |
+| **Total** | | | | 265 | _TBD_ | _TBD_ | |
 
-Fill in "Positives" and "Negatives" from `python code/check_labels.py` once labeling is done (568 fire-sequence frames and 10 pre-ignition frames were picked; early frames with no visible smoke become negatives), so the numbers here match the split files exactly.
+Fill in "Positives" and "Negatives" from `python code/check_labels.py` once labeling is done (260 fire-sequence frames and 5 pre-ignition frames were picked; early frames with no visible smoke become negatives), so the numbers here match the split files exactly.
 
 ---
 
@@ -35,19 +35,20 @@ Fill in "Positives" and "Negatives" from `python code/check_labels.py` once labe
   - The overlay text in each frame names the HPWREN camera (e.g. "Otay Mountain West"). Reading it gives **44 camera views on 25 mountaintop sites**; every picked image's camera and site are in `dataset/selection_manifest.csv`.
 - **Selection** (applied once, saved in `dataset/selection_manifest.csv`; `code/prepare_dataset.py` copies exactly these images):
 
-`dataset/selection_manifest.csv` lists the 578 images picked for labeling and why. How they were chosen:
+`dataset/selection_manifest.csv` lists the 265 images picked for labeling and why. How they were chosen:
 
 1. **Grouped into fire events** by ignition time (capture time minus offset). Frames whose ignition times are within 15 minutes of each other are one event (E01 to E59). The camera name in each frame's overlay was read so every image has a camera and a site.
-2. **Spaced out in time** to avoid near-duplicate neighbours: from each event, about one frame in three, evenly spaced from the first to the last frame, always keeping the earliest frame (small, early smoke) and the last frame. Small events (8 frames or fewer) keep at least 6 frames.
-3. **No-smoke frames:** 10 of the 40 pre-ignition frames from E24, evenly spaced, to give the model some true negatives.
+2. **Spaced out in time** to avoid near-duplicate neighbours: from each event, 4 to 6 frames evenly spaced from the first to the last frame, always keeping the earliest frame (small, early smoke) and the last frame. Events with 20+ frames keep 6, events with 10 to 19 keep 5, smaller events keep 4 (E08 has only 3). Every fire and all 44 camera views are still covered.
+   (A first pass picked 578 images, about one frame in three; it was trimmed to this subset to keep labeling manageable. Every image here was also in that first pass.)
+3. **No-smoke frames:** 5 of the 40 pre-ignition frames from E24, evenly spaced, to give the model some true negatives.
 
 | | Images |
 | --- | --- |
-| Fire-sequence frames | 568 |
-| Pre-ignition frames (no smoke) | 10 |
-| **Total picked** | **578** of 1,664 |
+| Fire-sequence frames | 260 |
+| Pre-ignition frames (no smoke) | 5 |
+| **Total picked** | **265** of 1,664 |
 
-The 1,086 frames that weren't picked are mostly near-duplicates of a picked neighbour one minute away. They can be added later as a dataset-expansion experiment.
+The 1,399 frames that weren't picked are mostly near-duplicates of a picked neighbour a few minutes away. They can be added later as a dataset-expansion experiment.
 
 ---
 
@@ -86,11 +87,11 @@ The brief asks us to split by sequence, camera, location, or event whenever that
 
 | Split | File | Sites | Events | # images | # positives | # negatives | # boxes |
 |---|---|---|---|---|---|---|---|
-| Train | `dataset/splits/train.txt` | 19 | 45 | 457 | _TBD_ | _TBD_ | _TBD_ |
-| Internal val | `dataset/splits/val.txt` | 6: Mt. San Miguel, Mt. Wilson, Cuyamaca Peak, Boucher Hill, Santiago Peak, Upper Talega | 14 | 121 | _TBD_ | _TBD_ | _TBD_ |
+| Train | `dataset/splits/train.txt` | 19 | 45 | 204 | _TBD_ | _TBD_ | _TBD_ |
+| Internal val | `dataset/splits/val.txt` | 6: Mt. San Miguel, Mt. Wilson, Cuyamaca Peak, Boucher Hill, Santiago Peak, Upper Talega | 14 | 61 | _TBD_ | _TBD_ | _TBD_ |
 
-- Ratio 79/21 by image count. The val sites were chosen by hand (no random seed) to cover both San Diego County and the Los Angeles / Orange County cameras, so val measures generalization to unseen views.
-- The 10% QC sample (`dataset/qc_sample.txt`, 60 images) was drawn with seed 458: one random frame per fire plus one pre-ignition frame.
+- Ratio 77/23 by image count. The val sites were chosen by hand (no random seed) to cover both San Diego County and the Los Angeles / Orange County cameras, so val measures generalization to unseen views.
+- The 10% QC sample (`dataset/qc_sample.txt`, 27 images) was drawn with seed 458: one random frame from each of 26 randomly chosen fires plus one pre-ignition frame.
 - Team-collected and external images go into **train only**, unless we have a specific reason (e.g. a cross-source generalization experiment), so the internal val set stays comparable to the instructor's data.
 
 ---
@@ -111,3 +112,4 @@ Images that we looked at and decided not to use, with the reason. This includes 
 |---|---|---|
 | 2026-11-25 | First draft; profiled the 1,664 instructor images. | |
 | 2026-11-25 | Picked 578 images, read camera names, fixed the site-level train/val split and the 10% QC sample. | |
+| 2026-11-25 | Trimmed the selection to 265 images (4 to 6 per fire) and redrew the 10% QC sample (27 images). | |
