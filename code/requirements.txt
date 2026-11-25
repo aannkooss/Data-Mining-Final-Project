@@ -1,0 +1,10 @@
+# Install with:  pip install -r code/requirements.txt
+# Tested with Python 3.10-3.13. On a CUDA machine, install the matching torch
+# build first (https://pytorch.org/get-started/locally/), then this file.
+ultralytics==8.4.218   # YOLO26 / YOLO11 training + inference (pinned for reproducibility)
+torch>=2.2
+torchvision>=0.17
+numpy>=1.24
+pyyaml>=6.0
+opencv-python>=4.8
+matplotlib>=3.7

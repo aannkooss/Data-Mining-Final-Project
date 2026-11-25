@@ -1,0 +1,55 @@
+# Baseline training configuration for the single-class smoke detector.
+# code/train.py passes every key below straight to Ultralytics `model.train()`,
+# so any Ultralytics train argument can be added here.
+# Paths are relative to the repo root.
+#
+# For a controlled experiment, copy this file (e.g. model/exp_imgsz960.yaml),
+# change ONE thing, and give it a new `name`. Or override on the command line:
+#   python code/train.py --config model/train_config.yaml --set imgsz=960 name=exp_imgsz960
+
+# --- What to train -----------------------------------------------------------
+model: yolo26n.pt          # pretrained COCO checkpoint (auto-downloaded). Try yolo26s.pt for a size experiment.
+data: dataset/data.yaml    # written by code/make_splits.py
+project: runs              # results go to runs/<name>/
+name: baseline
+exist_ok: false            # a new run never overwrites an old one (Ultralytics adds a suffix)
+
+# --- Reproducibility -----------------------------------------------------------
+seed: 42
+deterministic: true
+workers: 4                 # lower to 2 on Colab if the dataloader complains
+
+# --- Schedule ----------------------------------------------------------------
+epochs: 75
+patience: 20               # early-stop if val mAP50-95 does not improve for 20 epochs
+imgsz: 640
+batch: 16                  # use -1 for auto-batch on a GPU
+optimizer: AdamW
+lr0: 0.001
+lrf: 0.01                  # final LR = lr0 * lrf
+momentum: 0.937
+weight_decay: 0.0005
+warmup_epochs: 3
+cos_lr: false
+close_mosaic: 10           # turn mosaic off for the last 10 epochs
+amp: true
+cache: false               # 'ram' speeds things up if memory allows
+
+# --- Augmentation (Ultralytics defaults, written out so the report can cite them)
+hsv_h: 0.015
+hsv_s: 0.7
+hsv_v: 0.4
+degrees: 0.0
+translate: 0.1
+scale: 0.5
+shear: 0.0
+perspective: 0.0
+flipud: 0.0                # smoke rises; vertical flips make unrealistic images
+fliplr: 0.5
+mosaic: 1.0
+mixup: 0.0
+copy_paste: 0.0
+
+# --- Single class --------------------------------------------------------------
+single_cls: true
+plots: true
